@@ -22,7 +22,8 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/(.*)",
+        // Do not attach security headers to Next static assets (CSS/JS chunks)
+        source: "/((?!_next/static|_next/image|favicon.ico|favicon.svg|manifest.webmanifest|logo.svg).*)",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "DENY" },
