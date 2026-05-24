@@ -1,0 +1,17 @@
+{
+  "name": "Lumen — Brand. Build. Scale.",
+  "short_name": "Lumen",
+  "description": "Premium digital agency for brand, web, and AI products.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
