@@ -1,14 +1,18 @@
 import { ClientLogo } from "@/components/layout/client-logo";
 import { clients } from "@/data/clients";
 
-export function ClientsMarquee() {
+type ClientsMarqueeProps = {
+  label: string;
+};
+
+export function ClientsMarquee({ label }: ClientsMarqueeProps) {
   const items = [...clients, ...clients];
 
   return (
-    <section className="border-y border-border/60 bg-muted/30 py-10" aria-label="Clients">
+    <section className="border-y border-border/60 bg-muted/30 py-10" aria-label={label}>
       <div className="container mb-6">
         <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground">
-          Trusted by teams at
+          {label}
         </p>
       </div>
       <div className="mask-fade-x overflow-hidden">

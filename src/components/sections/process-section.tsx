@@ -1,20 +1,36 @@
+import {
+  Compass,
+  PenTool,
+  Rocket,
+  Wrench,
+} from "lucide-react";
+
 import { SectionHeading } from "@/components/layout/section-heading";
-import { processSteps } from "@/data/process";
+import type { Dictionary } from "@/i18n/dictionaries/types";
 import { cn } from "@/lib/utils";
 
-export function ProcessSection() {
+const stepIcons = [Compass, PenTool, Wrench, Rocket];
+
+type ProcessSectionProps = {
+  dictionary: Dictionary;
+};
+
+export function ProcessSection({ dictionary }: ProcessSectionProps) {
   return (
-    <section id="process" className="scroll-mt-24 border-t border-border/60 bg-muted/20 py-20 sm:py-28">
+    <section
+      id="process"
+      className="scroll-mt-24 border-t border-border/60 bg-muted/20 py-20 sm:py-28"
+    >
       <div className="container space-y-14">
         <SectionHeading
-          badge="Process"
-          title="From discovery to compound growth"
-          description="A proven four-phase playbook — with weekly previews from week one."
+          badge={dictionary.process.badge}
+          title={dictionary.process.title}
+          description={dictionary.process.description}
         />
 
         <div className="grid gap-6 lg:grid-cols-2">
-          {processSteps.map((step) => {
-            const Icon = step.icon;
+          {dictionary.process.steps.map((step, index) => {
+            const Icon = stepIcons[index] ?? Compass;
             return (
               <article
                 key={step.step}
@@ -22,14 +38,14 @@ export function ProcessSection() {
               >
                 <div className="flex items-start gap-4">
                   <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Icon className="size-5" />
+                    <Icon className="size-5" aria-hidden />
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="font-mono text-xs text-muted-foreground">{step.step}</p>
                     <h3 className="mt-1 font-display text-xl font-semibold tracking-tight">
                       {step.title}
                     </h3>
-                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                       {step.description}
                     </p>
                   </div>

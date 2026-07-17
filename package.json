@@ -1,8 +1,8 @@
 {
-  "name": "lumen-agency",
+  "name": "mihis-agency",
   "version": "1.0.0",
   "private": true,
-  "description": "Lumen — premium IT & brand creation agency. Modern Next.js 15 one-page website with admin dashboard and blog architecture.",
+  "description": "MIHI's — digital agency website (DE/EN) with SEO, services, and contact email integration.",
   "scripts": {
     "dev": "next dev -p 3000",
     "dev:clean": "node -e \"try{require('fs').rmSync('.next',{recursive:true,force:true})}catch(e){}\" && next dev -p 3000",
@@ -26,22 +26,23 @@
     "@radix-ui/react-switch": "^1.1.1",
     "@radix-ui/react-tabs": "^1.1.1",
     "@radix-ui/react-tooltip": "^1.1.4",
+    "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.17",
     "lucide-react": "^0.460.0",
     "next": "15.5.16",
     "next-themes": "^0.4.3",
+    "postcss": "^8.4.49",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.53.2",
+    "resend": "^6.17.2",
     "sonner": "^1.7.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss": "^3.4.14",
     "tailwindcss-animate": "^1.0.7",
-    "postcss": "^8.4.49",
-    "autoprefixer": "^10.4.20",
-    "zod": "^3.23.8"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@types/node": "^22.9.0",

@@ -1,11 +1,12 @@
 {
-  "name": "Lumen — Brand. Build. Scale.",
-  "short_name": "Lumen",
-  "description": "Premium digital agency for brand, web, and AI products.",
-  "start_url": "/",
+  "name": "MIHI's — Brand. Build. Scale.",
+  "short_name": "MIHI's",
+  "description": "Digitale Agentur für Webentwicklung, E-Commerce und Automatisierung.",
+  "start_url": "/de",
   "display": "standalone",
   "background_color": "#09090b",
   "theme_color": "#09090b",
+  "lang": "de",
   "icons": [
     {
       "src": "/favicon.svg",

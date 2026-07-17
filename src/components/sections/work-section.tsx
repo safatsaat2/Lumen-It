@@ -4,18 +4,22 @@ import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { RemoteImage } from "@/components/ui/remote-image";
-import { projects } from "@/data/projects";
+import type { Dictionary } from "@/i18n/dictionaries/types";
 
-export function WorkSection() {
-  const featured = projects.slice(0, 4);
+type WorkSectionProps = {
+  dictionary: Dictionary;
+};
+
+export function WorkSection({ dictionary }: WorkSectionProps) {
+  const featured = dictionary.projects.slice(0, 4);
 
   return (
     <section id="work" className="scroll-mt-24 py-20 sm:py-28">
       <div className="container space-y-14">
         <SectionHeading
-          badge="Work"
-          title="Outcomes, not just deliverables"
-          description="A sample of recent launches across brand, product, web, AI and growth."
+          badge={dictionary.work.badge}
+          title={dictionary.work.title}
+          description={dictionary.work.description}
         />
 
         <div className="grid gap-6 lg:grid-cols-2">
@@ -26,7 +30,11 @@ export function WorkSection() {
                 index === 0 ? "lg:col-span-2" : ""
               }`}
             >
-              <div className={`relative overflow-hidden ${index === 0 ? "aspect-[21/9]" : "aspect-[16/10]"}`}>
+              <div
+                className={`relative overflow-hidden ${
+                  index === 0 ? "aspect-[21/9]" : "aspect-[16/10]"
+                }`}
+              >
                 <RemoteImage
                   src={project.cover}
                   alt={project.title}
@@ -48,30 +56,27 @@ export function WorkSection() {
                     {project.title}
                   </h3>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    {project.client} · {project.year}
+                    {project.summary}
                   </p>
-                </div>
-              </div>
-              <div className="grid gap-4 border-t border-border p-6 sm:grid-cols-3 sm:p-8">
-                {project.metrics.map((metric) => (
-                  <div key={metric.label}>
-                    <p className="font-display text-2xl font-semibold">{metric.value}</p>
-                    <p className="mt-1 text-xs text-muted-foreground">{metric.label}</p>
+                  <div className="mt-4 flex flex-wrap gap-4 text-sm">
+                    {project.metrics.map((metric) => (
+                      <span key={metric.label} className="text-foreground/90">
+                        <strong className="font-semibold">{metric.value}</strong>{" "}
+                        <span className="text-muted-foreground">{metric.label}</span>
+                      </span>
+                    ))}
                   </div>
-                ))}
+                  <Link
+                    href="#contact"
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary"
+                  >
+                    {dictionary.work.viewCase}
+                    <ArrowUpRight className="size-4" aria-hidden />
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
-        </div>
-
-        <div className="text-center">
-          <Link
-            href="#contact"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-          >
-            Discuss your project
-            <ArrowUpRight className="size-4" />
-          </Link>
         </div>
       </div>
     </section>

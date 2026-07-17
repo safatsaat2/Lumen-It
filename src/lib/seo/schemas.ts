@@ -1,46 +1,39 @@
 import { siteConfig } from "@/config/site";
-import { faqItems } from "@/data/faq";
+import type { Locale } from "@/i18n/config";
 
 /** Organization schema for the agency. */
-export const organizationSchema = () => ({
+export const organizationSchema = (description: string) => ({
   "@context": "https://schema.org",
   "@type": "Organization",
   name: siteConfig.name,
   url: siteConfig.url,
   logo: `${siteConfig.url}/logo.svg`,
-  description: siteConfig.description,
+  description,
   email: siteConfig.email,
   telephone: siteConfig.phone,
   foundingDate: `${siteConfig.founded}-01-01`,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "548 Market Street",
-    addressLocality: "San Francisco",
-    addressRegion: "CA",
-    postalCode: "94104",
-    addressCountry: "US",
+    addressLocality: "Berlin",
+    addressCountry: "DE",
   },
   sameAs: Object.values(siteConfig.social),
 });
 
-/** Website schema with sitelinks search. */
-export const websiteSchema = () => ({
+/** Website schema. */
+export const websiteSchema = (locale: Locale) => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: siteConfig.name,
-  url: siteConfig.url,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${siteConfig.url}/blog?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
+  url: `${siteConfig.url}/${locale}`,
+  inLanguage: locale === "de" ? "de-DE" : "en-US",
 });
 
-/** FAQ schema generated from local FAQ data. */
-export const faqSchema = () => ({
+/** FAQ schema generated from localized FAQ data. */
+export const faqSchema = (items: { question: string; answer: string }[]) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
+  mainEntity: items.map((item) => ({
     "@type": "Question",
     name: item.question,
     acceptedAnswer: {
@@ -50,34 +43,25 @@ export const faqSchema = () => ({
   })),
 });
 
-/** Article schema used on blog posts. */
-export const articleSchema = (article: {
-  title: string;
+/** Service schema for detail pages. */
+export const serviceSchema = (service: {
+  name: string;
   description: string;
-  slug: string;
-  publishedAt: string;
-  updatedAt?: string;
-  author: string;
-  image?: string;
+  url: string;
 }) => ({
   "@context": "https://schema.org",
-  "@type": "Article",
-  headline: article.title,
-  description: article.description,
-  image: article.image
-    ? [`${siteConfig.url}${article.image}`]
-    : [`${siteConfig.url}${siteConfig.ogImage}`],
-  datePublished: article.publishedAt,
-  dateModified: article.updatedAt ?? article.publishedAt,
-  author: { "@type": "Person", name: article.author },
-  publisher: {
+  "@type": "Service",
+  name: service.name,
+  description: service.description,
+  provider: {
     "@type": "Organization",
     name: siteConfig.name,
-    logo: { "@type": "ImageObject", url: `${siteConfig.url}/logo.svg` },
+    url: siteConfig.url,
   },
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": `${siteConfig.url}/blog/${article.slug}`,
+  url: service.url,
+  areaServed: {
+    "@type": "Country",
+    name: "Germany",
   },
 });
 

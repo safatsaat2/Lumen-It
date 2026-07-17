@@ -9,49 +9,62 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { pricingTiers } from "@/data/pricing";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/types";
 import { cn } from "@/lib/utils";
 
-function formatPrice(amount: number) {
-  return new Intl.NumberFormat("en-US", {
+type PricingSectionProps = {
+  locale: Locale;
+  dictionary: Dictionary;
+};
+
+function formatPrice(amount: number, locale: Locale) {
+  return new Intl.NumberFormat(locale === "de" ? "de-DE" : "en-US", {
     style: "currency",
-    currency: "USD",
+    currency: "EUR",
     maximumFractionDigits: 0,
   }).format(amount);
 }
 
-export function PricingSection() {
+export function PricingSection({ locale, dictionary }: PricingSectionProps) {
   const [yearly, setYearly] = useState(false);
+  const { pricing } = dictionary;
 
   return (
     <section id="pricing" className="scroll-mt-24 py-20 sm:py-28">
       <div className="container space-y-14">
         <SectionHeading
-          badge="Pricing"
-          title="Transparent plans, fixed outcomes"
-          description="Monthly retainers or annual commitments — scoped after a short discovery call."
+          badge={pricing.badge}
+          title={pricing.title}
+          description={pricing.description}
         />
 
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <Label htmlFor="billing-toggle" className={cn(!yearly && "text-foreground")}>
-            Monthly
+          <Label
+            htmlFor="billing-toggle"
+            className={cn(!yearly && "text-foreground")}
+          >
+            {pricing.monthly}
           </Label>
           <Switch
             id="billing-toggle"
             checked={yearly}
             onCheckedChange={setYearly}
-            aria-label="Toggle yearly billing"
+            aria-label={pricing.yearly}
           />
           <div className="flex items-center gap-2">
-            <Label htmlFor="billing-toggle" className={cn(yearly && "text-foreground")}>
-              Yearly
+            <Label
+              htmlFor="billing-toggle"
+              className={cn(yearly && "text-foreground")}
+            >
+              {pricing.yearly}
             </Label>
-            <Badge variant="primary">Save ~15%</Badge>
+            <Badge variant="primary">{pricing.save}</Badge>
           </div>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {pricingTiers.map((tier) => (
+          {pricing.tiers.map((tier) => (
             <article
               key={tier.id}
               className={cn(
@@ -63,21 +76,24 @@ export function PricingSection() {
             >
               {tier.highlight ? (
                 <Badge variant="primary" className="absolute -top-3 left-8">
-                  Most popular
+                  {pricing.mostPopular}
                 </Badge>
               ) : null}
               <h3 className="font-display text-xl font-semibold">{tier.name}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{tier.description}</p>
               <p className="mt-6 font-display text-4xl font-semibold tracking-tight">
-                {formatPrice(yearly ? tier.yearly : tier.monthly)}
+                {formatPrice(yearly ? tier.yearly : tier.monthly, locale)}
                 <span className="text-base font-normal text-muted-foreground">
-                  /{yearly ? "yr" : "mo"}
+                  {yearly ? pricing.perYear : pricing.perMonth}
                 </span>
               </p>
               <ul className="mt-8 flex-1 space-y-3">
                 {tier.features.map((feature) => (
-                  <li key={feature} className="flex gap-3 text-sm text-muted-foreground">
-                    <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                  <li
+                    key={feature}
+                    className="flex gap-3 text-sm text-muted-foreground"
+                  >
+                    <Check className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
                     {feature}
                   </li>
                 ))}
