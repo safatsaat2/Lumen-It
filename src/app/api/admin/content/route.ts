@@ -1,5 +1,7 @@
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
+import { locales } from "@/i18n/config";
 import { getAdminSession } from "@/lib/auth";
 import {
   readSiteContent,
@@ -8,6 +10,16 @@ import {
 } from "@/lib/content-store";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
+function revalidatePublicSite() {
+  // Invalidate locale layouts + home pages so UI reflects admin saves.
+  revalidatePath("/", "layout");
+  for (const locale of locales) {
+    revalidatePath(`/${locale}`);
+    revalidatePath(`/${locale}`, "layout");
+  }
+}
 
 export async function GET() {
   const session = await getAdminSession();
@@ -43,6 +55,7 @@ export async function PUT(request: Request) {
     }
 
     await writeSiteContent(body.content);
+    revalidatePublicSite();
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("[admin/content] write failed:", error);

@@ -99,7 +99,8 @@ async function readFromBlob(): Promise<SiteContent | null> {
     const text = await new Response(result.stream).text();
     if (!text) return null;
     return JSON.parse(text) as SiteContent;
-  } catch {
+  } catch (error) {
+    console.error("[content-store] blob read failed:", error);
     return null;
   }
 }

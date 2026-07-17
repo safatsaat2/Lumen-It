@@ -127,7 +127,7 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
         throw new Error(data.error || "Save failed");
       }
       setDirty(false);
-      toast.success("Content saved");
+      toast.success("Content saved — refresh the public site to see changes");
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "Save failed", {
         duration: 8000,

@@ -17,6 +17,10 @@ import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { faqSchema } from "@/lib/seo/schemas";
 
+// Admin edits must appear on the live site immediately (content comes from Blob).
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function HomePage({
   params,
 }: {
