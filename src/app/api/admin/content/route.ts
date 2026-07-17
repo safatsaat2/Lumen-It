@@ -7,14 +7,24 @@ import {
   type SiteContent,
 } from "@/lib/content-store";
 
+export const runtime = "nodejs";
+
 export async function GET() {
   const session = await getAdminSession();
   if (!session.valid) {
     return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
   }
 
-  const content = await readSiteContent();
-  return NextResponse.json({ ok: true, content });
+  try {
+    const content = await readSiteContent();
+    return NextResponse.json({ ok: true, content });
+  } catch (error) {
+    console.error("[admin/content] read failed:", error);
+    return NextResponse.json(
+      { ok: false, error: "Failed to load content." },
+      { status: 500 },
+    );
+  }
 }
 
 export async function PUT(request: Request) {
@@ -36,9 +46,8 @@ export async function PUT(request: Request) {
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("[admin/content] write failed:", error);
-    return NextResponse.json(
-      { ok: false, error: "Failed to save content." },
-      { status: 500 },
-    );
+    const message =
+      error instanceof Error ? error.message : "Failed to save content.";
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
   }
 }

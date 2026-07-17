@@ -127,9 +127,11 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
         throw new Error(data.error || "Save failed");
       }
       setDirty(false);
-      toast.success("Content saved to local JSON file");
+      toast.success("Content saved");
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : "Save failed");
+      toast.error(error instanceof Error ? error.message : "Save failed", {
+        duration: 8000,
+      });
     } finally {
       setSaving(false);
     }
@@ -196,7 +198,9 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
               {dirty ? <Badge variant="primary">Unsaved</Badge> : null}
             </div>
             <p className="mt-1 text-sm text-muted-foreground">
-              Changes are stored in <code className="text-xs">content/site-content.json</code>
+              Local: saves to <code className="text-xs">content/site-content.json</code>.
+              On Vercel: requires <code className="text-xs">BLOB_READ_WRITE_TOKEN</code> or
+              GitHub token env vars.
             </p>
           </div>
           <Button

@@ -33,7 +33,7 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-lg">
       <div className="container flex h-16 items-center justify-between gap-4 lg:h-[4.5rem]">
         <Link
           href={localizedPath(locale)}
