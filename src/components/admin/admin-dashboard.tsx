@@ -3,46 +3,81 @@
 import { useMemo, useState } from "react";
 import {
   Briefcase,
+  Building2,
   CircleHelp,
   Contact,
+  FileText,
+  Globe2,
   Layers3,
+  Menu,
   MessageSquareQuote,
+  Navigation,
   Plus,
   Save,
+  Share2,
   Sparkles,
   Trash2,
+  Users,
+  Wrench,
   Workflow,
 } from "lucide-react";
 import { toast } from "sonner";
 
+import { AdminClientsEditor } from "@/components/admin/admin-clients-editor";
+import { StringFieldsEditor } from "@/components/admin/admin-field";
+import { AdminLegalEditor } from "@/components/admin/admin-legal-editor";
+import { AdminServicesEditor } from "@/components/admin/admin-services-editor";
+import { AdminSettingsEditor } from "@/components/admin/admin-settings-editor";
+import { AdminSocialEditor } from "@/components/admin/admin-social-editor";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/types";
 import type { SiteContent } from "@/lib/content-store";
 import { cn } from "@/lib/utils";
 
 type SectionId =
+  | "settings"
+  | "meta"
+  | "nav"
+  | "language"
   | "hero"
+  | "clients"
   | "about"
+  | "servicesSection"
+  | "services"
   | "work"
   | "process"
   | "pricing"
   | "testimonials"
   | "faq"
-  | "contact";
+  | "contact"
+  | "footer"
+  | "social"
+  | "legal";
 
 const SECTIONS: { id: SectionId; label: string; icon: typeof Sparkles }[] = [
+  { id: "settings", label: "Site settings", icon: Building2 },
+  { id: "meta", label: "SEO / Meta", icon: Globe2 },
+  { id: "nav", label: "Navigation", icon: Navigation },
+  { id: "language", label: "Language UI", icon: Menu },
   { id: "hero", label: "Hero", icon: Sparkles },
+  { id: "clients", label: "Clients", icon: Users },
   { id: "about", label: "About", icon: Layers3 },
+  { id: "servicesSection", label: "Services section", icon: Layers3 },
+  { id: "services", label: "Service pages", icon: Wrench },
   { id: "work", label: "Work cards", icon: Briefcase },
   { id: "process", label: "Process", icon: Workflow },
   { id: "pricing", label: "Pricing", icon: Layers3 },
   { id: "testimonials", label: "Testimonials", icon: MessageSquareQuote },
   { id: "faq", label: "FAQ", icon: CircleHelp },
-  { id: "contact", label: "Contact intro", icon: Contact },
+  { id: "contact", label: "Contact", icon: Contact },
+  { id: "footer", label: "Footer", icon: FileText },
+  { id: "social", label: "Social links", icon: Share2 },
+  { id: "legal", label: "Legal pages", icon: FileText },
 ];
 
 type AdminDashboardProps = {
@@ -96,7 +131,9 @@ function CardShell({
 }
 
 export function AdminDashboard({ initialContent }: AdminDashboardProps) {
-  const [content, setContent] = useState<SiteContent>(initialContent);
+  const [content, setContent] = useState<SiteContent>(() =>
+    initialContent,
+  );
   const [locale, setLocale] = useState<Locale>("de");
   const [section, setSection] = useState<SectionId>("hero");
   const [saving, setSaving] = useState(false);
@@ -105,7 +142,7 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
   const localeContent = content[locale];
 
   function updateLocale(
-    updater: (current: SiteContent[Locale]) => SiteContent[Locale],
+    updater: (current: Dictionary) => Dictionary,
   ) {
     setContent((prev) => ({
       ...prev,
@@ -1331,37 +1368,28 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
 
         {section === "contact" ? (
           <div className="grid gap-4 rounded-2xl border border-border bg-card/40 p-5">
-            {(
-              [
-                ["badge", "Badge"],
-                ["title", "Title"],
-                ["description", "Description"],
-              ] as const
-            ).map(([key, label]) => (
-              <Field key={key} label={label}>
-                {key === "description" ? (
+            {Object.entries(localeContent.contact).map(([key, value]) => (
+              <Field key={key} label={key}>
+                {key === "description" ||
+                key === "messagePlaceholder" ||
+                key === "success" ||
+                key === "error" ? (
                   <Textarea
-                    value={localeContent.contactIntro[key]}
+                    value={value}
                     onChange={(e) =>
                       updateLocale((c) => ({
                         ...c,
-                        contactIntro: {
-                          ...c.contactIntro,
-                          [key]: e.target.value,
-                        },
+                        contact: { ...c.contact, [key]: e.target.value },
                       }))
                     }
                   />
                 ) : (
                   <Input
-                    value={localeContent.contactIntro[key]}
+                    value={value}
                     onChange={(e) =>
                       updateLocale((c) => ({
                         ...c,
-                        contactIntro: {
-                          ...c.contactIntro,
-                          [key]: e.target.value,
-                        },
+                        contact: { ...c.contact, [key]: e.target.value },
                       }))
                     }
                   />
@@ -1369,6 +1397,163 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
               </Field>
             ))}
           </div>
+        ) : null}
+
+        {section === "settings" ? (
+          <AdminSettingsEditor
+            settings={content.settings}
+            onChange={(settings) => {
+              setContent((prev) => ({ ...prev, settings }));
+              setDirty(true);
+            }}
+          />
+        ) : null}
+
+        {section === "meta" ? (
+          <div className="space-y-4">
+            <StringFieldsEditor
+              values={{
+                title: localeContent.meta.title,
+                description: localeContent.meta.description,
+                ogAlt: localeContent.meta.ogAlt,
+              }}
+              labels={{
+                title: "Meta title",
+                description: "Meta description",
+                ogAlt: "OG image alt",
+              }}
+              multiline={["description"]}
+              onChange={(values) =>
+                updateLocale((c) => ({
+                  ...c,
+                  meta: {
+                    ...c.meta,
+                    ...values,
+                    keywords: c.meta.keywords,
+                  },
+                }))
+              }
+            />
+            <div className="rounded-2xl border border-border bg-card/40 p-5">
+              <Field label="Keywords (comma separated)">
+                <Textarea
+                  value={localeContent.meta.keywords.join(", ")}
+                  onChange={(e) =>
+                    updateLocale((c) => ({
+                      ...c,
+                      meta: {
+                        ...c.meta,
+                        keywords: e.target.value
+                          .split(",")
+                          .map((k) => k.trim())
+                          .filter(Boolean),
+                      },
+                    }))
+                  }
+                />
+              </Field>
+            </div>
+          </div>
+        ) : null}
+
+        {section === "nav" ? (
+          <StringFieldsEditor
+            values={{ ...localeContent.nav }}
+            onChange={(values) =>
+              updateLocale((c) => ({
+                ...c,
+                nav: values as Dictionary["nav"],
+              }))
+            }
+          />
+        ) : null}
+
+        {section === "language" ? (
+          <StringFieldsEditor
+            values={{ ...localeContent.language }}
+            onChange={(values) =>
+              updateLocale((c) => ({
+                ...c,
+                language: values as Dictionary["language"],
+              }))
+            }
+          />
+        ) : null}
+
+        {section === "clients" ? (
+          <AdminClientsEditor
+            label={localeContent.clients.label}
+            clients={content.clients}
+            onLabelChange={(label) =>
+              updateLocale((c) => ({
+                ...c,
+                clients: { ...c.clients, label },
+              }))
+            }
+            onClientsChange={(clients) => {
+              setContent((prev) => ({ ...prev, clients }));
+              setDirty(true);
+            }}
+          />
+        ) : null}
+
+        {section === "servicesSection" ? (
+          <StringFieldsEditor
+            values={{ ...localeContent.services }}
+            multiline={["description", "footerNote"]}
+            onChange={(values) =>
+              updateLocale((c) => ({
+                ...c,
+                services: values as Dictionary["services"],
+              }))
+            }
+          />
+        ) : null}
+
+        {section === "footer" ? (
+          <StringFieldsEditor
+            values={{ ...localeContent.footer }}
+            onChange={(values) =>
+              updateLocale((c) => ({
+                ...c,
+                footer: values as Dictionary["footer"],
+              }))
+            }
+          />
+        ) : null}
+
+        {section === "legal" ? (
+          <AdminLegalEditor
+            legal={content.legal[locale]}
+            onChange={(legal) => {
+              setContent((prev) => ({
+                ...prev,
+                legal: { ...prev.legal, [locale]: legal },
+              }));
+              setDirty(true);
+            }}
+          />
+        ) : null}
+
+        {section === "services" ? (
+          <AdminServicesEditor
+            locale={locale}
+            services={content.services}
+            onChange={(services) => {
+              setContent((prev) => ({ ...prev, services }));
+              setDirty(true);
+            }}
+          />
+        ) : null}
+
+        {section === "social" ? (
+          <AdminSocialEditor
+            social={content.social}
+            onChange={(social) => {
+              setContent((prev) => ({ ...prev, social }));
+              setDirty(true);
+            }}
+          />
         ) : null}
       </section>
     </div>

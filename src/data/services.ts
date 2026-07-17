@@ -1,27 +1,9 @@
-import {
-  Brush,
-  Code2,
-  Gauge,
-  Headphones,
-  LayoutTemplate,
-  Link2,
-  Palette,
-  Search,
-  ShoppingBag,
-  ShoppingCart,
-  Sparkles,
-  Wrench,
-  Workflow,
-  FileCode2,
-  Blocks,
-  type LucideIcon,
-} from "lucide-react";
-
 import type { Locale } from "@/i18n/config";
+import type { ServiceIconName } from "@/data/service-icons";
 
 export type ServiceContent = {
   slug: string;
-  icon: LucideIcon;
+  icon: ServiceIconName;
   accent: string;
   title: Record<Locale, string>;
   short: Record<Locale, string>;
@@ -35,7 +17,7 @@ export type ServiceContent = {
 export const services: ServiceContent[] = [
   {
     slug: "custom-web-development",
-    icon: Code2,
+    icon: "Code2",
     accent: "from-violet-500 to-indigo-500",
     title: {
       en: "Custom Web Development",
@@ -78,7 +60,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "wordpress-development",
-    icon: FileCode2,
+    icon: "FileCode2",
     accent: "from-sky-500 to-blue-600",
     title: { en: "WordPress Development", de: "WordPress-Entwicklung" },
     short: {
@@ -115,7 +97,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "shopify-development",
-    icon: ShoppingBag,
+    icon: "ShoppingBag",
     accent: "from-emerald-400 to-teal-500",
     title: { en: "Shopify Development", de: "Shopify-Entwicklung" },
     short: {
@@ -152,7 +134,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "ecommerce-solutions",
-    icon: ShoppingCart,
+    icon: "ShoppingCart",
     accent: "from-amber-400 to-orange-500",
     title: { en: "E-commerce Solutions", de: "E-Commerce-Lösungen" },
     short: {
@@ -192,7 +174,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "ui-ux-design",
-    icon: Brush,
+    icon: "Brush",
     accent: "from-pink-500 to-rose-500",
     title: { en: "UI/UX Design", de: "UI/UX-Design" },
     short: {
@@ -229,7 +211,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "seo-optimization",
-    icon: Search,
+    icon: "Search",
     accent: "from-lime-400 to-green-500",
     title: { en: "SEO Optimization", de: "SEO-Optimierung" },
     short: {
@@ -266,7 +248,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "website-maintenance",
-    icon: Wrench,
+    icon: "Wrench",
     accent: "from-slate-500 to-zinc-600",
     title: { en: "Website Maintenance", de: "Website-Wartung" },
     short: {
@@ -303,7 +285,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "website-speed-optimization",
-    icon: Gauge,
+    icon: "Gauge",
     accent: "from-cyan-400 to-blue-500",
     title: {
       en: "Website Speed Optimization",
@@ -343,7 +325,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "api-integration",
-    icon: Link2,
+    icon: "Link2",
     accent: "from-indigo-500 to-violet-600",
     title: { en: "API Integration", de: "API-Integration" },
     short: {
@@ -380,7 +362,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "ai-automation",
-    icon: Sparkles,
+    icon: "Sparkles",
     accent: "from-fuchsia-500 to-purple-500",
     title: { en: "AI Automation", de: "KI-Automatisierung" },
     short: {
@@ -417,7 +399,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "business-automation",
-    icon: Workflow,
+    icon: "Workflow",
     accent: "from-red-500 to-orange-500",
     title: { en: "Business Automation", de: "Business-Automatisierung" },
     short: {
@@ -454,7 +436,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "custom-software-development",
-    icon: Blocks,
+    icon: "Blocks",
     accent: "from-violet-600 to-blue-500",
     title: {
       en: "Custom Software Development",
@@ -494,7 +476,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "cms-development",
-    icon: LayoutTemplate,
+    icon: "LayoutTemplate",
     accent: "from-teal-400 to-cyan-500",
     title: { en: "CMS Development", de: "CMS-Entwicklung" },
     short: {
@@ -534,7 +516,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "landing-page-development",
-    icon: Palette,
+    icon: "Palette",
     accent: "from-yellow-400 to-amber-500",
     title: {
       en: "Landing Page Development",
@@ -574,7 +556,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "technical-support",
-    icon: Headphones,
+    icon: "Headphones",
     accent: "from-stone-500 to-neutral-700",
     title: { en: "Technical Support", de: "Technischer Support" },
     short: {
@@ -611,13 +593,14 @@ export const services: ServiceContent[] = [
   },
 ];
 
-export function getServiceBySlug(slug: string) {
-  return services.find((service) => service.slug === slug);
+export function getServiceBySlug(
+  slug: string,
+  list: ServiceContent[] = services,
+) {
+  return list.find((service) => service.slug === slug);
 }
 
-export function getLocalizedService(slug: string, locale: Locale) {
-  const service = getServiceBySlug(slug);
-  if (!service) return null;
+export function localizeService(service: ServiceContent, locale: Locale) {
   return {
     slug: service.slug,
     icon: service.icon,
@@ -630,4 +613,14 @@ export function getLocalizedService(slug: string, locale: Locale) {
     seoTitle: service.seoTitle[locale],
     metaDescription: service.metaDescription[locale],
   };
+}
+
+export function getLocalizedService(
+  slug: string,
+  locale: Locale,
+  list: ServiceContent[] = services,
+) {
+  const service = getServiceBySlug(slug, list);
+  if (!service) return null;
+  return localizeService(service, locale);
 }

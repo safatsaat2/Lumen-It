@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/config/site";
-import { services } from "@/data/services";
 import { locales } from "@/i18n/config";
+import { readSiteContent } from "@/lib/content-store";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
+  const content = await readSiteContent();
 
   const homeEntries = locales.map((locale) => ({
     url: `${siteConfig.url}/${locale}`,
@@ -20,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const serviceEntries = locales.flatMap((locale) =>
-    services.map((service) => ({
+    content.services.map((service) => ({
       url: `${siteConfig.url}/${locale}/services/${service.slug}`,
       lastModified,
       changeFrequency: "monthly" as const,

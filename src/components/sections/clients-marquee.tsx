@@ -1,11 +1,12 @@
 import { ClientLogo } from "@/components/layout/client-logo";
-import { clients } from "@/data/clients";
+import type { Client } from "@/data/clients";
 
 type ClientsMarqueeProps = {
   label: string;
+  clients: Client[];
 };
 
-export function ClientsMarquee({ label }: ClientsMarqueeProps) {
+export function ClientsMarquee({ label, clients }: ClientsMarqueeProps) {
   const items = [...clients, ...clients];
 
   return (

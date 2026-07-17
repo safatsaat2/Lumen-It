@@ -4,7 +4,8 @@ import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { localizedPath } from "@/config/site";
-import { services } from "@/data/services";
+import { resolveServiceIcon } from "@/data/service-icons";
+import type { ServiceContent } from "@/data/services";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/types";
 import { cn } from "@/lib/utils";
@@ -12,9 +13,14 @@ import { cn } from "@/lib/utils";
 type ServicesSectionProps = {
   locale: Locale;
   dictionary: Dictionary;
+  services: ServiceContent[];
 };
 
-export function ServicesSection({ locale, dictionary }: ServicesSectionProps) {
+export function ServicesSection({
+  locale,
+  dictionary,
+  services,
+}: ServicesSectionProps) {
   return (
     <section id="services" className="scroll-mt-24 border-t border-border/60 py-20 sm:py-28">
       <div className="container space-y-14">
@@ -26,7 +32,7 @@ export function ServicesSection({ locale, dictionary }: ServicesSectionProps) {
 
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => {
-            const Icon = service.icon;
+            const Icon = resolveServiceIcon(service.icon);
             return (
               <article
                 key={service.slug}

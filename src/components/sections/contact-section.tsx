@@ -8,11 +8,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { siteConfig } from "@/config/site";
 import type { Dictionary } from "@/i18n/dictionaries/types";
+import type { SiteSettings } from "@/lib/content-store";
 
 type ContactSectionProps = {
   dictionary: Dictionary;
+  settings: SiteSettings;
 };
 
 function ContactForm({ dictionary }: { dictionary: Dictionary }) {
@@ -165,7 +166,7 @@ function ContactFormSkeleton() {
   );
 }
 
-export function ContactSection({ dictionary }: ContactSectionProps) {
+export function ContactSection({ dictionary, settings }: ContactSectionProps) {
   const [formReady, setFormReady] = useState(false);
 
   useEffect(() => {
@@ -188,19 +189,22 @@ export function ContactSection({ dictionary }: ContactSectionProps) {
               <ul className="space-y-4 text-sm text-muted-foreground">
                 <li className="flex items-start gap-3">
                   <Mail className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
-                  <a href={`mailto:${siteConfig.email}`} className="hover:text-foreground">
-                    {siteConfig.email}
+                  <a href={`mailto:${settings.email}`} className="hover:text-foreground">
+                    {settings.email}
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
                   <Phone className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
-                  <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className="hover:text-foreground">
-                    {siteConfig.phone}
+                  <a
+                    href={`tel:${settings.phone.replace(/\s/g, "")}`}
+                    className="hover:text-foreground"
+                  >
+                    {settings.phone}
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
                   <MapPin className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
-                  <span>{siteConfig.address}</span>
+                  <span>{settings.address}</span>
                 </li>
               </ul>
             </div>

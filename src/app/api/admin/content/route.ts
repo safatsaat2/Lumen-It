@@ -4,20 +4,26 @@ import { NextResponse } from "next/server";
 import { locales } from "@/i18n/config";
 import { getAdminSession } from "@/lib/auth";
 import {
-  readSiteContent,
+  normalizeSiteContent,
   writeSiteContent,
+  readSiteContent,
   type SiteContent,
 } from "@/lib/content-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-function revalidatePublicSite() {
-  // Invalidate locale layouts + home pages so UI reflects admin saves.
+function revalidatePublicSite(content: SiteContent) {
   revalidatePath("/", "layout");
   for (const locale of locales) {
     revalidatePath(`/${locale}`);
     revalidatePath(`/${locale}`, "layout");
+    revalidatePath(`/${locale}/privacy`);
+    revalidatePath(`/${locale}/terms`);
+    revalidatePath(`/${locale}/cookies`);
+    for (const service of content.services) {
+      revalidatePath(`/${locale}/services/${service.slug}`);
+    }
   }
 }
 
@@ -54,8 +60,9 @@ export async function PUT(request: Request) {
       );
     }
 
-    await writeSiteContent(body.content);
-    revalidatePublicSite();
+    const normalized = await normalizeSiteContent(body.content);
+    await writeSiteContent(normalized);
+    revalidatePublicSite(normalized);
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("[admin/content] write failed:", error);

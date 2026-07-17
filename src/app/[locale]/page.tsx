@@ -15,9 +15,9 @@ import { WorkSection } from "@/components/sections/work-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { readSiteContent } from "@/lib/content-store";
 import { faqSchema } from "@/lib/seo/schemas";
 
-// Admin edits must appear on the live site immediately (content comes from Blob).
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -29,24 +29,43 @@ export default async function HomePage({
   const { locale: localeParam } = await params;
   if (!isLocale(localeParam)) notFound();
   const locale = localeParam as Locale;
-  const dictionary = await getDictionary(locale);
+  const [dictionary, content] = await Promise.all([
+    getDictionary(locale),
+    readSiteContent(),
+  ]);
 
   return (
     <>
-      <SiteHeader locale={locale} dictionary={dictionary} />
+      <SiteHeader
+        locale={locale}
+        dictionary={dictionary}
+        siteName={content.settings.name}
+      />
       <main id="main-content">
         <HeroSection locale={locale} dictionary={dictionary} />
-        <ClientsMarquee label={dictionary.clients.label} />
+        <ClientsMarquee
+          label={dictionary.clients.label}
+          clients={content.clients}
+        />
         <AboutSection dictionary={dictionary} />
-        <ServicesSection locale={locale} dictionary={dictionary} />
+        <ServicesSection
+          locale={locale}
+          dictionary={dictionary}
+          services={content.services}
+        />
         <WorkSection dictionary={dictionary} />
         <ProcessSection dictionary={dictionary} />
         <PricingSection locale={locale} dictionary={dictionary} />
         <TestimonialsSection dictionary={dictionary} />
         <FAQSection dictionary={dictionary} />
-        <ContactSection dictionary={dictionary} />
+        <ContactSection dictionary={dictionary} settings={content.settings} />
       </main>
-      <SiteFooter locale={locale} dictionary={dictionary} />
+      <SiteFooter
+        locale={locale}
+        dictionary={dictionary}
+        social={content.social}
+        settings={content.settings}
+      />
       <JsonLd data={faqSchema(dictionary.faq.items)} />
     </>
   );

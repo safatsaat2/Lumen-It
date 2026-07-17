@@ -2,34 +2,45 @@ import Link from "next/link";
 import { Sparkles } from "lucide-react";
 
 import { Separator } from "@/components/ui/separator";
-import { localizedPath, siteConfig } from "@/config/site";
+import { localizedPath } from "@/config/site";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/types";
+import type { SocialLinks, SiteSettings } from "@/lib/content-store";
 
 type SiteFooterProps = {
   locale: Locale;
   dictionary: Dictionary;
+  social: SocialLinks;
+  settings: SiteSettings;
 };
 
-export function SiteFooter({ locale, dictionary }: SiteFooterProps) {
+export function SiteFooter({
+  locale,
+  dictionary,
+  social,
+  settings,
+}: SiteFooterProps) {
   const year = new Date().getFullYear();
+
+  const home = localizedPath(locale);
+  const section = (id: string) => `${home}#${id}`;
 
   const columns = [
     {
       title: dictionary.footer.agency,
       links: [
-        { label: dictionary.footer.about, href: "#about" },
-        { label: dictionary.footer.services, href: "#services" },
-        { label: dictionary.footer.process, href: "#process" },
-        { label: dictionary.footer.contact, href: "#contact" },
+        { label: dictionary.footer.about, href: section("about") },
+        { label: dictionary.footer.services, href: section("services") },
+        { label: dictionary.footer.process, href: section("process") },
+        { label: dictionary.footer.contact, href: section("contact") },
       ],
     },
     {
       title: dictionary.footer.resources,
       links: [
-        { label: dictionary.footer.faq, href: "#faq" },
-        { label: dictionary.footer.pricing, href: "#pricing" },
-        { label: dictionary.nav.work, href: "#work" },
+        { label: dictionary.footer.faq, href: section("faq") },
+        { label: dictionary.footer.pricing, href: section("pricing") },
+        { label: dictionary.nav.work, href: section("work") },
       ],
     },
     {
@@ -51,6 +62,10 @@ export function SiteFooter({ locale, dictionary }: SiteFooterProps) {
     },
   ];
 
+  const socialEntries = Object.entries(social).filter(
+    ([, href]) => typeof href === "string" && href.trim().length > 0,
+  );
+
   return (
     <footer className="border-t border-border bg-card/30">
       <div className="container py-16 lg:py-20">
@@ -63,14 +78,14 @@ export function SiteFooter({ locale, dictionary }: SiteFooterProps) {
               <span className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 via-fuchsia-500 to-amber-400 text-white">
                 <Sparkles className="size-4" aria-hidden />
               </span>
-              {siteConfig.name}
+              {settings.name}
             </Link>
             <p className="max-w-sm text-sm text-muted-foreground">
               {dictionary.meta.description}
             </p>
             <p className="text-sm text-muted-foreground">
-              <a href={`mailto:${siteConfig.email}`} className="hover:text-foreground">
-                {siteConfig.email}
+              <a href={`mailto:${settings.email}`} className="hover:text-foreground">
+                {settings.email}
               </a>
             </p>
           </div>
@@ -81,21 +96,12 @@ export function SiteFooter({ locale, dictionary }: SiteFooterProps) {
               <ul className="space-y-3">
                 {column.links.map((link) => (
                   <li key={link.href + link.label}>
-                    {link.href.startsWith("#") ? (
-                      <a
-                        href={link.href}
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        {link.label}
-                      </Link>
-                    )}
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -107,10 +113,10 @@ export function SiteFooter({ locale, dictionary }: SiteFooterProps) {
 
         <div className="flex flex-col gap-4 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {siteConfig.name}. {dictionary.footer.rights}
+            © {year} {settings.name}. {dictionary.footer.rights}
           </p>
           <div className="flex flex-wrap gap-4">
-            {Object.entries(siteConfig.social).map(([key, href]) => (
+            {socialEntries.map(([key, href]) => (
               <a
                 key={key}
                 href={href}

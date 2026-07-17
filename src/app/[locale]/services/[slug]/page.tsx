@@ -8,16 +8,21 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Button } from "@/components/ui/button";
 import { localizedPath, siteConfig } from "@/config/site";
-import { getLocalizedService, services } from "@/data/services";
+import { resolveServiceIcon } from "@/data/service-icons";
+import { getLocalizedService, services as defaultServices } from "@/data/services";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { readSiteContent } from "@/lib/content-store";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbSchema, serviceSchema } from "@/lib/seo/schemas";
 import { cn } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
-    services.map((service) => ({ locale, slug: service.slug })),
+    defaultServices.map((service) => ({ locale, slug: service.slug })),
   );
 }
 
@@ -29,8 +34,11 @@ export async function generateMetadata({
   const { locale: localeParam, slug } = await params;
   if (!isLocale(localeParam)) return {};
   const locale = localeParam as Locale;
-  const dictionary = await getDictionary(locale);
-  const service = getLocalizedService(slug, locale);
+  const [dictionary, content] = await Promise.all([
+    getDictionary(locale),
+    readSiteContent(),
+  ]);
+  const service = getLocalizedService(slug, locale, content.services);
   if (!service) return {};
 
   return {
@@ -53,16 +61,23 @@ export default async function ServicePage({
   const { locale: localeParam, slug } = await params;
   if (!isLocale(localeParam)) notFound();
   const locale = localeParam as Locale;
-  const dictionary = await getDictionary(locale);
-  const service = getLocalizedService(slug, locale);
+  const [dictionary, content] = await Promise.all([
+    getDictionary(locale),
+    readSiteContent(),
+  ]);
+  const service = getLocalizedService(slug, locale, content.services);
   if (!service) notFound();
 
-  const Icon = service.icon;
+  const Icon = resolveServiceIcon(service.icon);
   const url = `${siteConfig.url}${localizedPath(locale, `/services/${slug}`)}`;
 
   return (
     <>
-      <SiteHeader locale={locale} dictionary={dictionary} />
+      <SiteHeader
+        locale={locale}
+        dictionary={dictionary}
+        siteName={content.settings.name}
+      />
       <main id="main-content" className="pt-28 pb-20 sm:pt-32 sm:pb-28">
         <article className="container max-w-4xl">
           <Link
@@ -122,7 +137,12 @@ export default async function ServicePage({
           </div>
         </article>
       </main>
-      <SiteFooter locale={locale} dictionary={dictionary} />
+      <SiteFooter
+        locale={locale}
+        dictionary={dictionary}
+        social={content.social}
+        settings={content.settings}
+      />
       <JsonLd
         data={serviceSchema({
           name: service.title,
@@ -132,7 +152,7 @@ export default async function ServicePage({
       />
       <JsonLd
         data={breadcrumbSchema([
-          { name: siteConfig.name, href: localizedPath(locale) },
+          { name: content.settings.name, href: localizedPath(locale) },
           { name: dictionary.nav.services, href: `${localizedPath(locale)}#services` },
           {
             name: service.title,
