@@ -80,6 +80,9 @@ function ContactForm({ dictionary }: { dictionary: Dictionary }) {
       onSubmit={handleSubmit}
       className="space-y-5 rounded-3xl border border-border bg-card/80 p-6 sm:p-8"
       noValidate
+      data-gramm="false"
+      data-gramm_editor="false"
+      data-enable-grammarly="false"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">

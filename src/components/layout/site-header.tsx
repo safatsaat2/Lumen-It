@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Menu, Sparkles } from "lucide-react";
 
 import { LanguageToggle } from "@/components/layout/language-toggle";
@@ -28,6 +30,8 @@ function homeSection(locale: Locale, section: string) {
 }
 
 export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
+  const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
   const home = localizedPath(locale);
   const nav = [
     { label: dictionary.nav.services, href: homeSection(locale, "services") },
@@ -38,6 +42,11 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
     { label: dictionary.nav.contact, href: homeSection(locale, "contact") },
   ];
   const contactHref = homeSection(locale, "contact");
+
+  // Close mobile menu on route change so Radix portals don't fight React unmount.
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-lg">
@@ -71,7 +80,7 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
             <Link href={contactHref}>{dictionary.nav.cta}</Link>
           </Button>
 
-          <Dialog>
+          <Dialog open={menuOpen} onOpenChange={setMenuOpen}>
             <DialogTrigger asChild>
               <Button
                 variant="outline"
@@ -93,6 +102,7 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
                   <Link
                     key={item.href}
                     href={item.href}
+                    onClick={() => setMenuOpen(false)}
                     className="rounded-xl px-4 py-3 text-base font-medium transition-colors hover:bg-foreground/5"
                   >
                     {item.label}
@@ -106,7 +116,9 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
                   />
                 </div>
                 <Button variant="primary" className="mt-4" asChild>
-                  <Link href={contactHref}>{dictionary.nav.cta}</Link>
+                  <Link href={contactHref} onClick={() => setMenuOpen(false)}>
+                    {dictionary.nav.cta}
+                  </Link>
                 </Button>
               </nav>
             </DialogContent>

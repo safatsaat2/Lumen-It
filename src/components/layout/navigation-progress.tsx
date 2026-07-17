@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 /**
@@ -9,36 +9,48 @@ import { usePathname, useSearchParams } from "next/navigation";
 export function NavigationProgress() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [visible, setVisible] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const isFirst = useRef(true);
+  const timers = useRef<number[]>([]);
 
   useEffect(() => {
-    setVisible(true);
-    setProgress(12);
+    if (isFirst.current) {
+      isFirst.current = false;
+      return;
+    }
 
-    const t1 = window.setTimeout(() => setProgress(55), 80);
-    const t2 = window.setTimeout(() => setProgress(78), 200);
-    const t3 = window.setTimeout(() => {
-      setProgress(100);
+    timers.current.forEach((id) => window.clearTimeout(id));
+    timers.current = [];
+
+    setVisible(true);
+    setProgress(18);
+
+    timers.current.push(window.setTimeout(() => setProgress(55), 90));
+    timers.current.push(window.setTimeout(() => setProgress(82), 220));
+    timers.current.push(
       window.setTimeout(() => {
-        setVisible(false);
-        setProgress(0);
-      }, 220);
-    }, 360);
+        setProgress(100);
+        timers.current.push(
+          window.setTimeout(() => {
+            setVisible(false);
+            setProgress(0);
+          }, 240),
+        );
+      }, 420),
+    );
 
     return () => {
-      window.clearTimeout(t1);
-      window.clearTimeout(t2);
-      window.clearTimeout(t3);
+      timers.current.forEach((id) => window.clearTimeout(id));
+      timers.current = [];
     };
   }, [pathname, searchParams]);
-
-  if (!visible && progress === 0) return null;
 
   return (
     <div
       className="pointer-events-none fixed inset-x-0 top-0 z-[200] h-[2.5px] overflow-hidden"
       role="progressbar"
+      aria-hidden={!visible}
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuenow={progress}
@@ -47,7 +59,7 @@ export function NavigationProgress() {
       <div
         className="h-full origin-left bg-gradient-to-r from-violet-500 via-fuchsia-500 to-amber-400 shadow-[0_0_12px_rgba(168,85,247,0.55)] transition-[width,opacity] duration-300 ease-out"
         style={{
-          width: `${progress}%`,
+          width: `${Math.max(progress, 0)}%`,
           opacity: visible ? 1 : 0,
         }}
       />

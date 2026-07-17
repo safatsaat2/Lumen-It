@@ -16,6 +16,9 @@ export default function RootLayout({
     <html lang="de" suppressHydrationWarning>
       <body
         suppressHydrationWarning
+        data-gramm="false"
+        data-gramm_editor="false"
+        data-enable-grammarly="false"
         className={cn(
           "min-h-screen bg-background font-sans text-foreground antialiased",
           fontSans.variable,

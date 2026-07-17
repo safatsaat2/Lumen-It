@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import { LanguageToggle } from "@/components/layout/language-toggle";
 import type { Locale } from "@/i18n/config";
+import { cn } from "@/lib/utils";
 
 type FloatingLanguageToggleProps = {
   locale: Locale;
@@ -15,8 +16,10 @@ export function FloatingLanguageToggle({
   label,
 }: FloatingLanguageToggleProps) {
   const [visible, setVisible] = useState(false);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    setReady(true);
     const onScroll = () => {
       setVisible(window.scrollY > 320);
     };
@@ -25,7 +28,18 @@ export function FloatingLanguageToggle({
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (!visible) return null;
+  // Keep mounted after hydrate to avoid removeChild races during route changes.
+  if (!ready) return null;
 
-  return <LanguageToggle locale={locale} label={label} variant="floating" />;
+  return (
+    <div
+      className={cn(
+        "transition-opacity duration-300",
+        visible ? "opacity-100" : "pointer-events-none opacity-0",
+      )}
+      aria-hidden={!visible}
+    >
+      <LanguageToggle locale={locale} label={label} variant="floating" />
+    </div>
+  );
 }
