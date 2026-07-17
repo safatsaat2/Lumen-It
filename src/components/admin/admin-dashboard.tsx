@@ -9,6 +9,7 @@ import {
   FileText,
   Globe2,
   Layers3,
+  Loader2,
   Menu,
   MessageSquareQuote,
   Navigation,
@@ -246,7 +247,11 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
             onClick={save}
             disabled={saving || !dirty}
           >
-            <Save className="size-4" aria-hidden />
+            {saving ? (
+              <Loader2 className="size-4 animate-spin" aria-hidden />
+            ) : (
+              <Save className="size-4" aria-hidden />
+            )}
             {saving ? "Saving…" : "Save changes"}
           </Button>
         </div>

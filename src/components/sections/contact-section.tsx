@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Mail, MapPin, Phone } from "lucide-react";
+import { CheckCircle2, Loader2, Mail, MapPin, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { SectionHeading } from "@/components/layout/section-heading";
@@ -140,7 +140,14 @@ function ContactForm({ dictionary }: { dictionary: Dictionary }) {
         </p>
       ) : null}
       <Button type="submit" variant="primary" size="lg" className="w-full" disabled={loading}>
-        {loading ? t.sending : t.submit}
+        {loading ? (
+          <>
+            <Loader2 className="size-4 animate-spin" aria-hidden />
+            {t.sending}
+          </>
+        ) : (
+          t.submit
+        )}
       </Button>
     </form>
   );

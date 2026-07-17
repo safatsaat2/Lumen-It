@@ -1,5 +1,6 @@
 import { Toaster } from "sonner";
 
+import { NavigationProgressHost } from "@/components/layout/navigation-progress-host";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { fontDisplay, fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
@@ -29,6 +30,7 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="mihis-theme"
         >
+          <NavigationProgressHost />
           {children}
           <Toaster richColors position="top-right" theme="system" />
         </ThemeProvider>
