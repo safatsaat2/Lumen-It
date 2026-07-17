@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { head, put } from "@vercel/blob";
+import { get, put } from "@vercel/blob";
 
 import type { Dictionary } from "@/i18n/dictionaries/types";
 import type { Locale } from "@/i18n/config";
@@ -88,12 +88,17 @@ async function writeToFs(content: SiteContent): Promise<void> {
 async function readFromBlob(): Promise<SiteContent | null> {
   if (!hasBlobToken()) return null;
   try {
-    const meta = await head(BLOB_PATHNAME, {
+    const result = await get(BLOB_PATHNAME, {
+      access: "private",
       token: process.env.BLOB_READ_WRITE_TOKEN,
+      storeId: process.env.BLOB_STORE_ID,
+      useCache: false,
     });
-    const res = await fetch(meta.url, { cache: "no-store" });
-    if (!res.ok) return null;
-    return (await res.json()) as SiteContent;
+    if (!result || result.statusCode !== 200 || !result.stream) return null;
+
+    const text = await new Response(result.stream).text();
+    if (!text) return null;
+    return JSON.parse(text) as SiteContent;
   } catch {
     return null;
   }
@@ -101,11 +106,12 @@ async function readFromBlob(): Promise<SiteContent | null> {
 
 async function writeToBlob(content: SiteContent): Promise<void> {
   await put(BLOB_PATHNAME, JSON.stringify(content, null, 2), {
-    access: "public",
+    access: "private",
     addRandomSuffix: false,
     allowOverwrite: true,
     contentType: "application/json",
     token: process.env.BLOB_READ_WRITE_TOKEN,
+    storeId: process.env.BLOB_STORE_ID,
   });
 }
 
