@@ -1,0 +1,694 @@
+{
+  "de": {
+    "hero": {
+      "badge": "Jetzt Termine für Q3 2026 buchbar",
+      "titleBefore": "Wir bauen",
+      "titleHighlight": "digitale Produkte",
+      "titleAfter": ", die skalieren",
+      "description": "MIHI's ist Ihre Agentur für Webentwicklung, E-Commerce und Automatisierung — mit DSGVO-bewussten Standards, messbarer Performance und klarer Übergabe an Ihr Team.",
+      "ctaPrimary": "Angebot anfragen",
+      "ctaSecondary": "Leistungen ansehen",
+      "trust": "Brand. Build. Scale. · Vertraut von Unternehmen in der DACH-Region"
+    },
+    "about": {
+      "badge": "Über uns",
+      "title": "MIHI's — gebaut für Tempo und Handwerk",
+      "description": "Strategie, Design und Engineering unter einem Dach — damit Sie schneller liefern, ohne Qualität zu opfern.",
+      "storyTitle": "Unsere Geschichte",
+      "storyP1": "MIHI's entstand aus der Überzeugung, dass deutsche Unternehmen bessere digitale Partner verdienen: muttersprachliche Kommunikation, DSGVO von Tag eins und Code, den Ihr nächstes Team wirklich lesen kann.",
+      "storyP2": "Wir messen Erfolg an Geschäftsergebnissen — qualifizierte Anfragen, Conversion, Core Web Vitals und Systeme, die Ihr Team nach der Übergabe selbst beherrscht.",
+      "stats": [
+        {
+          "value": "120+",
+          "label": "Projekte geliefert",
+          "description": "Von Landingpages bis zu komplexen Plattformen."
+        },
+        {
+          "value": "15",
+          "label": "Leistungsbereiche",
+          "description": "Web, E-Commerce, SEO, Design und Automatisierung."
+        },
+        {
+          "value": "90+",
+          "label": "Lighthouse-Ziel",
+          "description": "Messbare Performance statt vager Versprechen."
+        },
+        {
+          "value": "24h",
+          "label": "Antwortzeit",
+          "description": "Rückmeldung innerhalb eines Werktags."
+        }
+      ],
+      "timeline": [
+        {
+          "year": "2020",
+          "title": "MIHI's gegründet",
+          "description": "Start als schlankes Team für Webentwicklung und WordPress mit Fokus auf den deutschen Mittelstand."
+        },
+        {
+          "year": "2022",
+          "title": "E-Commerce-Praxis",
+          "description": "Aufbau einer spezialisierten Praxis für Shopify, WooCommerce und rechtssichere DACH-Shops."
+        },
+        {
+          "year": "2024",
+          "title": "Automatisierung & KI",
+          "description": "Erweiterung um Business-Automatisierung, API-Integration und KI-Copiloten mit Governance."
+        },
+        {
+          "year": "2026",
+          "title": "Full-Service digital",
+          "description": "Von individueller Webentwicklung bis SEO und Wartung — ein Partner für den gesamten digitalen Stack."
+        }
+      ]
+    },
+    "work": {
+      "badge": "Projekte",
+      "title": "Ergebnisse statt nur Liefergegenstände",
+      "description": "Eine Auswahl aktueller Umsetzungen aus Web, E-Commerce, Design und Automatisierung.",
+      "viewCase": "Details ansehen"
+    },
+    "process": {
+      "badge": "Ablauf",
+      "title": "Von der Analyse bis zum nachhaltigen Wachstum",
+      "description": "Ein bewährter Vier-Phasen-Prozess — mit wöchentlichen Previews ab der ersten Woche.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Entdecken",
+          "description": "Strukturierte Discovery mit Interviews, Audits und Wettbewerbsanalyse — jede Entscheidung auf Belegen.",
+          "deliverables": [
+            "Stakeholder-Interviews",
+            "Wettbewerbslandschaft",
+            "Technik- & Content-Audit",
+            "Strategisches Briefing"
+          ]
+        },
+        {
+          "step": "02",
+          "title": "Gestalten",
+          "description": "UX, UI und Designsystem in Figma — inkl. Prototypen und entwicklerfertiger Spezifikationen.",
+          "deliverables": [
+            "Wireframes & Prototypen",
+            "Visuelles Designsystem",
+            "High-Fidelity-UI",
+            "Design-Tokens & Specs"
+          ]
+        },
+        {
+          "step": "03",
+          "title": "Umsetzen",
+          "description": "Senior-Engineering in Wochen-Sprints. Ab Woche eins ein funktionierender Preview-Link mit Reviews und QA.",
+          "deliverables": [
+            "Next.js / WordPress / Shopify",
+            "CMS- & API-Integration",
+            "CI/CD-Pipeline",
+            "Barrierefreiheit & Performance"
+          ]
+        },
+        {
+          "step": "04",
+          "title": "Launch & Wachsen",
+          "description": "Wir liefern und bleiben: Monitoring, SEO, Analytics und gezielte Optimierung nach dem Go-Live.",
+          "deliverables": [
+            "Go-Live & Monitoring",
+            "Analytics-Dashboards",
+            "SEO- & Content-Programm",
+            "Quartals-Roadmaps"
+          ]
+        }
+      ]
+    },
+    "pricing": {
+      "badge": "Preise",
+      "title": "Transparente Pakete, klare Ergebnisse",
+      "description": "Monatliche Retainer oder Jahresvereinbarungen — nach einem kurzen Discovery-Gespräch.",
+      "monthly": "Monatlich",
+      "yearly": "Jährlich",
+      "save": "Ca. 15 % sparen",
+      "perMonth": "/Monat",
+      "perYear": "/Jahr",
+      "mostPopular": "Beliebteste Wahl",
+      "tiers": [
+        {
+          "id": "launch",
+          "name": "Launch",
+          "description": "Für klare Website- oder Landingpage-Projekte mit festem Scope.",
+          "monthly": 2490,
+          "yearly": 24900,
+          "cta": "Launch starten",
+          "features": [
+            "Landingpage oder Website bis 6 Seiten",
+            "Responsive, semantisches Markup",
+            "Basis-CMS oder einfache Pflege",
+            "Lighthouse-Ziel 90+",
+            "2 Wochen Support nach Launch"
+          ]
+        },
+        {
+          "id": "growth",
+          "name": "Growth",
+          "description": "Für Teams, die Marke, Produkt und Sichtbarkeit parallel ausbauen.",
+          "monthly": 5990,
+          "yearly": 59900,
+          "highlight": true,
+          "cta": "Gespräch vereinbaren",
+          "features": [
+            "Individuelle Web- oder Shop-Plattform",
+            "UI/UX + Designsystem",
+            "SEO-Programm inkl. Reporting",
+            "Performance-Audits quartalsweise",
+            "Dedizierter Ansprechpartner",
+            "Monatliches Entwicklungskontingent"
+          ]
+        },
+        {
+          "id": "scale",
+          "name": "Scale",
+          "description": "Eingebettetes Squad für laufende Produkt- und Automatisierungsarbeit.",
+          "monthly": 11990,
+          "yearly": 119900,
+          "cta": "Termin buchen",
+          "features": [
+            "Multidisziplinäres Squad",
+            "Roadmap, Design & Engineering",
+            "KI- & Automatisierungs-Streams",
+            "Wartung mit SLA",
+            "Quartalsweise Strategie-Reviews",
+            "Priorisierte Antwortzeit"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "badge": "Referenzen",
+      "title": "Partner, keine Zulieferer",
+      "description": "Was Gründerinnen, Marketing- und Produktteams nach der Zusammenarbeit sagen.",
+      "items": [
+        {
+          "id": "1",
+          "quote": "MIHI's hat unseren Next.js-Relaunch in acht Wochen geliefert — mit messbar besseren Core Web Vitals und einer Übergabe, die unser internes Team sofort nutzen konnte.",
+          "name": "Laura Hoffmann",
+          "role": "Head of Marketing",
+          "company": "Nordwerk GmbH",
+          "rating": 5,
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80"
+        },
+        {
+          "id": "2",
+          "quote": "Endlich ein Shopify-Partner, der SEPA, Klarna und deutsche Rechtstexte ernst nimmt. Der Store fühlt sich für unsere Kundschaft in DE wirklich nativ an.",
+          "name": "Jonas Berger",
+          "role": "Gründer",
+          "company": "Atelier Berg",
+          "rating": 5,
+          "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=160&q=80"
+        },
+        {
+          "id": "3",
+          "quote": "Die Automatisierung zwischen CRM und Shop spart uns jede Woche Stunden. Dokumentation und Monitoring waren von Anfang an mitgedacht.",
+          "name": "Elena Krüger",
+          "role": "COO",
+          "company": "Helixa Systems",
+          "rating": 5,
+          "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=160&q=80"
+        }
+      ]
+    },
+    "faq": {
+      "badge": "FAQ",
+      "title": "Häufige Fragen",
+      "description": "Noch Fragen? Schreiben Sie uns — wir antworten innerhalb eines Werktags.",
+      "items": [
+        {
+          "question": "Wie läuft ein typisches Projekt ab?",
+          "answer": "Die meisten Projekte starten mit einer ein- bis zweiwöchigen Discovery, gefolgt von einer klar scoped Umsetzungsphase (meist 6–12 Wochen). Für laufende Arbeit bieten wir auch Retainer-Modelle an."
+        },
+        {
+          "question": "Wie wird kalkuliert?",
+          "answer": "Wir kalkulieren nach Scope und Ergebnis, nicht nach Stunden. Nach der Discovery erhalten Sie ein Festpreisangebot mit Deliverables, Meilensteinen und Abnahmekriterien. Retainer werden monatlich abgerechnet."
+        },
+        {
+          "question": "Arbeiten Sie mit Startups und Mittelstand?",
+          "answer": "Beides. Wir betreuen Gründungsteams ebenso wie etablierte Mittelstandsunternehmen — und sagen transparent, welches Modell zu Ihrer Phase passt."
+        },
+        {
+          "question": "Welche Technologien nutzen Sie?",
+          "answer": "Schwerpunkte sind Next.js, React, TypeScript, WordPress, Shopify, moderne CMS sowie Automatisierung mit n8n, Make oder individuellen APIs. Wir arbeiten auch in bestehenden Stacks."
+        },
+        {
+          "question": "Übernehmen Sie Hosting, Wartung und Support?",
+          "answer": "Ja. Wir deployen auf Vercel oder Ihrer Infrastruktur und bieten Wartungspläne mit Updates, Backups, Monitoring und verbindlichen Reaktionszeiten."
+        },
+        {
+          "question": "Wie schnell können wir starten?",
+          "answer": "Die meisten Projekte starten innerhalb von 2–3 Wochen. Für zeitkritische Launches halten wir monatlich einen Fast-Start-Slot frei — melden Sie sich über das Kontaktformular."
+        },
+        {
+          "question": "Unterzeichnen Sie NDAs?",
+          "answer": "Selbstverständlich. Wir unterzeichnen gerne gegenseitige NDAs, bevor sensible Informationen geteilt werden."
+        }
+      ]
+    },
+    "projects": [
+      {
+        "slug": "nordwerk-relaunch",
+        "title": "Nordwerk — Corporate-Relaunch",
+        "summary": "Individuelle Next.js-Plattform mit CMS, mehrsprachigem Content und Core-Web-Vitals-Score über 90.",
+        "category": "Webentwicklung",
+        "tags": [
+          "Next.js",
+          "CMS",
+          "SEO"
+        ],
+        "cover": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Lighthouse",
+            "value": "96"
+          },
+          {
+            "label": "Ladezeit",
+            "value": "−48 %"
+          }
+        ]
+      },
+      {
+        "slug": "atelier-berg-shop",
+        "title": "Atelier Berg — Shopify DACH",
+        "summary": "Shopify-Store mit Klarna, SEPA, Trusted Shops und deutschsprachigen Rechtstexten.",
+        "category": "E-Commerce",
+        "tags": [
+          "Shopify",
+          "Checkout",
+          "DACH"
+        ],
+        "cover": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Conversion",
+            "value": "+31 %"
+          },
+          {
+            "label": "Checkout",
+            "value": "−22 % Abbruch"
+          }
+        ]
+      },
+      {
+        "slug": "helixa-automation",
+        "title": "Helixa — CRM-Shop-Sync",
+        "summary": "API-Integration und Workflow-Automatisierung zwischen Shop, CRM und Reporting.",
+        "category": "Automatisierung",
+        "tags": [
+          "API",
+          "n8n",
+          "CRM"
+        ],
+        "cover": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Manuelle Arbeit",
+            "value": "−12 h/Wo"
+          },
+          {
+            "label": "Fehlerquote",
+            "value": "−90 %"
+          }
+        ]
+      },
+      {
+        "slug": "pulse-landing",
+        "title": "Pulse — Kampagnen-Landingpages",
+        "summary": "Hochkonvertierende Landingpages mit Tracking, A/B-Setup und Auslieferung in unter einer Woche.",
+        "category": "Landingpages",
+        "tags": [
+          "Conversion",
+          "Ads",
+          "Speed"
+        ],
+        "cover": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "CPL",
+            "value": "−27 %"
+          },
+          {
+            "label": "Lieferung",
+            "value": "5 Tage"
+          }
+        ]
+      }
+    ],
+    "contactIntro": {
+      "badge": "Kontakt",
+      "title": "Lassen Sie uns etwas Wirkungsvolles bauen",
+      "description": "Erzählen Sie uns von Zeitplan, Budgetrahmen und Zielen. Wir melden uns mit konkreten nächsten Schritten."
+    }
+  },
+  "en": {
+    "hero": {
+      "badge": "Now booking Q3 2026 engagements",
+      "titleBefore": "We build",
+      "titleHighlight": "digital products",
+      "titleAfter": " that scale",
+      "description": "MIHI's is your agency for web development, e-commerce, and automation — with GDPR-aware defaults, measurable performance, and a handover your team can own.",
+      "ctaPrimary": "Request a quote",
+      "ctaSecondary": "Explore services",
+      "trust": "Brand. Build. Scale. · Trusted by teams across the DACH region"
+    },
+    "about": {
+      "badge": "About",
+      "title": "MIHI's — built for momentum and craft",
+      "description": "Strategy, design, and engineering under one roof — so you ship faster without sacrificing quality.",
+      "storyTitle": "Our story",
+      "storyP1": "MIHI's grew from a simple belief: German businesses deserve better digital partners — native-language communication, GDPR from day one, and code your next team can actually read.",
+      "storyP2": "We measure success in business outcomes: qualified leads, conversion, Core Web Vitals, and systems your team can run after handover.",
+      "stats": [
+        {
+          "value": "120+",
+          "label": "Projects delivered",
+          "description": "From landing pages to complex platforms."
+        },
+        {
+          "value": "15",
+          "label": "Service areas",
+          "description": "Web, e-commerce, SEO, design, and automation."
+        },
+        {
+          "value": "90+",
+          "label": "Lighthouse target",
+          "description": "Measurable performance, not vague promises."
+        },
+        {
+          "value": "24h",
+          "label": "Response time",
+          "description": "We reply within one business day."
+        }
+      ],
+      "timeline": [
+        {
+          "year": "2020",
+          "title": "MIHI's founded",
+          "description": "Started as a lean team focused on web development and WordPress for German mid-market companies."
+        },
+        {
+          "year": "2022",
+          "title": "E-commerce practice",
+          "description": "Opened a dedicated practice for Shopify, WooCommerce, and legally sound DACH storefronts."
+        },
+        {
+          "year": "2024",
+          "title": "Automation & AI",
+          "description": "Expanded into business automation, API integration, and AI copilots with proper governance."
+        },
+        {
+          "year": "2026",
+          "title": "Full-service digital",
+          "description": "From custom web development to SEO and maintenance — one partner for the full digital stack."
+        }
+      ]
+    },
+    "work": {
+      "badge": "Work",
+      "title": "Outcomes, not just deliverables",
+      "description": "A sample of recent launches across web, e-commerce, design, and automation.",
+      "viewCase": "View details"
+    },
+    "process": {
+      "badge": "Process",
+      "title": "From discovery to compound growth",
+      "description": "A proven four-phase playbook — with weekly previews from week one.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Discover",
+          "description": "A structured discovery sprint — interviews, audits, and competitive research that ground every decision in evidence.",
+          "deliverables": [
+            "Stakeholder interviews",
+            "Competitive landscape",
+            "Technical & content audit",
+            "Strategic brief"
+          ]
+        },
+        {
+          "step": "02",
+          "title": "Design",
+          "description": "UX, UI, and a design system in Figma — with prototypes and developer-ready specs.",
+          "deliverables": [
+            "Wireframes & prototypes",
+            "Visual design system",
+            "High-fidelity UI",
+            "Design tokens & specs"
+          ]
+        },
+        {
+          "step": "03",
+          "title": "Build",
+          "description": "Senior engineering in one-week sprints. You get a working preview from week one, with reviews and automated QA.",
+          "deliverables": [
+            "Next.js / WordPress / Shopify",
+            "CMS & API integration",
+            "CI/CD pipeline",
+            "Accessibility & performance QA"
+          ]
+        },
+        {
+          "step": "04",
+          "title": "Launch & grow",
+          "description": "We don't ship and leave. Post-launch we run monitoring, SEO, analytics, and targeted optimization.",
+          "deliverables": [
+            "Go-live & monitoring",
+            "Analytics dashboards",
+            "SEO & content program",
+            "Quarterly roadmaps"
+          ]
+        }
+      ]
+    },
+    "pricing": {
+      "badge": "Pricing",
+      "title": "Transparent plans, clear outcomes",
+      "description": "Monthly retainers or annual commitments — scoped after a short discovery call.",
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "save": "Save ~15%",
+      "perMonth": "/mo",
+      "perYear": "/yr",
+      "mostPopular": "Most popular",
+      "tiers": [
+        {
+          "id": "launch",
+          "name": "Launch",
+          "description": "For focused website or landing-page projects with a fixed scope.",
+          "monthly": 2490,
+          "yearly": 24900,
+          "cta": "Start Launch",
+          "features": [
+            "Landing page or site up to 6 pages",
+            "Responsive, semantic markup",
+            "Basic CMS or simple editing",
+            "Lighthouse target 90+",
+            "2 weeks of post-launch support"
+          ]
+        },
+        {
+          "id": "growth",
+          "name": "Growth",
+          "description": "For teams scaling brand, product, and visibility in parallel.",
+          "monthly": 5990,
+          "yearly": 59900,
+          "highlight": true,
+          "cta": "Talk to us",
+          "features": [
+            "Custom web or commerce platform",
+            "UI/UX + design system",
+            "SEO program with reporting",
+            "Quarterly performance audits",
+            "Dedicated point of contact",
+            "Monthly development allowance"
+          ]
+        },
+        {
+          "id": "scale",
+          "name": "Scale",
+          "description": "An embedded squad for ongoing product and automation work.",
+          "monthly": 11990,
+          "yearly": 119900,
+          "cta": "Book a call",
+          "features": [
+            "Multi-disciplinary squad",
+            "Roadmap, design & engineering",
+            "AI & automation workstreams",
+            "Maintenance with SLAs",
+            "Quarterly strategy reviews",
+            "Priority response times"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "badge": "Testimonials",
+      "title": "Partners, not vendors",
+      "description": "What founders and marketing and product leaders say after shipping with us.",
+      "items": [
+        {
+          "id": "1",
+          "quote": "MIHI's delivered our Next.js relaunch in eight weeks — with measurably better Core Web Vitals and a handover our internal team could use immediately.",
+          "name": "Laura Hoffmann",
+          "role": "Head of Marketing",
+          "company": "Nordwerk GmbH",
+          "rating": 5,
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80"
+        },
+        {
+          "id": "2",
+          "quote": "Finally a Shopify partner that takes SEPA, Klarna, and German legal texts seriously. The store feels native for our customers in Germany.",
+          "name": "Jonas Berger",
+          "role": "Founder",
+          "company": "Atelier Berg",
+          "rating": 5,
+          "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=160&q=80"
+        },
+        {
+          "id": "3",
+          "quote": "The automation between CRM and shop saves us hours every week. Documentation and monitoring were built in from day one.",
+          "name": "Elena Krüger",
+          "role": "COO",
+          "company": "Helixa Systems",
+          "rating": 5,
+          "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=160&q=80"
+        }
+      ]
+    },
+    "faq": {
+      "badge": "FAQ",
+      "title": "Questions we hear often",
+      "description": "Still curious? Reach out — we reply within one business day.",
+      "items": [
+        {
+          "question": "What does a typical engagement look like?",
+          "answer": "Most projects start with a 1–2 week discovery, followed by a fixed-scope build of 6–12 weeks. We also offer retainers for ongoing product work."
+        },
+        {
+          "question": "How are projects priced?",
+          "answer": "We price by scope and outcome, not hours. After discovery you receive a fixed-fee proposal with deliverables, milestones, and acceptance criteria. Retainers are billed monthly."
+        },
+        {
+          "question": "Do you work with startups and mid-market companies?",
+          "answer": "Both. We support founding teams and established Mittelstand companies — and we're transparent about which model fits your stage."
+        },
+        {
+          "question": "What is your tech stack?",
+          "answer": "We specialize in Next.js, React, TypeScript, WordPress, Shopify, modern CMS platforms, and automation with n8n, Make, or custom APIs. We can also work within existing stacks."
+        },
+        {
+          "question": "Do you handle hosting, maintenance, and support?",
+          "answer": "Yes. We deploy on Vercel or your infrastructure and offer maintenance plans with updates, backups, monitoring, and response-time SLAs."
+        },
+        {
+          "question": "How fast can we start?",
+          "answer": "Most projects kick off within 2–3 weeks. We keep one fast-start slot each month for time-critical launches — reach out via the contact form."
+        },
+        {
+          "question": "Do you sign NDAs?",
+          "answer": "Absolutely. We're happy to sign mutual NDAs before any sensitive material is shared."
+        }
+      ]
+    },
+    "projects": [
+      {
+        "slug": "nordwerk-relaunch",
+        "title": "Nordwerk — Corporate relaunch",
+        "summary": "Custom Next.js platform with CMS, multilingual content, and Core Web Vitals scores above 90.",
+        "category": "Web development",
+        "tags": [
+          "Next.js",
+          "CMS",
+          "SEO"
+        ],
+        "cover": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Lighthouse",
+            "value": "96"
+          },
+          {
+            "label": "Load time",
+            "value": "−48%"
+          }
+        ]
+      },
+      {
+        "slug": "atelier-berg-shop",
+        "title": "Atelier Berg — Shopify DACH",
+        "summary": "Shopify store with Klarna, SEPA, Trusted Shops, and German-language legal texts.",
+        "category": "E-commerce",
+        "tags": [
+          "Shopify",
+          "Checkout",
+          "DACH"
+        ],
+        "cover": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Conversion",
+            "value": "+31%"
+          },
+          {
+            "label": "Checkout",
+            "value": "−22% abandon"
+          }
+        ]
+      },
+      {
+        "slug": "helixa-automation",
+        "title": "Helixa — CRM–shop sync",
+        "summary": "API integration and workflow automation between shop, CRM, and reporting.",
+        "category": "Automation",
+        "tags": [
+          "API",
+          "n8n",
+          "CRM"
+        ],
+        "cover": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Manual work",
+            "value": "−12 h/wk"
+          },
+          {
+            "label": "Error rate",
+            "value": "−90%"
+          }
+        ]
+      },
+      {
+        "slug": "pulse-landing",
+        "title": "Pulse — Campaign landing pages",
+        "summary": "High-converting landing pages with tracking, A/B setup, and delivery in under a week.",
+        "category": "Landing pages",
+        "tags": [
+          "Conversion",
+          "Ads",
+          "Speed"
+        ],
+        "cover": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "CPL",
+            "value": "−27%"
+          },
+          {
+            "label": "Delivery",
+            "value": "5 days"
+          }
+        ]
+      }
+    ],
+    "contactIntro": {
+      "badge": "Contact",
+      "title": "Let's build something that matters",
+      "description": "Tell us about your timeline, budget band, and goals. We'll respond with concrete next steps."
+    }
+  }
+}
