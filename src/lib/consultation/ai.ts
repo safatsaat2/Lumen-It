@@ -1,5 +1,5 @@
 import { createGroq } from "@ai-sdk/groq";
-import { APICallError, Output, generateText } from "ai";
+import { APICallError, generateText } from "ai";
 
 import { resolveGroqApiKey } from "@/lib/consultation/key-store";
 import {
@@ -26,12 +26,8 @@ export class ConsultationAiError extends Error {
 /** Hard ceiling for the analysis rounds so they stay short and cheap. */
 const ROUND_MAX_OUTPUT_TOKENS = 1024;
 
-/**
- * Fallback model used for the final report when the configured model does not
- * support Groq structured outputs (`response_format: json_schema`).
- * See https://console.groq.com/docs/structured-outputs#supported-models
- */
-const STRUCTURED_OUTPUT_FALLBACK_MODEL = "openai/gpt-oss-120b";
+/** Final reports are large; keep enough headroom without overshooting Groq limits. */
+const REPORT_MAX_OUTPUT_TOKENS = 8192;
 
 async function getProvider() {
   const resolved = await resolveGroqApiKey();
@@ -42,15 +38,6 @@ async function getProvider() {
     );
   }
   return createGroq({ apiKey: resolved.apiKey });
-}
-
-/** True when the error is Groq rejecting json_schema for the current model. */
-function isJsonSchemaUnsupported(error: unknown): boolean {
-  return (
-    APICallError.isInstance(error) &&
-    error.statusCode === 400 &&
-    /does not support response format `?json_schema`?/i.test(error.message)
-  );
 }
 
 function formatRounds(rounds: ConsultationRoundResult[]): string {
@@ -74,7 +61,9 @@ function toCleanError(error: unknown): ConsultationAiError {
       "[consultation-ai] provider call failed:",
       error.statusCode,
       error.message,
-      JSON.stringify(error.responseBody),
+      typeof error.responseBody === "string"
+        ? error.responseBody.slice(0, 2000)
+        : JSON.stringify(error.responseBody)?.slice(0, 2000),
     );
     if (error.statusCode === 401 || error.statusCode === 403) {
       return new ConsultationAiError(
@@ -93,6 +82,107 @@ function toCleanError(error: unknown): ConsultationAiError {
     "AI generation failed unexpectedly. Please try again shortly.",
   );
 }
+
+/**
+ * Extract the first JSON object from a model response.
+ * Handles raw JSON and fenced ```json blocks.
+ */
+function extractJsonObject(text: string): unknown {
+  const trimmed = text.trim();
+  const fenced = trimmed.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  const candidate = (fenced?.[1] ?? trimmed).trim();
+
+  try {
+    return JSON.parse(candidate);
+  } catch {
+    const start = candidate.indexOf("{");
+    const end = candidate.lastIndexOf("}");
+    if (start >= 0 && end > start) {
+      return JSON.parse(candidate.slice(start, end + 1));
+    }
+    throw new ConsultationAiError(
+      "invalid_output",
+      "The AI returned a malformed report. Please try again.",
+    );
+  }
+}
+
+const REPORT_JSON_SHAPE = `{
+  "executiveSummary": "string",
+  "brandIdentity": {
+    "brandPurpose": "string",
+    "vision": "string",
+    "mission": "string",
+    "coreValues": ["string"],
+    "brandPersonality": "string",
+    "toneOfVoice": "string"
+  },
+  "brandPositioning": {
+    "marketPosition": "string",
+    "competitiveAdvantage": "string",
+    "usp": "string",
+    "customerPerception": "string"
+  },
+  "targetAudience": {
+    "primaryAudience": "string",
+    "secondaryAudience": "string",
+    "buyerPersona": "string",
+    "customerPainPoints": ["string"],
+    "customerGoals": ["string"]
+  },
+  "competitorAnalysis": {
+    "mainCompetitors": ["string"],
+    "strengths": ["string"],
+    "weaknesses": ["string"],
+    "marketGaps": ["string"],
+    "opportunities": ["string"]
+  },
+  "marketingStrategy": {
+    "organicMarketing": "string",
+    "paidMarketing": "string",
+    "socialMediaStrategy": "string",
+    "contentStrategy": "string",
+    "seoSuggestions": "string",
+    "emailMarketing": "string",
+    "communityBuilding": "string"
+  },
+  "salesStrategy": {
+    "customerJourney": "string",
+    "leadGeneration": "string",
+    "conversionStrategy": "string",
+    "retentionStrategy": "string"
+  },
+  "brandingRecommendations": {
+    "logoDirection": "string",
+    "colorPalette": "string",
+    "typography": "string",
+    "brandVoice": "string",
+    "messaging": "string",
+    "visualConsistency": "string"
+  },
+  "growthRoadmap": {
+    "first30Days": { "objectives": ["string"], "actions": ["string"], "kpis": ["string"] },
+    "next90Days": { "objectives": ["string"], "actions": ["string"], "kpis": ["string"] },
+    "sixMonths": { "objectives": ["string"], "actions": ["string"], "kpis": ["string"] },
+    "oneYear": { "objectives": ["string"], "actions": ["string"], "kpis": ["string"] }
+  },
+  "actionChecklist": [{ "task": "string", "priority": "high|medium|low" }],
+  "scorecard": {
+    "brandIdentity": 1-10,
+    "marketing": 1-10,
+    "sales": 1-10,
+    "website": 1-10,
+    "socialMedia": 1-10,
+    "customerTrust": 1-10,
+    "scalability": 1-10,
+    "innovation": 1-10,
+    "overallBusinessHealth": 1-10
+  },
+  "finalRecommendations": {
+    "summary": "string",
+    "nextSteps": ["string"]
+  }
+}`;
 
 /**
  * Generate a short cumulative analysis after a round.
@@ -147,8 +237,11 @@ export async function generateRoundAnalysis(options: {
 }
 
 /**
- * Generate the final structured branding report from all rounds,
- * validated against the report schema.
+ * Generate the final branding report.
+ *
+ * Uses plain-text JSON generation (not Groq `json_schema` structured outputs)
+ * so any chat model works — including llama-3.3-70b-versatile, which does not
+ * support response_format=json_schema.
  */
 export async function generateFinalReport(options: {
   settings: ConsultationAiSettings;
@@ -158,6 +251,7 @@ export async function generateFinalReport(options: {
 }): Promise<BrandingReport> {
   const { settings, journeyTitle, locale, completedRounds } = options;
   const provider = await getProvider();
+  const language = locale === "de" ? "German" : "English";
 
   const prompt = [
     `Consultation journey: "${journeyTitle}". The user has completed every round.`,
@@ -166,26 +260,55 @@ export async function generateFinalReport(options: {
     "",
     formatRounds(completedRounds),
     "",
-    "Now produce the complete, professional branding and business strategy report.",
+    "Produce the complete professional branding and business strategy report as a single JSON object.",
+    `Write every string field entirely in ${language}.`,
     "Personalize every section to the user's answers, explain why each recommendation is made, and keep advice practical and realistic.",
-    `Write every report field entirely in ${locale === "de" ? "German" : "English"}.`,
-    "Scores must be integers or halves between 1 and 10 that honestly reflect the information provided.",
+    "Scores must be numbers between 1 and 10 that honestly reflect the information provided.",
+    "priority values must be exactly one of: high, medium, low.",
+    "",
+    "Return ONLY valid JSON matching this exact shape (no markdown, no commentary):",
+    REPORT_JSON_SHAPE,
   ].join("\n");
 
-  async function generateWith(modelId: string) {
+  async function attempt(): Promise<BrandingReport> {
     const result = await generateText({
-      model: provider(modelId),
-      output: Output.object({
-        schema: brandingReportSchema,
-      }),
-      system: settings.systemPrompt,
+      model: provider(settings.model),
+      system: `${settings.systemPrompt}
+
+When asked for a report, respond with a single valid JSON object only. Do not wrap it in markdown fences unless required. Do not add prose before or after the JSON.`,
       prompt,
-      temperature: settings.temperature,
-      maxOutputTokens: settings.maxOutputTokens,
+      temperature: Math.min(settings.temperature, 0.6),
+      maxOutputTokens: Math.min(
+        Math.max(settings.maxOutputTokens, 4096),
+        REPORT_MAX_OUTPUT_TOKENS,
+      ),
     });
 
-    const parsed = brandingReportSchema.safeParse(result.output);
+    const text = result.text.trim();
+    if (!text) {
+      throw new ConsultationAiError(
+        "invalid_output",
+        "The AI returned an empty report. Please try again.",
+      );
+    }
+
+    let raw: unknown;
+    try {
+      raw = extractJsonObject(text);
+    } catch (error) {
+      console.error(
+        "[consultation-ai] failed to parse report JSON. Preview:",
+        text.slice(0, 800),
+      );
+      throw error;
+    }
+
+    const parsed = brandingReportSchema.safeParse(raw);
     if (!parsed.success) {
+      console.error(
+        "[consultation-ai] report schema validation failed:",
+        parsed.error.issues.slice(0, 8),
+      );
       throw new ConsultationAiError(
         "invalid_output",
         "The AI returned a malformed report. Please try again.",
@@ -195,22 +318,17 @@ export async function generateFinalReport(options: {
   }
 
   try {
-    return await generateWith(settings.model);
+    return await attempt();
   } catch (error) {
-    // The configured model may not support Groq structured outputs. Retry once
-    // with a structured-output-capable model so the report still generates.
+    // One retry helps when the model returns slightly malformed JSON.
     if (
-      isJsonSchemaUnsupported(error) &&
-      settings.model !== STRUCTURED_OUTPUT_FALLBACK_MODEL
+      error instanceof ConsultationAiError &&
+      error.code === "invalid_output"
     ) {
-      console.warn(
-        `[consultation-ai] "${settings.model}" lacks json_schema support; ` +
-          `retrying report with "${STRUCTURED_OUTPUT_FALLBACK_MODEL}".`,
-      );
       try {
-        return await generateWith(STRUCTURED_OUTPUT_FALLBACK_MODEL);
-      } catch (fallbackError) {
-        throw toCleanError(fallbackError);
+        return await attempt();
+      } catch (retryError) {
+        throw toCleanError(retryError);
       }
     }
     throw toCleanError(error);
