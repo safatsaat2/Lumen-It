@@ -35,6 +35,8 @@ function formatRemaining(milliseconds: number) {
 }
 
 export function OfferBanner({ offer }: { offer: OfferBannerConfig }) {
+  // Mount after hydration so schedule checks never flip SSR → CSR DOM trees.
+  const [mounted, setMounted] = useState(false);
   const [now, setNow] = useState(0);
   const startsAt = useMemo(() => validDate(offer.startsAt), [offer.startsAt]);
   const endsAt = useMemo(() => validDate(offer.endsAt), [offer.endsAt]);
@@ -44,19 +46,21 @@ export function OfferBanner({ offer }: { offer: OfferBannerConfig }) {
   );
 
   useEffect(() => {
+    setMounted(true);
     setNow(Date.now());
     if (!countdownTo) return;
     const timer = window.setInterval(() => setNow(Date.now()), 1000);
     return () => window.clearInterval(timer);
   }, [countdownTo]);
 
-  const active =
-    offer.enabled &&
-    ((!startsAt && !endsAt) ||
-      (now > 0 &&
-        (!startsAt || now >= startsAt.getTime()) &&
-        (!endsAt || now <= endsAt.getTime())));
-  if (!active) return null;
+  if (!offer.enabled || !mounted) return null;
+
+  const withinSchedule =
+    (!startsAt && !endsAt) ||
+    ((!startsAt || now >= startsAt.getTime()) &&
+      (!endsAt || now <= endsAt.getTime()));
+
+  if (!withinSchedule) return null;
 
   const href = safeHref(offer.ctaHref);
   const backgroundColor = HEX_COLOR.test(offer.backgroundColor)
@@ -64,7 +68,7 @@ export function OfferBanner({ offer }: { offer: OfferBannerConfig }) {
     : "#0f172a";
   const color = HEX_COLOR.test(offer.textColor) ? offer.textColor : "#f8fafc";
   const countdown =
-    now > 0 && countdownTo && countdownTo.getTime() > now
+    countdownTo && countdownTo.getTime() > now
       ? formatRemaining(countdownTo.getTime() - now)
       : null;
 

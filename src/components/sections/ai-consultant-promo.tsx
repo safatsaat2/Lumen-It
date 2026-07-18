@@ -35,6 +35,8 @@ export function AiConsultantPromo({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.55 }}
+            // Avoid layout thrash / removeChild races during route unmount.
+            layout={false}
           >
             <Badge variant="glow" className="mb-5">
               <Sparkles aria-hidden className="size-3.5 text-primary" />
@@ -73,6 +75,7 @@ export function AiConsultantPromo({
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.08 }}
+            layout={false}
             className="relative mx-auto w-full max-w-xl"
           >
             <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-violet-500/25 via-fuchsia-500/10 to-amber-400/20 blur-2xl" aria-hidden />
@@ -89,11 +92,13 @@ export function AiConsultantPromo({
                 {[82, 68, 91].map((width, index) => (
                   <motion.div
                     key={width}
-                    initial={reducedMotion ? false : { width: 0 }}
-                    whileInView={{ width: `${width}%` }}
+                    initial={reducedMotion ? false : { scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.25 + index * 0.12 }}
+                    style={{ width: `${width}%`, transformOrigin: "left" }}
                     className="h-3 rounded-full bg-gradient-to-r from-violet-500/70 via-fuchsia-500/60 to-amber-400/60"
+                    layout={false}
                   />
                 ))}
               </div>

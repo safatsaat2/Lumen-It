@@ -2,22 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { Menu, Sparkles } from "lucide-react";
+import { useEffect, useId, useState } from "react";
+import { Menu, Sparkles, X } from "lucide-react";
 
 import { LanguageToggle } from "@/components/layout/language-toggle";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { localizedPath } from "@/config/site";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/types";
+import { cn } from "@/lib/utils";
 
 type SiteHeaderProps = {
   locale: Locale;
@@ -32,6 +26,7 @@ function homeSection(locale: Locale, section: string) {
 export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuId = useId();
   const home = localizedPath(locale);
   const nav = [
     {
@@ -48,10 +43,24 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
   ];
   const contactHref = homeSection(locale, "contact");
 
-  // Close mobile menu on route change so Radix portals don't fight React unmount.
+  // Close on route change before this header unmounts (pages each mount their own header).
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [menuOpen]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-lg">
@@ -71,9 +80,12 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
             <Link
               key={item.href}
               href={item.href}
-              className={`rounded-full px-4 py-2 text-sm transition-colors hover:bg-foreground/5 hover:text-foreground ${
-                item.featured ? "font-medium text-primary" : "text-muted-foreground"
-              }`}
+              className={cn(
+                "rounded-full px-4 py-2 text-sm transition-colors hover:bg-foreground/5 hover:text-foreground",
+                item.featured
+                  ? "font-medium text-primary"
+                  : "text-muted-foreground",
+              )}
             >
               {item.label}
             </Link>
@@ -87,50 +99,65 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
             <Link href={contactHref}>{dictionary.nav.cta}</Link>
           </Button>
 
-          <Dialog open={menuOpen} onOpenChange={setMenuOpen}>
-            <DialogTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                className="lg:hidden"
-                aria-label={dictionary.nav.openMenu}
-              >
-                <Menu aria-hidden />
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="left-0 top-0 max-w-none translate-x-0 translate-y-0 rounded-none border-0 sm:max-w-md sm:rounded-3xl sm:border sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2">
-              <DialogHeader>
-                <DialogTitle className="font-display text-left">
-                  {dictionary.nav.menu}
-                </DialogTitle>
-              </DialogHeader>
-              <nav className="flex flex-col gap-1 pt-2" aria-label="Mobile">
-                {nav.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="rounded-xl px-4 py-3 text-base font-medium transition-colors hover:bg-foreground/5"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                <div className="mt-3 flex items-center gap-2 px-1">
-                  <LanguageToggle
-                    locale={locale}
-                    label={dictionary.language.switchTo}
-                    className="flex-1"
-                  />
-                </div>
-                <Button variant="primary" className="mt-4" asChild>
-                  <Link href={contactHref} onClick={() => setMenuOpen(false)}>
-                    {dictionary.nav.cta}
-                  </Link>
-                </Button>
-              </nav>
-            </DialogContent>
-          </Dialog>
+          <Button
+            type="button"
+            variant="outline"
+            size="icon"
+            className="lg:hidden"
+            aria-label={dictionary.nav.openMenu}
+            aria-expanded={menuOpen}
+            aria-controls={menuId}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? <X aria-hidden /> : <Menu aria-hidden />}
+          </Button>
         </div>
+      </div>
+
+      {/*
+        In-tree mobile drawer (no Radix portal). Portals were causing
+        removeChild crashes when SiteHeader unmounted mid-route change.
+      */}
+      <div
+        id={menuId}
+        className={cn(
+          "absolute inset-x-0 top-full border-b border-border bg-background shadow-elevated transition-[opacity,visibility] duration-200 lg:hidden",
+          menuOpen
+            ? "visible opacity-100"
+            : "pointer-events-none invisible opacity-0",
+        )}
+        aria-hidden={!menuOpen}
+      >
+        <nav className="container flex max-h-[min(80vh,32rem)] flex-col gap-1 overflow-y-auto py-4" aria-label="Mobile">
+          {nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className="rounded-xl px-4 py-3 text-base font-medium transition-colors hover:bg-foreground/5"
+              tabIndex={menuOpen ? 0 : -1}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <div className="mt-3 flex items-center gap-2 px-1">
+            <LanguageToggle
+              locale={locale}
+              label={dictionary.language.switchTo}
+              className="flex-1"
+            />
+          </div>
+          <Button
+            variant="primary"
+            className="mt-4"
+            asChild
+            tabIndex={menuOpen ? 0 : -1}
+          >
+            <Link href={contactHref} onClick={() => setMenuOpen(false)}>
+              {dictionary.nav.cta}
+            </Link>
+          </Button>
+        </nav>
       </div>
     </header>
   );

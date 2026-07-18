@@ -28,16 +28,17 @@ export function FloatingLanguageToggle({
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Keep mounted after hydrate to avoid removeChild races during route changes.
-  if (!ready) return null;
-
+  // Always keep a stable DOM node after first paint so route changes cannot
+  // race a null ↔ element remount (React removeChild crashes).
   return (
     <div
       className={cn(
         "transition-opacity duration-300",
-        visible ? "opacity-100" : "pointer-events-none opacity-0",
+        ready && visible
+          ? "opacity-100"
+          : "pointer-events-none opacity-0",
       )}
-      aria-hidden={!visible}
+      aria-hidden={!ready || !visible}
     >
       <LanguageToggle locale={locale} label={label} variant="floating" />
     </div>
