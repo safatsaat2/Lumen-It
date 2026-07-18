@@ -3,15 +3,20 @@ import { cookies } from "next/headers";
 const COOKIE_NAME = "mihis_admin_session";
 const MAX_AGE_SECONDS = 60 * 60 * 24 * 7; // 7 days
 
-export function getAdminCredentials() {
-  return {
-    username: process.env.ADMIN_USERNAME ?? "safat",
-    password: process.env.ADMIN_PASSWORD ?? "Saatsaat123!@",
-  };
+/**
+ * Admin auth is env-driven only. ADMIN_USERNAME, ADMIN_PASSWORD, and
+ * ADMIN_SESSION_SECRET are all required (also for local dev); when any is
+ * missing the admin area fails closed.
+ */
+function getAdminCredentials(): { username: string; password: string } | null {
+  const username = process.env.ADMIN_USERNAME;
+  const password = process.env.ADMIN_PASSWORD;
+  if (!username || !password) return null;
+  return { username, password };
 }
 
-function getSecret() {
-  return process.env.ADMIN_SESSION_SECRET ?? "mihis-local-admin-secret";
+function getSecret(): string | null {
+  return process.env.ADMIN_SESSION_SECRET || null;
 }
 
 function toHex(buffer: ArrayBuffer) {
@@ -20,11 +25,11 @@ function toHex(buffer: ArrayBuffer) {
     .join("");
 }
 
-async function sign(payload: string) {
+async function sign(payload: string, secret: string) {
   const encoder = new TextEncoder();
   const key = await crypto.subtle.importKey(
     "raw",
-    encoder.encode(getSecret()),
+    encoder.encode(secret),
     { name: "HMAC", hash: "SHA-256" },
     false,
     ["sign"],
@@ -48,6 +53,12 @@ function safeEqual(a: string, b: string) {
 
 export function verifyCredentials(username: string, password: string) {
   const creds = getAdminCredentials();
+  if (!creds || !getSecret()) {
+    console.error(
+      "[auth] Admin login is disabled: ADMIN_USERNAME, ADMIN_PASSWORD, and ADMIN_SESSION_SECRET must be set.",
+    );
+    return false;
+  }
   return (
     safeEqual(username.trim(), creds.username) &&
     safeEqual(password, creds.password)
@@ -55,9 +66,13 @@ export function verifyCredentials(username: string, password: string) {
 }
 
 export async function createSessionToken(username: string) {
+  const secret = getSecret();
+  if (!secret) {
+    throw new Error("Admin session secret is not configured.");
+  }
   const expiresAt = Date.now() + MAX_AGE_SECONDS * 1000;
   const payload = `${username}|${expiresAt}`;
-  const signature = await sign(payload);
+  const signature = await sign(payload, secret);
   return `${payload}|${signature}`;
 }
 
@@ -65,6 +80,8 @@ export async function verifySessionToken(
   token: string | undefined | null,
 ): Promise<{ valid: boolean; username?: string }> {
   if (!token) return { valid: false };
+  const secret = getSecret();
+  if (!secret) return { valid: false };
   const parts = token.split("|");
   if (parts.length !== 3) return { valid: false };
   const [username, expiresAtRaw, signature] = parts;
@@ -72,7 +89,7 @@ export async function verifySessionToken(
   if (!username || !Number.isFinite(expiresAt) || Date.now() > expiresAt) {
     return { valid: false };
   }
-  const expected = await sign(`${username}|${expiresAtRaw}`);
+  const expected = await sign(`${username}|${expiresAtRaw}`, secret);
   if (!safeEqual(signature, expected)) return { valid: false };
   return { valid: true, username };
 }

@@ -47,5 +47,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   );
 
-  return [...homeEntries, ...serviceEntries, ...legalEntries];
+  const consultationEntries = locales.map((locale) => ({
+    url: `${siteConfig.url}/${locale}/consultation`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+    alternates: {
+      languages: Object.fromEntries(
+        locales.map((l) => [l, `${siteConfig.url}/${l}/consultation`]),
+      ),
+    },
+  }));
+
+  return [
+    ...homeEntries,
+    ...consultationEntries,
+    ...serviceEntries,
+    ...legalEntries,
+  ];
 }

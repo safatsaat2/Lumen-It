@@ -3,6 +3,11 @@ import path from "path";
 import { get, put } from "@vercel/blob";
 
 import { siteConfig } from "@/config/site";
+import {
+  defaultConsultationConfig,
+  normalizeConsultationConfig,
+} from "@/lib/consultation/defaults";
+import type { ConsultationConfig } from "@/lib/consultation/types";
 import { clients as defaultClients, type Client } from "@/data/clients";
 import { services as defaultServices, type ServiceContent } from "@/data/services";
 import type { Locale } from "@/i18n/config";
@@ -47,6 +52,11 @@ export type SiteContent = {
     de: LegalBundle;
     en: LegalBundle;
   };
+  /**
+   * AI consultation configuration (journeys, AI settings, offer banner).
+   * Never contains API keys — those live in the private encrypted store.
+   */
+  consultation: ConsultationConfig;
 };
 
 /** @deprecated kept for migrating older admin payloads */
@@ -267,6 +277,7 @@ async function buildDefaults(): Promise<SiteContent> {
     settings: defaultSettings(),
     clients: structuredClone(defaultClients),
     legal: defaultLegal(),
+    consultation: defaultConsultationConfig(),
   };
 }
 
@@ -329,6 +340,7 @@ export async function normalizeSiteContent(
         },
       },
     },
+    consultation: normalizeConsultationConfig(raw.consultation),
   };
 }
 
@@ -530,4 +542,9 @@ export async function getSocialLinks(): Promise<SocialLinks> {
 export async function getSiteSettings(): Promise<SiteSettings> {
   const content = await readSiteContent();
   return content.settings;
+}
+
+export async function getConsultationConfig(): Promise<ConsultationConfig> {
+  const content = await readSiteContent();
+  return content.consultation;
 }

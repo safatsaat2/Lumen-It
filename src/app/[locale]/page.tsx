@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { AboutSection } from "@/components/sections/about-section";
+import { AiConsultantPromo } from "@/components/sections/ai-consultant-promo";
 import { ClientsMarquee } from "@/components/sections/clients-marquee";
 import { ContactSection } from "@/components/sections/contact-section";
 import { FAQSection } from "@/components/sections/faq-section";
@@ -47,6 +48,7 @@ export default async function HomePage({
           label={dictionary.clients.label}
           clients={content.clients}
         />
+        <AiConsultantPromo locale={locale} dictionary={dictionary} />
         <AboutSection dictionary={dictionary} />
         <ServicesSection
           locale={locale}

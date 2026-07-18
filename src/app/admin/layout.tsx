@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { LayoutDashboard, Sparkles } from "lucide-react";
+import { BrainCircuit, LayoutDashboard, Sparkles } from "lucide-react";
 
 import { AdminLogoutButton } from "@/components/admin/admin-logout-button";
 import { getAdminSession } from "@/lib/auth";
@@ -32,10 +32,14 @@ export default async function AdminLayout({
               </span>
               <span className="hidden sm:inline">MIHI&apos;s Admin</span>
             </Link>
-            <span className="hidden items-center gap-1 rounded-full border border-border px-2.5 py-1 text-xs text-muted-foreground sm:inline-flex">
+            <Link href="/admin" className="hidden items-center gap-1 rounded-full border border-border px-2.5 py-1 text-xs text-muted-foreground transition hover:text-foreground sm:inline-flex">
               <LayoutDashboard className="size-3.5" aria-hidden />
               Content
-            </span>
+            </Link>
+            <Link href="/admin/consultations" className="inline-flex items-center gap-1 rounded-full border border-border px-2.5 py-1 text-xs text-muted-foreground transition hover:text-foreground">
+              <BrainCircuit className="size-3.5" aria-hidden />
+              Consultations
+            </Link>
           </div>
           <div className="flex items-center gap-3 text-sm">
             <span className="hidden text-muted-foreground sm:inline">

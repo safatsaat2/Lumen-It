@@ -19,6 +19,7 @@ const en: Dictionary = {
   },
   nav: {
     services: "Services",
+    consultation: "AI Consultant",
     work: "Work",
     process: "Process",
     pricing: "Pricing",
@@ -47,6 +48,18 @@ const en: Dictionary = {
   },
   clients: {
     label: "Trusted by teams at",
+  },
+  consultationPromo: {
+    badge: "Free AI strategy session",
+    title: "Turn your business context into a clear brand roadmap",
+    description:
+      "Answer a focused set of questions and receive a personalized, structured strategy for positioning, marketing, sales, and growth.",
+    start: "Start free consultation",
+    learnMore: "See how it works",
+    trust: ["No credit card", "Save and resume", "Downloadable report"],
+    insightTitle: "Built around your answers",
+    insightBody:
+      "Each round builds on your previous context, then turns it into priorities your team can act on.",
   },
   about: {
     badge: "About",

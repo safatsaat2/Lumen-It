@@ -18,6 +18,7 @@ function revalidatePublicSite(content: SiteContent) {
   for (const locale of locales) {
     revalidatePath(`/${locale}`);
     revalidatePath(`/${locale}`, "layout");
+    revalidatePath(`/${locale}/consultation`);
     revalidatePath(`/${locale}/privacy`);
     revalidatePath(`/${locale}/terms`);
     revalidatePath(`/${locale}/cookies`);

@@ -34,6 +34,11 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const home = localizedPath(locale);
   const nav = [
+    {
+      label: dictionary.nav.consultation,
+      href: localizedPath(locale, "/consultation"),
+      featured: true,
+    },
     { label: dictionary.nav.services, href: homeSection(locale, "services") },
     { label: dictionary.nav.work, href: homeSection(locale, "work") },
     { label: dictionary.nav.process, href: homeSection(locale, "process") },
@@ -66,7 +71,9 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-full px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
+              className={`rounded-full px-4 py-2 text-sm transition-colors hover:bg-foreground/5 hover:text-foreground ${
+                item.featured ? "font-medium text-primary" : "text-muted-foreground"
+              }`}
             >
               {item.label}
             </Link>

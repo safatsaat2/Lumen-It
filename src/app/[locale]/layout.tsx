@@ -4,10 +4,12 @@ import { notFound } from "next/navigation";
 import { FloatingLanguageToggle } from "@/components/layout/floating-language-toggle";
 import { HtmlLang } from "@/components/layout/html-lang";
 import { JsonLd } from "@/components/seo/json-ld";
+import { OfferBanner } from "@/components/layout/offer-banner";
 import { siteConfig } from "@/config/site";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { readSiteContent } from "@/lib/content-store";
 import { organizationSchema, websiteSchema } from "@/lib/seo/schemas";
 
 export const dynamic = "force-dynamic";
@@ -57,7 +59,10 @@ export default async function LocaleLayout({
   const { locale: localeParam } = await params;
   if (!isLocale(localeParam)) notFound();
   const locale = localeParam as Locale;
-  const dictionary = await getDictionary(locale);
+  const [dictionary, content] = await Promise.all([
+    getDictionary(locale),
+    readSiteContent(),
+  ]);
 
   return (
     <>
@@ -68,6 +73,7 @@ export default async function LocaleLayout({
       >
         {locale === "de" ? "Zum Inhalt springen" : "Skip to content"}
       </a>
+      <OfferBanner offer={content.consultation.offerBanner} />
       {children}
       <FloatingLanguageToggle
         locale={locale}

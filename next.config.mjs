@@ -19,6 +19,8 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
+  // @react-pdf/renderer must stay a Node dependency; bundling it breaks fonts.
+  serverExternalPackages: ["@react-pdf/renderer"],
   async headers() {
     return [
       {

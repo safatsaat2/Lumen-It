@@ -19,6 +19,7 @@ const de: Dictionary = {
   },
   nav: {
     services: "Leistungen",
+    consultation: "KI-Berater",
     work: "Projekte",
     process: "Ablauf",
     pricing: "Preise",
@@ -47,6 +48,18 @@ const de: Dictionary = {
   },
   clients: {
     label: "Vertraut von Teams bei",
+  },
+  consultationPromo: {
+    badge: "Kostenlose KI-Strategieberatung",
+    title: "Von Ihrem Geschäftskontext zur klaren Marken-Roadmap",
+    description:
+      "Beantworten Sie gezielte Fragen und erhalten Sie eine individuelle, strukturierte Strategie für Positionierung, Marketing, Vertrieb und Wachstum.",
+    start: "Kostenlose Beratung starten",
+    learnMore: "So funktioniert es",
+    trust: ["Keine Kreditkarte", "Speichern & fortsetzen", "Bericht als PDF"],
+    insightTitle: "Auf Basis Ihrer Antworten",
+    insightBody:
+      "Jede Runde baut auf Ihrem bisherigen Kontext auf und übersetzt ihn in konkrete Prioritäten für Ihr Team.",
   },
   about: {
     badge: "Über uns",

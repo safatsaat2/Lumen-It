@@ -7,6 +7,7 @@ export type Dictionary = {
   };
   nav: {
     services: string;
+    consultation: string;
     work: string;
     process: string;
     pricing: string;
@@ -34,6 +35,16 @@ export type Dictionary = {
   };
   clients: {
     label: string;
+  };
+  consultationPromo: {
+    badge: string;
+    title: string;
+    description: string;
+    start: string;
+    learnMore: string;
+    trust: string[];
+    insightTitle: string;
+    insightBody: string;
   };
   about: {
     badge: string;
