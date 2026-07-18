@@ -26,7 +26,14 @@ export class ConsultationAiError extends Error {
 /** Hard ceiling for the analysis rounds so they stay short and cheap. */
 const ROUND_MAX_OUTPUT_TOKENS = 1024;
 
-async function getModel(settings: ConsultationAiSettings) {
+/**
+ * Fallback model used for the final report when the configured model does not
+ * support Groq structured outputs (`response_format: json_schema`).
+ * See https://console.groq.com/docs/structured-outputs#supported-models
+ */
+const STRUCTURED_OUTPUT_FALLBACK_MODEL = "openai/gpt-oss-120b";
+
+async function getProvider() {
   const resolved = await resolveGroqApiKey();
   if (!resolved) {
     throw new ConsultationAiError(
@@ -34,8 +41,16 @@ async function getModel(settings: ConsultationAiSettings) {
       "No Groq API key is configured. Set GROQ_API_KEY or save a key in the admin panel.",
     );
   }
-  const provider = createGroq({ apiKey: resolved.apiKey });
-  return provider(settings.model);
+  return createGroq({ apiKey: resolved.apiKey });
+}
+
+/** True when the error is Groq rejecting json_schema for the current model. */
+function isJsonSchemaUnsupported(error: unknown): boolean {
+  return (
+    APICallError.isInstance(error) &&
+    error.statusCode === 400 &&
+    /does not support response format `?json_schema`?/i.test(error.message)
+  );
 }
 
 function formatRounds(rounds: ConsultationRoundResult[]): string {
@@ -55,7 +70,12 @@ function formatRounds(rounds: ConsultationRoundResult[]): string {
 function toCleanError(error: unknown): ConsultationAiError {
   if (error instanceof ConsultationAiError) return error;
   if (APICallError.isInstance(error)) {
-    console.error("[consultation-ai] provider call failed:", error.statusCode, error.message);
+    console.error(
+      "[consultation-ai] provider call failed:",
+      error.statusCode,
+      error.message,
+      JSON.stringify(error.responseBody),
+    );
     if (error.statusCode === 401 || error.statusCode === 403) {
       return new ConsultationAiError(
         "missing_key",
@@ -87,7 +107,8 @@ export async function generateRoundAnalysis(options: {
   totalRounds: number;
 }): Promise<string> {
   const { settings, journeyTitle, locale, completedRounds, totalRounds } = options;
-  const model = await getModel(settings);
+  const provider = await getProvider();
+  const model = provider(settings.model);
   const roundNumber = completedRounds.length;
 
   const prompt = [
@@ -136,7 +157,7 @@ export async function generateFinalReport(options: {
   completedRounds: ConsultationRoundResult[];
 }): Promise<BrandingReport> {
   const { settings, journeyTitle, locale, completedRounds } = options;
-  const model = await getModel(settings);
+  const provider = await getProvider();
 
   const prompt = [
     `Consultation journey: "${journeyTitle}". The user has completed every round.`,
@@ -151,9 +172,9 @@ export async function generateFinalReport(options: {
     "Scores must be integers or halves between 1 and 10 that honestly reflect the information provided.",
   ].join("\n");
 
-  try {
+  async function generateWith(modelId: string) {
     const result = await generateText({
-      model,
+      model: provider(modelId),
       output: Output.object({
         schema: brandingReportSchema,
       }),
@@ -171,7 +192,27 @@ export async function generateFinalReport(options: {
       );
     }
     return parsed.data;
+  }
+
+  try {
+    return await generateWith(settings.model);
   } catch (error) {
+    // The configured model may not support Groq structured outputs. Retry once
+    // with a structured-output-capable model so the report still generates.
+    if (
+      isJsonSchemaUnsupported(error) &&
+      settings.model !== STRUCTURED_OUTPUT_FALLBACK_MODEL
+    ) {
+      console.warn(
+        `[consultation-ai] "${settings.model}" lacks json_schema support; ` +
+          `retrying report with "${STRUCTURED_OUTPUT_FALLBACK_MODEL}".`,
+      );
+      try {
+        return await generateWith(STRUCTURED_OUTPUT_FALLBACK_MODEL);
+      } catch (fallbackError) {
+        throw toCleanError(fallbackError);
+      }
+    }
     throw toCleanError(error);
   }
 }

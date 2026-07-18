@@ -117,7 +117,7 @@ export function defaultConsultationConfig(): ConsultationConfig {
       structuredClone(journeyImproveBusiness),
     ],
     ai: {
-      model: "llama-3.3-70b-versatile",
+      model: "openai/gpt-oss-120b",
       temperature: 0.7,
       maxOutputTokens: 8192,
       systemPrompt: DEFAULT_CONSULTATION_SYSTEM_PROMPT,
