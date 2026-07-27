@@ -39,6 +39,7 @@ export type LegalBundle = {
   privacy: LegalPage;
   terms: LegalPage;
   cookies: LegalPage;
+  impressum: LegalPage;
 };
 
 export type SiteContent = {
@@ -152,6 +153,19 @@ function defaultLegal(): SiteContent["legal"] {
           "Sie können Cookies in Ihren Browsereinstellungen jederzeit löschen oder blockieren.",
         ],
       },
+      impressum: {
+        title: "Impressum",
+        description: "Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz).",
+        body: [
+          "MIHI's",
+          "Inhaber: [Vollständiger Name]",
+          "Anschrift: Berlin, Deutschland — [Straße, PLZ Ort]",
+          `E-Mail: ${siteConfig.email}`,
+          "Umsatzsteuer-ID: [falls vorhanden, sonst weglassen]",
+          "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: [Vollständiger Name], Berlin.",
+          "Hinweis: Bitte ersetzen Sie die Platzhalter in eckigen Klammern durch Ihre echten Angaben, bevor die Website kommerziell live geht.",
+        ],
+      },
     },
     en: {
       privacy: {
@@ -183,6 +197,19 @@ function defaultLegal(): SiteContent["legal"] {
           "You can delete or block cookies in your browser settings at any time.",
         ],
       },
+      impressum: {
+        title: "Legal notice (Impressum)",
+        description: "Information required under German Digital Services Act (DDG).",
+        body: [
+          "MIHI's",
+          "Owner: [Full legal name]",
+          "Address: Berlin, Germany — [Street, postcode, city]",
+          `Email: ${siteConfig.email}`,
+          "VAT ID: [if applicable]",
+          "Responsible for content (MStV § 18(2)): [Full legal name], Berlin.",
+          "Note: Replace the bracketed placeholders with your real details before taking commercial clients.",
+        ],
+      },
     },
   };
 }
@@ -208,54 +235,121 @@ export function mergeDictionary(
   base: Dictionary,
   editable: EditableLocaleContent | Dictionary,
 ): Dictionary {
-  if (isFullDictionary(editable)) {
-    return {
-      ...base,
-      ...editable,
-      meta: { ...base.meta, ...editable.meta },
-      nav: { ...base.nav, ...editable.nav },
-      language: { ...base.language, ...editable.language },
-      hero: { ...base.hero, ...editable.hero },
-      clients: { ...base.clients, ...editable.clients },
-      about: { ...base.about, ...editable.about },
-      services: { ...base.services, ...editable.services },
-      work: { ...base.work, ...editable.work },
-      process: { ...base.process, ...editable.process },
-      pricing: { ...base.pricing, ...editable.pricing },
-      testimonials: { ...base.testimonials, ...editable.testimonials },
-      faq: { ...base.faq, ...editable.faq },
-      contact: { ...base.contact, ...editable.contact },
-      footer: { ...base.footer, ...editable.footer },
-      projects: editable.projects ?? base.projects,
-    };
-  }
+  const merged = isFullDictionary(editable)
+    ? {
+        ...base,
+        ...editable,
+        meta: { ...base.meta, ...editable.meta },
+        nav: { ...base.nav, ...editable.nav },
+        language: { ...base.language, ...editable.language },
+        hero: { ...base.hero, ...editable.hero },
+        clients: { ...base.clients, ...editable.clients },
+        about: { ...base.about, ...editable.about },
+        services: { ...base.services, ...editable.services },
+        work: { ...base.work, ...editable.work },
+        process: { ...base.process, ...editable.process },
+        pricing: { ...base.pricing, ...editable.pricing },
+        testimonials: { ...base.testimonials, ...editable.testimonials },
+        faq: { ...base.faq, ...editable.faq },
+        contact: { ...base.contact, ...editable.contact },
+        footer: { ...base.footer, ...editable.footer },
+        projects: editable.projects ?? base.projects,
+      }
+    : (() => {
+        const legacy = editable as EditableLocaleContent;
+        return {
+          ...base,
+          hero: legacy.hero ?? base.hero,
+          about: legacy.about ?? base.about,
+          work: legacy.work ?? base.work,
+          process: legacy.process ?? base.process,
+          pricing: legacy.pricing ?? base.pricing,
+          testimonials: legacy.testimonials ?? base.testimonials,
+          faq: legacy.faq ?? base.faq,
+          projects: legacy.projects ?? base.projects,
+          meta: legacy.meta ? { ...base.meta, ...legacy.meta } : base.meta,
+          nav: legacy.nav ? { ...base.nav, ...legacy.nav } : base.nav,
+          language: legacy.language
+            ? { ...base.language, ...legacy.language }
+            : base.language,
+          clients: legacy.clients
+            ? { ...base.clients, ...legacy.clients }
+            : base.clients,
+          services: legacy.services
+            ? { ...base.services, ...legacy.services }
+            : base.services,
+          footer: legacy.footer
+            ? { ...base.footer, ...legacy.footer }
+            : base.footer,
+          contact: {
+            ...base.contact,
+            ...(legacy.contact ?? {}),
+            ...(legacy.contactIntro ?? {}),
+          },
+        };
+      })();
 
-  const legacy = editable as EditableLocaleContent;
+  return scrubFabricatedClaims(base, merged);
+}
+
+/**
+ * One-time safety net: if stored admin/Blob content still contains known
+ * fabricated UWG-risk claims, fall back to the honest dictionary defaults
+ * for those sections only.
+ */
+function scrubFabricatedClaims(base: Dictionary, merged: Dictionary): Dictionary {
+  const statsBlob = JSON.stringify(merged.about.stats);
+  const timelineBlob = JSON.stringify(merged.about.timeline);
+  const projectsBlob = JSON.stringify(merged.projects);
+  const testimonialsBlob = JSON.stringify(merged.testimonials.items);
+  const pricingBlob = JSON.stringify(merged.pricing.tiers);
+  const heroTrust = merged.hero.trust;
+
+  const hasFakeStats =
+    statsBlob.includes("120+") ||
+    /"15"/.test(statsBlob) && statsBlob.includes("Service");
+  const hasFakeTimeline =
+    timelineBlob.includes("2020") &&
+    (timelineBlob.includes("founded") || timelineBlob.includes("gegründet"));
+  const hasFakeProjects =
+    projectsBlob.includes("Nordwerk") ||
+    projectsBlob.includes("Atelier Berg") ||
+    projectsBlob.includes("Helixa") ||
+    projectsBlob.includes("+31");
+  const hasFakeTestimonials =
+    testimonialsBlob.includes("Laura Hoffmann") ||
+    testimonialsBlob.includes("Jonas Berger") ||
+    testimonialsBlob.includes("Elena Krüger") ||
+    testimonialsBlob.includes("Nordwerk GmbH");
+  const hasSquadPricing =
+    pricingBlob.toLowerCase().includes("squad") ||
+    pricingBlob.includes("11990");
+  const hasFakeTrust =
+    heroTrust.includes("DACH") ||
+    heroTrust.includes("Trusted by teams") ||
+    heroTrust.includes("Vertraut von");
+
   return {
-    ...base,
-    hero: legacy.hero ?? base.hero,
-    about: legacy.about ?? base.about,
-    work: legacy.work ?? base.work,
-    process: legacy.process ?? base.process,
-    pricing: legacy.pricing ?? base.pricing,
-    testimonials: legacy.testimonials ?? base.testimonials,
-    faq: legacy.faq ?? base.faq,
-    projects: legacy.projects ?? base.projects,
-    meta: legacy.meta ? { ...base.meta, ...legacy.meta } : base.meta,
-    nav: legacy.nav ? { ...base.nav, ...legacy.nav } : base.nav,
-    language: legacy.language
-      ? { ...base.language, ...legacy.language }
-      : base.language,
-    clients: legacy.clients ? { ...base.clients, ...legacy.clients } : base.clients,
-    services: legacy.services
-      ? { ...base.services, ...legacy.services }
-      : base.services,
-    footer: legacy.footer ? { ...base.footer, ...legacy.footer } : base.footer,
-    contact: {
-      ...base.contact,
-      ...(legacy.contact ?? {}),
-      ...(legacy.contactIntro ?? {}),
+    ...merged,
+    hero: hasFakeTrust ? { ...merged.hero, trust: base.hero.trust } : merged.hero,
+    about: {
+      ...merged.about,
+      stats: hasFakeStats ? base.about.stats : merged.about.stats,
+      timeline: hasFakeTimeline ? base.about.timeline : merged.about.timeline,
+      storyTitle:
+        hasFakeTimeline &&
+        (merged.about.storyTitle === "Our story" ||
+          merged.about.storyTitle === "Unsere Geschichte")
+          ? base.about.storyTitle
+          : merged.about.storyTitle,
+      storyP1: hasFakeTimeline ? base.about.storyP1 : merged.about.storyP1,
+      storyP2: hasFakeTimeline ? base.about.storyP2 : merged.about.storyP2,
     },
+    work: hasFakeProjects ? base.work : merged.work,
+    projects: hasFakeProjects ? base.projects : merged.projects,
+    testimonials: hasFakeTestimonials ? base.testimonials : merged.testimonials,
+    pricing: hasSquadPricing ? base.pricing : merged.pricing,
+    footer: { ...base.footer, ...merged.footer, impressum: merged.footer.impressum || base.footer.impressum },
   };
 }
 
@@ -297,13 +391,36 @@ export async function normalizeSiteContent(
     de: mergeDictionary(baseDe, (raw.de as EditableLocaleContent) ?? {}),
     en: mergeDictionary(baseEn, (raw.en as EditableLocaleContent) ?? {}),
     services:
-      Array.isArray(raw.services) && raw.services.length > 0
+      Array.isArray(raw.services) &&
+      raw.services.length > 0 &&
+      raw.services.length <= 8
         ? raw.services
         : defaults.services,
     social: { ...defaults.social, ...(raw.social ?? {}) },
-    settings: { ...defaults.settings, ...(raw.settings ?? {}) },
+    settings: {
+      ...defaults.settings,
+      ...(raw.settings ?? {}),
+      email:
+        raw.settings?.email && !/gmail\.com$/i.test(raw.settings.email)
+          ? raw.settings.email
+          : defaults.settings.email,
+      phone:
+        raw.settings?.phone === "+49 30 12345678"
+          ? defaults.settings.phone
+          : (raw.settings?.phone ?? defaults.settings.phone),
+      founded:
+        raw.settings?.founded === 2020
+          ? defaults.settings.founded
+          : (raw.settings?.founded ?? defaults.settings.founded),
+    },
     clients:
-      Array.isArray(raw.clients) && raw.clients.length > 0
+      Array.isArray(raw.clients) &&
+      raw.clients.length > 0 &&
+      !raw.clients.some((client) =>
+        /Northwind|Lumen Cloud|Harvest AI|Atlas Mobility|Moonlit|Kindred|Helio Labs|Vanta Studio/i.test(
+          client.name,
+        ),
+      )
         ? raw.clients
         : defaults.clients,
     legal: {
@@ -322,6 +439,10 @@ export async function normalizeSiteContent(
           ...defaults.legal.de.cookies,
           ...(raw.legal?.de?.cookies ?? {}),
         },
+        impressum: {
+          ...defaults.legal.de.impressum,
+          ...(raw.legal?.de?.impressum ?? {}),
+        },
       },
       en: {
         ...defaults.legal.en,
@@ -337,6 +458,10 @@ export async function normalizeSiteContent(
         cookies: {
           ...defaults.legal.en.cookies,
           ...(raw.legal?.en?.cookies ?? {}),
+        },
+        impressum: {
+          ...defaults.legal.en.impressum,
+          ...(raw.legal?.en?.impressum ?? {}),
         },
       },
     },

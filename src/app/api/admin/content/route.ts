@@ -22,6 +22,7 @@ function revalidatePublicSite(content: SiteContent) {
     revalidatePath(`/${locale}/privacy`);
     revalidatePath(`/${locale}/terms`);
     revalidatePath(`/${locale}/cookies`);
+    revalidatePath(`/${locale}/impressum`);
     for (const service of content.services) {
       revalidatePath(`/${locale}/services/${service.slug}`);
     }

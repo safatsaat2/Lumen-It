@@ -203,19 +203,23 @@ export function ContactSection({ dictionary, settings }: ContactSectionProps) {
                     {settings.email}
                   </a>
                 </li>
-                <li className="flex items-start gap-3">
-                  <Phone className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
-                  <a
-                    href={`tel:${settings.phone.replace(/\s/g, "")}`}
-                    className="hover:text-foreground"
-                  >
-                    {settings.phone}
-                  </a>
-                </li>
-                <li className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
-                  <span>{settings.address}</span>
-                </li>
+                {settings.phone.trim() ? (
+                  <li className="flex items-start gap-3">
+                    <Phone className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
+                    <a
+                      href={`tel:${settings.phone.replace(/\s/g, "")}`}
+                      className="hover:text-foreground"
+                    >
+                      {settings.phone}
+                    </a>
+                  </li>
+                ) : null}
+                {settings.address.trim() ? (
+                  <li className="flex items-start gap-3">
+                    <MapPin className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
+                    <span>{settings.address}</span>
+                  </li>
+                ) : null}
               </ul>
             </div>
 

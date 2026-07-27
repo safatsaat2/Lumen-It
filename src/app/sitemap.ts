@@ -37,7 +37,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   );
 
-  const legalPaths = ["privacy", "terms", "cookies"] as const;
+  const legalPaths = ["impressum", "privacy", "terms", "cookies"] as const;
   const legalEntries = locales.flatMap((locale) =>
     legalPaths.map((path) => ({
       url: `${siteConfig.url}/${locale}/${path}`,

@@ -2,13 +2,10 @@
 
 import Link from "next/link";
 import { Check } from "lucide-react";
-import { useState } from "react";
 
 import { SectionHeading } from "@/components/layout/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/types";
 import { cn } from "@/lib/utils";
@@ -27,7 +24,6 @@ function formatPrice(amount: number, locale: Locale) {
 }
 
 export function PricingSection({ locale, dictionary }: PricingSectionProps) {
-  const [yearly, setYearly] = useState(false);
   const { pricing } = dictionary;
 
   return (
@@ -38,30 +34,6 @@ export function PricingSection({ locale, dictionary }: PricingSectionProps) {
           title={pricing.title}
           description={pricing.description}
         />
-
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <Label
-            htmlFor="billing-toggle"
-            className={cn(!yearly && "text-foreground")}
-          >
-            {pricing.monthly}
-          </Label>
-          <Switch
-            id="billing-toggle"
-            checked={yearly}
-            onCheckedChange={setYearly}
-            aria-label={pricing.yearly}
-          />
-          <div className="flex items-center gap-2">
-            <Label
-              htmlFor="billing-toggle"
-              className={cn(yearly && "text-foreground")}
-            >
-              {pricing.yearly}
-            </Label>
-            <Badge variant="primary">{pricing.save}</Badge>
-          </div>
-        </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
           {pricing.tiers.map((tier) => (
@@ -82,9 +54,9 @@ export function PricingSection({ locale, dictionary }: PricingSectionProps) {
               <h3 className="font-display text-xl font-semibold">{tier.name}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{tier.description}</p>
               <p className="mt-6 font-display text-4xl font-semibold tracking-tight">
-                {formatPrice(yearly ? tier.yearly : tier.monthly, locale)}
+                {formatPrice(tier.monthly, locale)}
                 <span className="text-base font-normal text-muted-foreground">
-                  {yearly ? pricing.perYear : pricing.perMonth}
+                  {pricing.perMonth}
                 </span>
               </p>
               <ul className="mt-8 flex-1 space-y-3">

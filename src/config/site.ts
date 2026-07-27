@@ -8,11 +8,11 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://mihis.agency",
   ogImage: "/og.png",
-  email: "sakibsafat47@gmail.com",
-  contactEmail: "sakibsafat47@gmail.com",
-  phone: "+49 30 12345678",
+  email: "info@mihis.agency",
+  contactEmail: "info@mihis.agency",
+  phone: "",
   address: "Berlin, Deutschland",
-  founded: 2020,
+  founded: 2026,
   social: {
     twitter: "https://twitter.com/mihisagency",
     github: "https://github.com/mihis-agency",

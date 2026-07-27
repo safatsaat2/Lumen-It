@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import type { LegalBundle } from "@/lib/content-store";
 
-const PAGES: (keyof LegalBundle)[] = ["privacy", "terms", "cookies"];
+const PAGES: (keyof LegalBundle)[] = ["impressum", "privacy", "terms", "cookies"];
 
 type Props = {
   legal: LegalBundle;

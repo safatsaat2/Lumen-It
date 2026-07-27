@@ -157,6 +157,7 @@ export type Dictionary = {
     privacy: string;
     terms: string;
     cookies: string;
+    impressum: string;
   };
   projects: {
     slug: string;

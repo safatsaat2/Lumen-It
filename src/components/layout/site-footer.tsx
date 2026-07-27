@@ -47,6 +47,10 @@ export function SiteFooter({
       title: dictionary.footer.legal,
       links: [
         {
+          label: dictionary.footer.impressum,
+          href: localizedPath(locale, "/impressum"),
+        },
+        {
           label: dictionary.footer.privacy,
           href: localizedPath(locale, "/privacy"),
         },

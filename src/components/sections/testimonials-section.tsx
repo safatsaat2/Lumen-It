@@ -38,17 +38,27 @@ export function TestimonialsSection({ dictionary }: TestimonialsSectionProps) {
                 &ldquo;{item.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-6">
-                <RemoteImage
-                  src={item.avatar}
-                  alt={item.name}
-                  width={44}
-                  height={44}
-                  className="size-11 rounded-full object-cover"
-                />
+                {item.avatar ? (
+                  <RemoteImage
+                    src={item.avatar}
+                    alt={item.name}
+                    width={44}
+                    height={44}
+                    className="size-11 rounded-full object-cover"
+                  />
+                ) : (
+                  <span
+                    className="flex size-11 items-center justify-center rounded-full bg-muted text-sm font-medium text-muted-foreground"
+                    aria-hidden
+                  >
+                    {item.name.slice(0, 1)}
+                  </span>
+                )}
                 <div>
                   <p className="text-sm font-medium">{item.name}</p>
                   <p className="text-xs text-muted-foreground">
-                    {item.role}, {item.company}
+                    {item.role}
+                    {item.company ? `, ${item.company}` : null}
                   </p>
                 </div>
               </figcaption>

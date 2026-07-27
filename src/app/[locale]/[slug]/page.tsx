@@ -40,7 +40,10 @@ export async function generateMetadata({
 
 export function generateStaticParams() {
   return (["de", "en"] as const).flatMap((locale) =>
-    (["privacy", "terms", "cookies"] as const).map((slug) => ({ locale, slug })),
+    (["privacy", "terms", "cookies", "impressum"] as const).map((slug) => ({
+      locale,
+      slug,
+    })),
   );
 }
 
