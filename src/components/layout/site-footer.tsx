@@ -32,12 +32,16 @@ export function SiteFooter({
         { label: dictionary.footer.about, href: section("about") },
         { label: dictionary.footer.services, href: section("services") },
         { label: dictionary.footer.process, href: section("process") },
-        { label: dictionary.footer.contact, href: section("contact") },
+        { label: dictionary.footer.contact, href: localizedPath(locale, "/contact") },
       ],
     },
     {
       title: dictionary.footer.resources,
       links: [
+        {
+          label: dictionary.footer.templates,
+          href: localizedPath(locale, "/templates"),
+        },
         { label: dictionary.footer.faq, href: section("faq") },
         { label: dictionary.footer.pricing, href: section("pricing") },
         { label: dictionary.nav.work, href: section("work") },

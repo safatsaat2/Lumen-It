@@ -10,6 +10,12 @@ const contactSchema = z.object({
   phone: z.string().trim().max(40).optional(),
   subject: z.string().trim().min(2).max(200),
   message: z.string().trim().min(10).max(5000),
+  templateId: z
+    .string()
+    .trim()
+    .max(40)
+    .optional()
+    .transform((value) => (value ? value.toUpperCase() : undefined)),
 });
 
 export async function POST(request: Request) {
@@ -24,7 +30,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, email, phone, subject, message } = parsed.data;
+    const { name, email, phone, subject, message, templateId } = parsed.data;
     const to = process.env.CONTACT_TO_EMAIL ?? siteConfig.contactEmail;
     const from =
       process.env.CONTACT_FROM_EMAIL ?? "MIHI's Website <onboarding@resend.dev>";
@@ -35,6 +41,7 @@ export async function POST(request: Request) {
       <p><strong>Email:</strong> ${escapeHtml(email)}</p>
       <p><strong>Phone:</strong> ${escapeHtml(phone || "—")}</p>
       <p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
+      <p><strong>Template ID:</strong> ${escapeHtml(templateId || "—")}</p>
       <p><strong>Message:</strong></p>
       <p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>
     `;
@@ -45,6 +52,7 @@ export async function POST(request: Request) {
       `Email: ${email}`,
       `Phone: ${phone || "—"}`,
       `Subject: ${subject}`,
+      `Template ID: ${templateId || "—"}`,
       "",
       "Message:",
       message,
@@ -60,6 +68,7 @@ export async function POST(request: Request) {
         email,
         phone,
         subject,
+        templateId,
         message,
       });
 
@@ -78,7 +87,7 @@ export async function POST(request: Request) {
       from,
       to: [to],
       replyTo: email,
-      subject: `[MIHI's Contact] ${subject}`,
+      subject: `[MIHI's Contact]${templateId ? ` [${templateId}]` : ""} ${subject}`,
       html,
       text,
     });

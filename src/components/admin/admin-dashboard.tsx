@@ -9,6 +9,7 @@ import {
   FileText,
   Globe2,
   Layers3,
+  LayoutTemplate,
   Loader2,
   Menu,
   MessageSquareQuote,
@@ -30,6 +31,7 @@ import { AdminLegalEditor } from "@/components/admin/admin-legal-editor";
 import { AdminServicesEditor } from "@/components/admin/admin-services-editor";
 import { AdminSettingsEditor } from "@/components/admin/admin-settings-editor";
 import { AdminSocialEditor } from "@/components/admin/admin-social-editor";
+import { AdminTemplatesEditor } from "@/components/admin/admin-templates-editor";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -50,6 +52,7 @@ type SectionId =
   | "about"
   | "servicesSection"
   | "services"
+  | "templates"
   | "work"
   | "process"
   | "pricing"
@@ -70,6 +73,7 @@ const SECTIONS: { id: SectionId; label: string; icon: typeof Sparkles }[] = [
   { id: "about", label: "About", icon: Layers3 },
   { id: "servicesSection", label: "Services section", icon: Layers3 },
   { id: "services", label: "Service pages", icon: Wrench },
+  { id: "templates", label: "Templates", icon: LayoutTemplate },
   { id: "work", label: "Work cards", icon: Briefcase },
   { id: "process", label: "Process", icon: Workflow },
   { id: "pricing", label: "Pricing", icon: Layers3 },
@@ -1546,6 +1550,16 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
             services={content.services}
             onChange={(services) => {
               setContent((prev) => ({ ...prev, services }));
+              setDirty(true);
+            }}
+          />
+        ) : null}
+
+        {section === "templates" ? (
+          <AdminTemplatesEditor
+            templates={content.templates ?? []}
+            onChange={(templates) => {
+              setContent((prev) => ({ ...prev, templates }));
               setDirty(true);
             }}
           />

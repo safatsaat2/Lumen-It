@@ -59,9 +59,35 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   }));
 
+  const templatesEntries = locales.map((locale) => ({
+    url: `${siteConfig.url}/${locale}/templates`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+    alternates: {
+      languages: Object.fromEntries(
+        locales.map((l) => [l, `${siteConfig.url}/${l}/templates`]),
+      ),
+    },
+  }));
+
+  const contactEntries = locales.map((locale) => ({
+    url: `${siteConfig.url}/${locale}/contact`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+    alternates: {
+      languages: Object.fromEntries(
+        locales.map((l) => [l, `${siteConfig.url}/${l}/contact`]),
+      ),
+    },
+  }));
+
   return [
     ...homeEntries,
     ...consultationEntries,
+    ...templatesEntries,
+    ...contactEntries,
     ...serviceEntries,
     ...legalEntries,
   ];

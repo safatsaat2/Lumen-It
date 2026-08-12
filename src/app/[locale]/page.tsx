@@ -11,6 +11,7 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { PricingSection } from "@/components/sections/pricing-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { ServicesSection } from "@/components/sections/services-section";
+import { TemplatesShowcase } from "@/components/sections/templates-showcase";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { WorkSection } from "@/components/sections/work-section";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -55,12 +56,21 @@ export default async function HomePage({
           dictionary={dictionary}
           services={content.services}
         />
+        <TemplatesShowcase
+          locale={locale}
+          dictionary={dictionary}
+          templates={content.templates}
+        />
         <WorkSection dictionary={dictionary} />
         <ProcessSection dictionary={dictionary} />
         <PricingSection locale={locale} dictionary={dictionary} />
         <TestimonialsSection dictionary={dictionary} />
         <FAQSection dictionary={dictionary} />
-        <ContactSection dictionary={dictionary} settings={content.settings} />
+        <ContactSection
+          dictionary={dictionary}
+          settings={content.settings}
+          templates={content.templates}
+        />
       </main>
       <SiteFooter
         locale={locale}

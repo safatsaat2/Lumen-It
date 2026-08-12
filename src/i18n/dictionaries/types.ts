@@ -6,16 +6,34 @@ export type Dictionary = {
     keywords: string[];
   };
   nav: {
+    home: string;
     services: string;
     consultation: string;
+    templates: string;
     work: string;
     process: string;
     pricing: string;
     faq: string;
     contact: string;
+    more: string;
     cta: string;
     menu: string;
     openMenu: string;
+  };
+  templates: {
+    badge: string;
+    title: string;
+    description: string;
+    pageTitle: string;
+    pageDescription: string;
+    preview: string;
+    getTemplate: string;
+    templateId: string;
+    viewAll: string;
+    filterLabel: string;
+    all: string;
+    results: string;
+    empty: string;
   };
   language: {
     label: string;
@@ -133,11 +151,15 @@ export type Dictionary = {
     phone: string;
     subject: string;
     message: string;
+    templateId: string;
+    templateIdHelper: string;
     namePlaceholder: string;
     emailPlaceholder: string;
     phonePlaceholder: string;
     subjectPlaceholder: string;
     messagePlaceholder: string;
+    templateIdPlaceholder: string;
+    templateInquirySubject: string;
     submit: string;
     sending: string;
     success: string;
@@ -150,6 +172,7 @@ export type Dictionary = {
     rights: string;
     about: string;
     services: string;
+    templates: string;
     process: string;
     faq: string;
     pricing: string;

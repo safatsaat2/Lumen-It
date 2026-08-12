@@ -1,0 +1,2164 @@
+{
+  "de": {
+    "meta": {
+      "title": "MIHI's — Digitale Agentur für Web, E-Commerce & Automatisierung",
+      "description": "MIHI's ist Ihre digitale Agentur in Deutschland: individuelle Webentwicklung, Shopify, SEO, UI/UX und KI-Automatisierung — DSGVO-bewusst und ergebnisorientiert.",
+      "ogAlt": "MIHI's — Digitale Agentur für Unternehmen in Deutschland",
+      "keywords": [
+        "Webentwicklung Deutschland",
+        "Shopify Agentur",
+        "WordPress Entwicklung",
+        "SEO Optimierung",
+        "UI UX Design",
+        "KI Automatisierung",
+        "Website Wartung",
+        "E-Commerce Agentur"
+      ]
+    },
+    "nav": {
+      "home": "Start",
+      "services": "Leistungen",
+      "consultation": "KI-Berater",
+      "templates": "Templates",
+      "work": "Projekte",
+      "process": "Ablauf",
+      "pricing": "Preise",
+      "faq": "FAQ",
+      "contact": "Kontakt",
+      "more": "Mehr",
+      "cta": "Projekt starten",
+      "menu": "Menü",
+      "openMenu": "Menü öffnen"
+    },
+    "templates": {
+      "badge": "Sofort startklar",
+      "title": "Ready-to-Go Websites",
+      "description": "Wählen Sie ein Design, machen Sie es zu Ihrem eigenen und gehen Sie in wenigen Stunden live. Produktionsreife Templates — angepasst, gebrandet und schnell gestartet.",
+      "pageTitle": "Website-Templates",
+      "pageDescription": "Durchstöbern Sie unsere komplette Sammlung produktionsreifer Website-Templates. Filtern Sie nach Kategorie, sehen Sie Live-Previews und fordern Sie das passende Template an.",
+      "preview": "Website ansehen",
+      "getTemplate": "Template anfragen",
+      "templateId": "ID",
+      "viewAll": "Alle Templates ansehen",
+      "filterLabel": "Nach Kategorie filtern",
+      "all": "Alle",
+      "results": "{count} Templates",
+      "empty": "Keine Templates in dieser Kategorie."
+    },
+    "language": {
+      "label": "Sprache",
+      "switchTo": "Sprache wechseln",
+      "de": "Deutsch",
+      "en": "English"
+    },
+    "hero": {
+      "badge": "Neue Projekte willkommen",
+      "titleBefore": "Wir bauen",
+      "titleHighlight": "digitale Produkte",
+      "titleAfter": ", die skalieren",
+      "description": "MIHI's ist Ihre Agentur für Webentwicklung, E-Commerce und Automatisierung — mit DSGVO-bewussten Standards, messbarer Performance und klarer Übergabe an Ihr Team.",
+      "ctaPrimary": "Angebot anfragen",
+      "ctaSecondary": "Leistungen ansehen",
+      "trust": "Brand. Build. Scale. · Immer erreichbar · Antwort innerhalb von 24h"
+    },
+    "clients": {
+      "label": "Worauf Sie zählen können"
+    },
+    "consultationPromo": {
+      "badge": "Kostenlose KI-Strategieberatung",
+      "title": "Von Ihrem Geschäftskontext zur klaren Marken-Roadmap",
+      "description": "Beantworten Sie gezielte Fragen und erhalten Sie eine individuelle, strukturierte Strategie für Positionierung, Marketing, Vertrieb und Wachstum.",
+      "start": "Kostenlose Beratung starten",
+      "learnMore": "So funktioniert es",
+      "trust": [
+        "Keine Kreditkarte",
+        "Speichern & fortsetzen",
+        "Bericht als PDF"
+      ],
+      "insightTitle": "Auf Basis Ihrer Antworten",
+      "insightBody": "Jede Runde baut auf Ihrem bisherigen Kontext auf und übersetzt ihn in konkrete Prioritäten für Ihr Team."
+    },
+    "about": {
+      "badge": "Über uns",
+      "title": "MIHI's — gebaut für Tempo und Handwerk",
+      "description": "Strategie, Design und Engineering unter einem Dach — damit Sie schneller liefern, ohne Qualität zu opfern.",
+      "storyTitle": "So arbeiten wir",
+      "storyP1": "MIHI's ist ein founder-geführtes Studio für individuelle Webprojekte, WordPress, Shopify, APIs und KI-Automatisierung. Wir arbeiten auf Deutsch und Englisch, mit DSGVO-bewussten Standards von Tag eins — und einer klaren Übergabe, die Ihr nächstes Team wirklich nutzen kann.",
+      "storyP2": "Wir messen Erfolg an nachvollziehbaren Ergebnissen: klarer Scope, messbare Performance-Ziele und Systeme, die Ihr Team nach dem Launch selbst beherrscht — ohne erfundene Erfolgsgeschichten.",
+      "stats": [
+        {
+          "value": "24/7",
+          "label": "Erreichbarkeitsversprechen",
+          "description": "Wir bleiben für Ihr Projekt erreichbar — kein Postfach ohne Antwort."
+        },
+        {
+          "value": "24h",
+          "label": "Antwort innerhalb eines Werktags",
+          "description": "Rückmeldung innerhalb eines Werktags."
+        },
+        {
+          "value": "90+",
+          "label": "Lighthouse-Performance-Ziel",
+          "description": "Wir streben Lighthouse 90+ an, wo der Scope es zulässt."
+        },
+        {
+          "value": "Fixed",
+          "label": "Festpreis nach Scope",
+          "description": "Festpreisangebote, sobald der Scope klar ist."
+        }
+      ],
+      "timeline": [
+        {
+          "year": "01 Kickoff",
+          "title": "Ziele abstimmen",
+          "description": "Wir klären Ziele, Zielgruppe, Rahmenbedingungen und Erfolgskriterien — und fixieren den Scope schriftlich vor dem Build."
+        },
+        {
+          "year": "02 Build",
+          "title": "Gestalten & umsetzen",
+          "description": "Wir gestalten und entwickeln in kurzen Zyklen mit funktionierenden Previews — damit Sie früh und oft Feedback geben können."
+        },
+        {
+          "year": "03 Launch",
+          "title": "Sorgfältig live gehen",
+          "description": "Wir härten, testen und gehen mit Checkliste live — Performance, Barrierefreiheit und DSGVO-bewusste Defaults inklusive."
+        },
+        {
+          "year": "04 Care",
+          "title": "Übergabe & optionale Betreuung",
+          "description": "Sie erhalten Dokumentation und Eigentum. Optionale Betreuung deckt Updates, Monitoring und kleine Verbesserungen ab."
+        }
+      ]
+    },
+    "services": {
+      "badge": "Leistungen",
+      "title": "Fokussierte Leistungen für Launch und Wachstum",
+      "description": "Sechs klar definierte Leistungen. Founder-geführte Umsetzung. Wählen Sie einen Fokus oder kombinieren Sie, was Sie brauchen.",
+      "learnMore": "Mehr erfahren",
+      "footerNote": "Etwas Individuelles nötig? Wir kalkulieren maßgeschneiderte Projekte.",
+      "benefitsLabel": "Ihre Vorteile",
+      "backToServices": "Alle Leistungen",
+      "relatedCta": "Projekt besprechen"
+    },
+    "work": {
+      "badge": "Was wir liefern",
+      "title": "Angebote, die Sie mit uns besprechen können",
+      "description": "Ehrliche Scopes für individuelle Websites, Shops, APIs und Kampagnenseiten — ohne erfundene Kundenlogos oder Kennzahlen.",
+      "viewCase": "Angebot besprechen"
+    },
+    "process": {
+      "badge": "Ablauf",
+      "title": "Von der Analyse bis zur klaren Übergabe",
+      "description": "Ein klarer Vier-Phasen-Prozess — mit wöchentlichen Previews ab der ersten Woche.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Entdecken",
+          "description": "Strukturierte Discovery mit Interviews, Audits und Wettbewerbsanalyse — jede Entscheidung auf Belegen.",
+          "deliverables": [
+            "Stakeholder-Interviews",
+            "Wettbewerbslandschaft",
+            "Technik- & Content-Audit",
+            "Strategisches Briefing"
+          ]
+        },
+        {
+          "step": "02",
+          "title": "Gestalten",
+          "description": "UX, UI und Designsystem in Figma — inkl. Prototypen und entwicklerfertiger Spezifikationen.",
+          "deliverables": [
+            "Wireframes & Prototypen",
+            "Visuelles Designsystem",
+            "High-Fidelity-UI",
+            "Design-Tokens & Specs"
+          ]
+        },
+        {
+          "step": "03",
+          "title": "Umsetzen",
+          "description": "Founder-geführte Umsetzung in Wochen-Zyklen. Ab Woche eins ein funktionierender Preview-Link mit Reviews und sorgfältiger QA.",
+          "deliverables": [
+            "Next.js / WordPress / Shopify",
+            "CMS- & API-Integration",
+            "CI/CD-Pipeline",
+            "Barrierefreiheit & Performance"
+          ]
+        },
+        {
+          "step": "04",
+          "title": "Launch",
+          "description": "Wir gehen mit Checkliste live — danach Übergabe von Dokumentation, Zugängen und optionalem Care-Plan.",
+          "deliverables": [
+            "Go-Live-Checkliste",
+            "Monitoring-Setup",
+            "Übergabe-Dokumentation",
+            "Optionaler Care-Plan"
+          ]
+        }
+      ]
+    },
+    "pricing": {
+      "badge": "Preise",
+      "title": "Transparente Projektpakete",
+      "description": "Klare einmalige Projektpakete nach einem kurzen Gespräch — Scope vor dem Start.",
+      "monthly": "Projekt",
+      "yearly": "Care",
+      "save": "Optional Care",
+      "perMonth": " einmalig",
+      "perYear": " /Jahr Care",
+      "mostPopular": "Beliebteste Wahl",
+      "tiers": [
+        {
+          "id": "starter",
+          "name": "Starter",
+          "description": "Kleine Website oder Landingpage — bis ca. 5 Seiten, fester Scope.",
+          "monthly": 990,
+          "yearly": 990,
+          "cta": "Starter wählen",
+          "features": [
+            "Landing oder Website bis ca. 5 Seiten",
+            "Responsive, semantisches Markup",
+            "Einfache Pflege / Basis-CMS",
+            "Lighthouse-Ziel 90+",
+            "Übergabe-Dokumentation"
+          ]
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "description": "Individuelle Website oder Shop-Einstieg mit echter Struktur und Content.",
+          "monthly": 2490,
+          "yearly": 2490,
+          "highlight": true,
+          "cta": "Gespräch vereinbaren",
+          "features": [
+            "Individuelle Website oder Shop-Starter",
+            "UI/UX passend zu Ihrer Marke",
+            "CMS- oder Shopify/WordPress-Setup",
+            "Performance- & Accessibility-QA",
+            "Klares Festpreisangebot",
+            "Übergabe, die Ihr Team beherrscht"
+          ]
+        },
+        {
+          "id": "premium",
+          "name": "Premium",
+          "description": "Größere individuelle Web- oder Commerce-Projekte inkl. Integrationen.",
+          "monthly": 5900,
+          "yearly": 5900,
+          "cta": "Termin buchen",
+          "features": [
+            "Größeres Custom-Web / Commerce",
+            "API- oder Tool-Integrationen",
+            "Automatisierung, wo sie Mehrwert bringt",
+            "DSGVO-bewusste Defaults",
+            "Launch-Checkliste & Monitoring",
+            "Priorisierte Antwort innerhalb von 24h"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "badge": "Versprechen",
+      "title": "Verbindlichkeiten, die wir halten",
+      "description": "Keine erfundenen Zitate von erfundenen Personen — nur Studio-Versprechen, an die Sie uns halten können.",
+      "items": [
+        {
+          "id": "1",
+          "quote": "Wir antworten innerhalb eines Werktags — und sagen klar, wenn sich ein Starttermin verschiebt.",
+          "name": "MIHI's",
+          "role": "Studio-Versprechen",
+          "company": "Always",
+          "rating": 5,
+          "avatar": ""
+        },
+        {
+          "id": "2",
+          "quote": "Wir kalkulieren Festpreis nach einem kurzen Gespräch — Deliverables, Meilensteine und Abnahmekriterien schriftlich.",
+          "name": "MIHI's",
+          "role": "Studio-Versprechen",
+          "company": "Always",
+          "rating": 5,
+          "avatar": ""
+        },
+        {
+          "id": "3",
+          "quote": "Wir liefern mit DSGVO-bewussten Defaults und einem Übergabe-Paket, das Ihr nächster Entwickler wirklich nutzen kann.",
+          "name": "MIHI's",
+          "role": "Studio-Versprechen",
+          "company": "Always",
+          "rating": 5,
+          "avatar": ""
+        }
+      ]
+    },
+    "faq": {
+      "badge": "FAQ",
+      "title": "Häufige Fragen",
+      "description": "Noch Fragen? Schreiben Sie uns — wir antworten innerhalb eines Werktags.",
+      "items": [
+        {
+          "question": "Wie läuft ein typisches Projekt ab?",
+          "answer": "Die meisten Projekte starten mit einem kurzen Discovery-Gespräch und einem schriftlichen Scope, gefolgt von einer Festpreis-Umsetzung. Die Dauer hängt vom Paket ab — von einer fokussierten Landingpage bis zu einer größeren Website oder einem Shop."
+        },
+        {
+          "question": "Wie wird kalkuliert?",
+          "answer": "Wir kalkulieren nach Scope und Ergebnis, nicht nach offenen Stunden. Nach einem kurzen Gespräch erhalten Sie ein Festpreisangebot mit Deliverables, Meilensteinen und Abnahmekriterien. Optionale Care-Pläne werden separat abgerechnet."
+        },
+        {
+          "question": "Mit wem arbeite ich?",
+          "answer": "MIHI's ist ein founder-geführtes Studio. Sie arbeiten direkt mit den Menschen, die Ihr Projekt umsetzen — keine anonyme Ticket-Warteschlange und kein erfundenes „embedded Squad“."
+        },
+        {
+          "question": "Welche Technologien nutzen Sie?",
+          "answer": "Schwerpunkte sind Next.js, React, TypeScript, WordPress, Shopify, moderne CMS sowie Automatisierung mit n8n, Make oder individuellen APIs. Wir arbeiten auch in bestehenden Stacks."
+        },
+        {
+          "question": "Übernehmen Sie Hosting, Wartung und Support?",
+          "answer": "Ja. Wir können auf Vercel oder Ihrer Infrastruktur deployen und bieten optionale Betreuung für Updates, Backups, Monitoring und ein definiertes Antwortfenster."
+        },
+        {
+          "question": "Wie schnell können wir starten?",
+          "answer": "Starttermine hängen von der aktuellen Kapazität ab. Wir antworten innerhalb eines Werktags mit einer ehrlichen Einschätzung — und sagen nur zu, wenn wir liefern können."
+        },
+        {
+          "question": "Unterzeichnen Sie NDAs?",
+          "answer": "Selbstverständlich. Wir unterzeichnen gerne gegenseitige NDAs, bevor sensible Informationen geteilt werden."
+        }
+      ]
+    },
+    "contact": {
+      "badge": "Kontakt",
+      "title": "Lassen Sie uns etwas Wirkungsvolles bauen",
+      "description": "Erzählen Sie uns von Zeitplan, Budgetrahmen und Zielen. Wir melden uns mit konkreten nächsten Schritten.",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon (optional)",
+      "subject": "Betreff",
+      "message": "Nachricht",
+      "templateId": "Template-ID (optional)",
+      "templateIdHelper": "Wenn Sie uns wegen eines Ready-to-Go Templates kontaktieren, tragen Sie hier die Template-ID ein.",
+      "namePlaceholder": "Max Mustermann",
+      "emailPlaceholder": "Sie@firma.de",
+      "phonePlaceholder": "+49 170 0000000",
+      "subjectPlaceholder": "Anfrage Webentwicklung",
+      "messagePlaceholder": "Was möchten Sie umsetzen? Zeitplan? Ungefährer Budgetrahmen?",
+      "templateIdPlaceholder": "Template-ID eingeben, z. B. TPL-001",
+      "templateInquirySubject": "Ready-to-Go Template-Anfrage — {id}",
+      "submit": "Nachricht senden",
+      "sending": "Wird gesendet…",
+      "success": "Vielen Dank! Ihre Nachricht wurde gesendet. Wir melden uns in der Regel innerhalb von 24 Stunden.",
+      "error": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt per E-Mail."
+    },
+    "footer": {
+      "agency": "Agentur",
+      "resources": "Ressourcen",
+      "legal": "Rechtliches",
+      "rights": "Alle Rechte vorbehalten.",
+      "about": "Über uns",
+      "services": "Leistungen",
+      "templates": "Templates",
+      "process": "Ablauf",
+      "faq": "FAQ",
+      "pricing": "Preise",
+      "contact": "Kontakt",
+      "privacy": "Datenschutz",
+      "terms": "AGB",
+      "cookies": "Cookies",
+      "impressum": "Impressum"
+    },
+    "projects": [
+      {
+        "slug": "offer-custom-web",
+        "title": "Individuelle Websites / Next.js",
+        "summary": "Maßgeschneiderte Sites und Plattformen auf modernen Frameworks — fester Scope, sauberer Code und eine Übergabe, die Ihr Team beherrscht.",
+        "category": "Webentwicklung",
+        "tags": [
+          "Next.js",
+          "CMS",
+          "Übergabe"
+        ],
+        "cover": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Preis",
+            "value": "Festpreis"
+          },
+          {
+            "label": "Lieferung",
+            "value": "Übergabe-Docs"
+          }
+        ]
+      },
+      {
+        "slug": "offer-shop-platforms",
+        "title": "Shopify- / WordPress-Shops",
+        "summary": "Shops für den deutschen Checkout-Alltag — Zahlungsarten, Rechtstexte und eine Pflege, die Ihr Team selbst übernehmen kann.",
+        "category": "E-Commerce",
+        "tags": [
+          "Shopify",
+          "WordPress",
+          "DACH"
+        ],
+        "cover": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Checkout",
+            "value": "DE-ready"
+          },
+          {
+            "label": "Betrieb",
+            "value": "Team-pflegbar"
+          }
+        ]
+      },
+      {
+        "slug": "offer-api-automation",
+        "title": "API & Automatisierung",
+        "summary": "CRM, Shop und Tools verbinden — dokumentierte Integrationen mit Fehlerbehandlung und Monitoring, kein fragiles Einmal-Skript.",
+        "category": "Automatisierung",
+        "tags": [
+          "API",
+          "n8n",
+          "CRM"
+        ],
+        "cover": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Umsetzung",
+            "value": "Dokumentiert"
+          },
+          {
+            "label": "Betrieb",
+            "value": "Überwacht"
+          }
+        ]
+      },
+      {
+        "slug": "offer-landing-pages",
+        "title": "Landing- / Kampagnenseiten",
+        "summary": "Fokussierte Seiten für Launches und Leadgenerierung — ein klares Ziel, schnelle Ladezeiten und ein Scope-Zeitplan, den Sie vorab vereinbaren.",
+        "category": "Landingpages",
+        "tags": [
+          "Conversion",
+          "Ads",
+          "Speed"
+        ],
+        "cover": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Zeitplan",
+            "value": "Gescoped"
+          },
+          {
+            "label": "Ziel",
+            "value": "Ein CTA"
+          }
+        ]
+      }
+    ]
+  },
+  "en": {
+    "meta": {
+      "title": "MIHI's — Digital Agency for Web, E-Commerce & Automation",
+      "description": "MIHI's is a digital agency for German and DACH businesses: custom web development, Shopify, SEO, UI/UX, and AI automation — GDPR-aware and outcome-focused.",
+      "ogAlt": "MIHI's — Digital agency for businesses in Germany",
+      "keywords": [
+        "web development Germany",
+        "Shopify agency",
+        "WordPress development",
+        "SEO optimization",
+        "UI UX design",
+        "AI automation",
+        "website maintenance",
+        "e-commerce agency"
+      ]
+    },
+    "nav": {
+      "home": "Home",
+      "services": "Services",
+      "consultation": "AI Consultant",
+      "templates": "Templates",
+      "work": "Work",
+      "process": "Process",
+      "pricing": "Pricing",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "more": "More",
+      "cta": "Start a project",
+      "menu": "Menu",
+      "openMenu": "Open menu"
+    },
+    "templates": {
+      "badge": "Ready-to-Go",
+      "title": "Ready-to-Go Websites",
+      "description": "Choose a design, make it yours, and go live in just a few hours. Production-ready templates — customized, branded, and launched fast.",
+      "pageTitle": "Website Templates",
+      "pageDescription": "Browse our full collection of production-ready website templates. Filter by category, preview live sites, and request the one that fits your brand.",
+      "preview": "Preview Website",
+      "getTemplate": "Get This Template",
+      "templateId": "ID",
+      "viewAll": "View All Templates",
+      "filterLabel": "Filter by category",
+      "all": "All",
+      "results": "{count} templates",
+      "empty": "No templates match this category yet."
+    },
+    "language": {
+      "label": "Language",
+      "switchTo": "Switch language",
+      "de": "Deutsch",
+      "en": "English"
+    },
+    "hero": {
+      "badge": "Accepting new projects",
+      "titleBefore": "We build",
+      "titleHighlight": "digital products",
+      "titleAfter": " that scale",
+      "description": "MIHI's is your agency for web development, e-commerce, and automation — with GDPR-aware defaults, measurable performance, and a handover your team can own.",
+      "ctaPrimary": "Request a quote",
+      "ctaSecondary": "Explore services",
+      "trust": "Brand. Build. Scale. · Always reachable · Reply within 24h"
+    },
+    "clients": {
+      "label": "What you can count on"
+    },
+    "consultationPromo": {
+      "badge": "Free AI strategy session",
+      "title": "Turn your business context into a clear brand roadmap",
+      "description": "Answer a focused set of questions and receive a personalized, structured strategy for positioning, marketing, sales, and growth.",
+      "start": "Start free consultation",
+      "learnMore": "See how it works",
+      "trust": [
+        "No credit card",
+        "Save and resume",
+        "Downloadable report"
+      ],
+      "insightTitle": "Built around your answers",
+      "insightBody": "Each round builds on your previous context, then turns it into priorities your team can act on."
+    },
+    "about": {
+      "badge": "About",
+      "title": "MIHI's — built for momentum and craft",
+      "description": "Strategy, design, and engineering under one roof — so you ship faster without sacrificing quality.",
+      "storyTitle": "How we work",
+      "storyP1": "MIHI's is a founder-led studio for custom web, WordPress, Shopify, APIs, and AI automation. We work in German and English, with GDPR-aware defaults from day one — and a clear handover your next team can actually use.",
+      "storyP2": "We measure success in outcomes you can verify: clear scope, measurable performance targets, and systems your team can run after launch — without invented track records or filler claims.",
+      "stats": [
+        {
+          "value": "24/7",
+          "label": "Always available mindset",
+          "description": "We stay reachable for your project — not a black hole inbox."
+        },
+        {
+          "value": "24h",
+          "label": "Reply within one business day",
+          "description": "You hear back within one business day."
+        },
+        {
+          "value": "90+",
+          "label": "Lighthouse performance target",
+          "description": "We aim for Lighthouse 90+ where the scope allows."
+        },
+        {
+          "value": "Fixed",
+          "label": "Clear fixed-scope quotes",
+          "description": "Fixed-price proposals after we agree the scope."
+        }
+      ],
+      "timeline": [
+        {
+          "year": "01 Kickoff",
+          "title": "Align on goals",
+          "description": "We clarify goals, audience, constraints, and success criteria — then lock a written scope before build starts."
+        },
+        {
+          "year": "02 Build",
+          "title": "Design & implement",
+          "description": "We design and build in short cycles with working previews, so you can review progress early and often."
+        },
+        {
+          "year": "03 Launch",
+          "title": "Ship with care",
+          "description": "We harden, test, and go live with a checklist — performance, accessibility, and GDPR-aware defaults included."
+        },
+        {
+          "year": "04 Care",
+          "title": "Handover & optional care",
+          "description": "You get documentation and ownership. Optional care covers updates, monitoring, and small improvements."
+        }
+      ]
+    },
+    "services": {
+      "badge": "Services",
+      "title": "Focused practices to launch and grow",
+      "description": "Six clearly scoped practices. Founder-led delivery. Pick a focus or combine what you need.",
+      "learnMore": "Learn more",
+      "footerNote": "Need something bespoke? We scope custom engagements.",
+      "benefitsLabel": "What you get",
+      "backToServices": "All services",
+      "relatedCta": "Discuss your project"
+    },
+    "work": {
+      "badge": "What we deliver",
+      "title": "Offerings you can discuss with us",
+      "description": "Honest scopes across custom web, shops, APIs, and campaign pages — no fake client logos or invented metrics.",
+      "viewCase": "Discuss this offer"
+    },
+    "process": {
+      "badge": "Process",
+      "title": "From discovery to a clean handover",
+      "description": "A clear four-phase playbook — with weekly previews from week one.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Discover",
+          "description": "A structured discovery — interviews, audits, and competitive research that ground every decision in evidence.",
+          "deliverables": [
+            "Stakeholder interviews",
+            "Competitive landscape",
+            "Technical & content audit",
+            "Strategic brief"
+          ]
+        },
+        {
+          "step": "02",
+          "title": "Design",
+          "description": "UX, UI, and a design system in Figma — with prototypes and developer-ready specs.",
+          "deliverables": [
+            "Wireframes & prototypes",
+            "Visual design system",
+            "High-fidelity UI",
+            "Design tokens & specs"
+          ]
+        },
+        {
+          "step": "03",
+          "title": "Build",
+          "description": "Founder-led delivery in one-week cycles. You get a working preview from week one, with reviews and careful QA.",
+          "deliverables": [
+            "Next.js / WordPress / Shopify",
+            "CMS & API integration",
+            "CI/CD pipeline",
+            "Accessibility & performance QA"
+          ]
+        },
+        {
+          "step": "04",
+          "title": "Launch",
+          "description": "We ship with a checklist — then hand over documentation, credentials, and an optional care plan.",
+          "deliverables": [
+            "Go-live checklist",
+            "Monitoring setup",
+            "Handover docs",
+            "Optional care plan"
+          ]
+        }
+      ]
+    },
+    "pricing": {
+      "badge": "Pricing",
+      "title": "Transparent project packages",
+      "description": "Clear one-time project packages after a short call — scoped before we start.",
+      "monthly": "Project",
+      "yearly": "Care",
+      "save": "Optional care",
+      "perMonth": " once",
+      "perYear": " /yr care",
+      "mostPopular": "Most popular",
+      "tiers": [
+        {
+          "id": "starter",
+          "name": "Starter",
+          "description": "A small site or landing — up to about 5 pages, fixed scope.",
+          "monthly": 990,
+          "yearly": 990,
+          "cta": "Choose Starter",
+          "features": [
+            "Landing or site up to ~5 pages",
+            "Responsive, semantic markup",
+            "Basic editing / simple CMS",
+            "Lighthouse target 90+",
+            "Handover documentation"
+          ]
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "description": "A custom site or shop starter with room for real content and structure.",
+          "monthly": 2490,
+          "yearly": 2490,
+          "highlight": true,
+          "cta": "Talk to us",
+          "features": [
+            "Custom site or shop starter",
+            "UI/UX tailored to your brand",
+            "CMS or Shopify/WordPress setup",
+            "Performance & accessibility QA",
+            "Clear fixed-scope quote",
+            "Handover your team can own"
+          ]
+        },
+        {
+          "id": "premium",
+          "name": "Premium",
+          "description": "Larger custom web or commerce builds with integrations.",
+          "monthly": 5900,
+          "yearly": 5900,
+          "cta": "Book a call",
+          "features": [
+            "Larger custom web / commerce",
+            "API or tool integrations",
+            "Automation where it earns its place",
+            "GDPR-aware defaults",
+            "Launch checklist & monitoring",
+            "Priority reply within 24h"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "badge": "Promises",
+      "title": "Commitments we stand behind",
+      "description": "No fabricated quotes from invented people — just studio promises you can hold us to.",
+      "items": [
+        {
+          "id": "1",
+          "quote": "We reply within one business day — and we tell you clearly if a start date slips.",
+          "name": "MIHI's",
+          "role": "Studio commitment",
+          "company": "Always",
+          "rating": 5,
+          "avatar": ""
+        },
+        {
+          "id": "2",
+          "quote": "We quote fixed scope after a short call — deliverables, milestones, and acceptance criteria in writing.",
+          "name": "MIHI's",
+          "role": "Studio commitment",
+          "company": "Always",
+          "rating": 5,
+          "avatar": ""
+        },
+        {
+          "id": "3",
+          "quote": "We ship with GDPR-aware defaults and a handover pack your next developer can actually use.",
+          "name": "MIHI's",
+          "role": "Studio commitment",
+          "company": "Always",
+          "rating": 5,
+          "avatar": ""
+        }
+      ]
+    },
+    "faq": {
+      "badge": "FAQ",
+      "title": "Questions we hear often",
+      "description": "Still curious? Reach out — we reply within one business day.",
+      "items": [
+        {
+          "question": "What does a typical engagement look like?",
+          "answer": "Most projects start with a short discovery call and a written scope, then a fixed-price build. Timeline depends on the package — from a focused landing to a larger custom site or shop."
+        },
+        {
+          "question": "How are projects priced?",
+          "answer": "We price by scope and outcome, not open-ended hours. After a short call you receive a fixed-fee proposal with deliverables, milestones, and acceptance criteria. Optional care plans are billed separately."
+        },
+        {
+          "question": "Who will I work with?",
+          "answer": "MIHI's is a founder-led studio. You work directly with the people building your project — no anonymous ticket queue and no invented “embedded squad.”"
+        },
+        {
+          "question": "What is your tech stack?",
+          "answer": "We specialize in Next.js, React, TypeScript, WordPress, Shopify, modern CMS platforms, and automation with n8n, Make, or custom APIs. We can also work within existing stacks."
+        },
+        {
+          "question": "Do you handle hosting, maintenance, and support?",
+          "answer": "Yes. We can deploy on Vercel or your infrastructure and offer optional care for updates, backups, monitoring, and a defined reply window."
+        },
+        {
+          "question": "How fast can we start?",
+          "answer": "Start dates depend on current capacity. We reply within one business day with an honest estimate — and we only commit when we can deliver."
+        },
+        {
+          "question": "Do you sign NDAs?",
+          "answer": "Absolutely. We're happy to sign mutual NDAs before any sensitive material is shared."
+        }
+      ]
+    },
+    "contact": {
+      "badge": "Contact",
+      "title": "Let's build something that matters",
+      "description": "Tell us about your timeline, budget band, and goals. We'll respond with concrete next steps.",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "subject": "Subject",
+      "message": "Message",
+      "templateId": "Template ID (optional)",
+      "templateIdHelper": "If you're contacting us about a Ready-to-Go Template, enter its Template ID here.",
+      "namePlaceholder": "Alex Rivera",
+      "emailPlaceholder": "you@company.com",
+      "phonePlaceholder": "+49 170 0000000",
+      "subjectPlaceholder": "Web development inquiry",
+      "messagePlaceholder": "What are you building? Timeline? Approximate budget?",
+      "templateIdPlaceholder": "Enter template ID, e.g. TPL-001",
+      "templateInquirySubject": "Ready-to-Go Template request — {id}",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "success": "Thank you! Your message was sent. We'll usually reply within 24 hours.",
+      "error": "We couldn't send your message. Please try again or email us directly."
+    },
+    "footer": {
+      "agency": "Agency",
+      "resources": "Resources",
+      "legal": "Legal",
+      "rights": "All rights reserved.",
+      "about": "About",
+      "services": "Services",
+      "templates": "Templates",
+      "process": "Process",
+      "faq": "FAQ",
+      "pricing": "Pricing",
+      "contact": "Contact",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies",
+      "impressum": "Impressum"
+    },
+    "projects": [
+      {
+        "slug": "offer-custom-web",
+        "title": "Custom web / Next.js sites",
+        "summary": "Bespoke sites and platforms on modern frameworks — fixed scope, clean code, and a handover your team can own.",
+        "category": "Web development",
+        "tags": [
+          "Next.js",
+          "CMS",
+          "Handover"
+        ],
+        "cover": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Pricing",
+            "value": "Fixed scope"
+          },
+          {
+            "label": "Delivery",
+            "value": "Handover docs"
+          }
+        ]
+      },
+      {
+        "slug": "offer-shop-platforms",
+        "title": "Shopify / WordPress shops",
+        "summary": "Storefronts set up for German checkout realities — payments, legal texts, and an editing experience your team can run.",
+        "category": "E-commerce",
+        "tags": [
+          "Shopify",
+          "WordPress",
+          "DACH"
+        ],
+        "cover": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Checkout",
+            "value": "DE-ready"
+          },
+          {
+            "label": "Ops",
+            "value": "Team editable"
+          }
+        ]
+      },
+      {
+        "slug": "offer-api-automation",
+        "title": "API & automation",
+        "summary": "Connect CRM, shop, and tools with documented integrations — error handling and monitoring included, not a fragile one-off script.",
+        "category": "Automation",
+        "tags": [
+          "API",
+          "n8n",
+          "CRM"
+        ],
+        "cover": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Build",
+            "value": "Documented"
+          },
+          {
+            "label": "Ops",
+            "value": "Monitored"
+          }
+        ]
+      },
+      {
+        "slug": "offer-landing-pages",
+        "title": "Landing / campaign pages",
+        "summary": "Focused pages for launches and lead gen — one clear goal, fast load times, and a scoped timeline you agree upfront.",
+        "category": "Landing pages",
+        "tags": [
+          "Conversion",
+          "Ads",
+          "Speed"
+        ],
+        "cover": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1600&q=80",
+        "metrics": [
+          {
+            "label": "Timeline",
+            "value": "Scoped"
+          },
+          {
+            "label": "Goal",
+            "value": "One CTA"
+          }
+        ]
+      }
+    ]
+  },
+  "services": [
+    {
+      "slug": "custom-web-development",
+      "icon": "Code2",
+      "accent": "from-violet-500 to-indigo-500",
+      "title": {
+        "en": "Custom Web Development",
+        "de": "Individuelle Webentwicklung"
+      },
+      "short": {
+        "en": "Bespoke websites and web platforms built on modern frameworks — no page-builder compromises.",
+        "de": "Individuelle Websites und Webplattformen auf Basis moderner Frameworks — ganz ohne Page-Builder-Kompromisse."
+      },
+      "long": {
+        "en": "For businesses that have outgrown templates, we design and build custom websites and web platforms using modern frameworks like React and Next.js. You get a site built around your exact content structure, integrations, and performance targets — not a theme with your logo on it. Every build includes GDPR-aware defaults, clean semantic code your next developer can actually read, and a full handover package.",
+        "de": "Für Unternehmen, die aus Templates herausgewachsen sind, gestalten und entwickeln wir individuelle Websites und Webplattformen mit modernen Frameworks wie React und Next.js. Sie erhalten eine Website, die exakt auf Ihre Inhaltsstruktur, Schnittstellen und Performance-Ziele zugeschnitten ist — kein Theme mit aufgesetztem Logo. Jedes Projekt entsteht mit DSGVO-bewussten Standardeinstellungen, sauberem, semantischem Code und einer vollständig dokumentierten Übergabe."
+      },
+      "benefits": {
+        "en": [
+          "Built for your exact requirements, not a template's limitations",
+          "Faster load times and better Core Web Vitals than page-builder sites",
+          "Scales cleanly as your business and content grow",
+          "Full code ownership and documentation at handover"
+        ],
+        "de": [
+          "Exakt auf Ihre Anforderungen zugeschnitten statt Template-Grenzen",
+          "Schnellere Ladezeiten und bessere Core-Web-Vitals-Werte als bei Page-Buildern",
+          "Wächst sauber mit Ihrem Unternehmen und Ihren Inhalten mit",
+          "Vollständige Code-Eigentumsrechte und Dokumentation bei der Übergabe"
+        ]
+      },
+      "cta": {
+        "en": "Request a Web Development Quote",
+        "de": "Angebot für Webentwicklung anfragen"
+      },
+      "seoTitle": {
+        "de": "Individuelle Webentwicklung für Unternehmen in Deutschland | MIHI's",
+        "en": "Custom Web Development for Businesses in Germany | MIHI's"
+      },
+      "metaDescription": {
+        "de": "Maßgeschneiderte Websites und Webplattformen mit React/Next.js — schnell, sicher und DSGVO-bewusst. Jetzt Angebot anfragen.",
+        "en": "Bespoke websites and web platforms with React/Next.js — fast, secure, and GDPR-aware. Request a quote today."
+      }
+    },
+    {
+      "slug": "wordpress-development",
+      "icon": "FileCode2",
+      "accent": "from-sky-500 to-blue-600",
+      "title": {
+        "en": "WordPress Development",
+        "de": "WordPress-Entwicklung"
+      },
+      "short": {
+        "en": "Professional WordPress sites your marketing team can actually manage after we leave.",
+        "de": "Professionelle WordPress-Websites, die Ihr Marketing-Team auch nach der Übergabe selbst pflegen kann."
+      },
+      "long": {
+        "en": "We build WordPress sites the way a marketing team actually needs them: custom themes or carefully chosen premium themes, a clean editing experience in the block editor, and only the plugins that earn their place. Every WordPress project is checked for update hygiene, security hardening, and page speed before handover, so you're not inheriting technical debt on day one.",
+        "de": "Wir entwickeln WordPress-Websites so, wie ein Marketing-Team sie wirklich braucht: individuelle Themes oder sorgfältig ausgewählte Premium-Themes, eine übersichtliche Bearbeitung im Block-Editor und nur die Plugins, die ihren Platz auch verdienen. Jedes WordPress-Projekt wird vor der Übergabe auf Update-Hygiene, Sicherheitshärtung und Ladegeschwindigkeit geprüft."
+      },
+      "benefits": {
+        "en": [
+          "An editing experience your team can use without a developer",
+          "Security hardening and update discipline from launch",
+          "Custom Gutenberg blocks where they genuinely help",
+          "No plugin bloat — only what's justified"
+        ],
+        "de": [
+          "Bearbeitbar durch Ihr Team, ganz ohne Entwickler",
+          "Sicherheitshärtung und Update-Disziplin ab Launch",
+          "Individuelle Gutenberg-Blöcke, wo sie wirklich Mehrwert bieten",
+          "Kein Plugin-Wildwuchs — nur, was sich rechtfertigt"
+        ]
+      },
+      "cta": {
+        "en": "Get a WordPress Quote",
+        "de": "WordPress-Angebot anfragen"
+      },
+      "seoTitle": {
+        "de": "WordPress-Entwicklung für Unternehmen | MIHI's",
+        "en": "WordPress Development for Businesses | MIHI's"
+      },
+      "metaDescription": {
+        "de": "Professionelle WordPress-Websites mit sauberem Code, Sicherheitshärtung und einfacher Bedienung für Ihr Team. Jetzt anfragen.",
+        "en": "Professional WordPress sites with clean code, security hardening, and an editing experience your team can own."
+      }
+    },
+    {
+      "slug": "shopify-development",
+      "icon": "ShoppingBag",
+      "accent": "from-emerald-400 to-teal-500",
+      "title": {
+        "en": "Shopify Development",
+        "de": "Shopify-Entwicklung"
+      },
+      "short": {
+        "en": "Shopify stores built for German shoppers — Klarna, SEPA, and legal texts included.",
+        "de": "Shopify-Stores für den deutschen Markt — inklusive Klarna, SEPA und rechtssicheren Texten."
+      },
+      "long": {
+        "en": "We design, build, and migrate Shopify stores for German and DACH retailers, including details generic Shopify agencies often miss: SEPA and Klarna checkout, Trusted Shops integration, German-language legal texts, and VAT-correct invoicing. Whether you need a customized theme or a fully custom Shopify Plus build, we scope it around your product catalogue and order volume.",
+        "de": "Wir gestalten, entwickeln und migrieren Shopify-Stores für Händler in Deutschland und der DACH-Region — inklusive der Details, die generische Shopify-Agenturen oft übersehen: SEPA- und Klarna-Checkout, Trusted-Shops-Integration, deutschsprachige Rechtstexte und umsatzsteuerkonforme Rechnungsstellung. Ob Theme-Anpassung oder vollständig individueller Shopify-Plus-Aufbau — wir kalkulieren nach Ihrem Produktkatalog und Bestellvolumen."
+      },
+      "benefits": {
+        "en": [
+          "German payment methods and legal texts built in from day one",
+          "Theme customization or full custom builds, scoped to your catalogue",
+          "Clean data migration from your current platform with no lost orders",
+          "Ongoing app and performance audits available post-launch"
+        ],
+        "de": [
+          "Deutsche Zahlungsarten und Rechtstexte von Anfang an integriert",
+          "Theme-Anpassung oder vollständiger Custom-Build, passend zu Ihrem Katalog",
+          "Saubere Datenmigration ohne Bestellverlust",
+          "Laufende App- und Performance-Audits nach dem Launch verfügbar"
+        ]
+      },
+      "cta": {
+        "en": "Get a Shopify Quote",
+        "de": "Shopify-Angebot anfragen"
+      },
+      "seoTitle": {
+        "de": "Shopify-Entwicklung für deutsche Onlineshops | MIHI's",
+        "en": "Shopify Development for German Online Stores | MIHI's"
+      },
+      "metaDescription": {
+        "de": "Shopify-Stores mit SEPA, Klarna und rechtssicheren Texten für den deutschen Markt. Individuelle Themes und Migrationen.",
+        "en": "Shopify stores with SEPA, Klarna, and legally sound texts for the German market. Custom themes and migrations."
+      }
+    },
+    {
+      "slug": "api-integration",
+      "icon": "Link2",
+      "accent": "from-indigo-500 to-violet-600",
+      "title": {
+        "en": "API Integration",
+        "de": "API-Integration"
+      },
+      "short": {
+        "en": "Your CRM, ERP, payments, and marketing tools, connected and kept in sync.",
+        "de": "Ihr CRM, ERP, Zahlungsanbieter und Marketing-Tools — verbunden und synchron gehalten."
+      },
+      "long": {
+        "en": "Manual data re-entry between systems costs hours and introduces errors. We build and maintain API integrations between your website, CRM, ERP, payment providers, and marketing tools, with proper error handling and monitoring rather than a fragile one-off script. Every integration includes documentation of what's connected to what.",
+        "de": "Manuelle Datenübertragung zwischen Systemen kostet Zeit und verursacht Fehler. Wir entwickeln und betreuen API-Integrationen zwischen Ihrer Website, CRM, ERP, Zahlungsanbietern und Marketing-Tools — mit sauberer Fehlerbehandlung und Monitoring statt einem fragilen Einmal-Skript. Jede Integration wird dokumentiert."
+      },
+      "benefits": {
+        "en": [
+          "Eliminates manual double data entry",
+          "Built with error handling and monitoring, not \"hope it works\"",
+          "Documented, so it doesn't become a black box",
+          "Scoped by complexity — from a single sync to full orchestration"
+        ],
+        "de": [
+          "Beseitigt manuelle Doppelerfassung von Daten",
+          "Mit Fehlerbehandlung und Monitoring statt Blindvertrauen",
+          "Dokumentiert, damit keine Blackbox entsteht",
+          "Kalkuliert nach Komplexität — vom Einzel-Sync bis zur vollständigen Orchestrierung"
+        ]
+      },
+      "cta": {
+        "en": "Scope an Integration",
+        "de": "Integration anfragen"
+      },
+      "seoTitle": {
+        "de": "API-Integration für CRM, ERP & Zahlungsanbieter | MIHI's",
+        "en": "API Integration for CRM, ERP & Payment Providers | MIHI's"
+      },
+      "metaDescription": {
+        "de": "Systeme verbinden und synchron halten — dokumentiert, überwacht und zuverlässig.",
+        "en": "Connect and sync your systems — documented, monitored, and reliable."
+      }
+    },
+    {
+      "slug": "seo-optimization",
+      "icon": "Search",
+      "accent": "from-lime-400 to-green-500",
+      "title": {
+        "en": "SEO Optimization",
+        "de": "SEO-Optimierung"
+      },
+      "short": {
+        "en": "Technical SEO and content strategy built for how Germans actually search.",
+        "de": "Technisches SEO und Content-Strategie, ausgerichtet auf deutsches Suchverhalten."
+      },
+      "long": {
+        "en": "We combine technical SEO (site speed, crawlability, structured data), content strategy in native German, and — increasingly relevant in 2026 — visibility inside AI answer engines like ChatGPT and Google AI Overviews. Reporting is in plain business terms: rankings and traffic are a means to an end, tracked alongside qualified leads and revenue impact.",
+        "de": "Wir verbinden technisches SEO (Ladegeschwindigkeit, Crawlbarkeit, strukturierte Daten), Content-Strategie in muttersprachlichem Deutsch und — 2026 zunehmend relevant — Sichtbarkeit in KI-Antwortsystemen wie ChatGPT und Google AI Overviews. Das Reporting erfolgt in klarer Geschäftssprache: Rankings und Traffic sind Mittel zum Zweck, ergänzt um qualifizierte Anfragen und Umsatzwirkung."
+      },
+      "benefits": {
+        "en": [
+          "Technical audits that fix root causes, not just symptoms",
+          "Native-quality German content, not translated filler",
+          "AI-search (GEO/AEO) visibility considered where relevant",
+          "Reporting tied to business outcomes, not vanity metrics"
+        ],
+        "de": [
+          "Technische Audits, die Ursachen beheben — nicht nur Symptome",
+          "Deutsche Inhalte in muttersprachlicher Qualität, keine übersetzten Füllwörter",
+          "KI-Sichtbarkeit (GEO/AEO), wo sie für Ihr Projekt sinnvoll ist",
+          "Reporting mit Bezug zu Geschäftskennzahlen statt Vanity-Metriken"
+        ]
+      },
+      "cta": {
+        "en": "Get an SEO Audit",
+        "de": "SEO-Audit anfragen"
+      },
+      "seoTitle": {
+        "de": "SEO-Optimierung für den deutschen Markt | MIHI's",
+        "en": "SEO Optimization for the German Market | MIHI's"
+      },
+      "metaDescription": {
+        "de": "Technisches SEO, Content-Strategie und KI-Suchsichtbarkeit (GEO/AEO) für Unternehmen in Deutschland.",
+        "en": "Technical SEO, content strategy, and AI-search visibility (GEO/AEO) for businesses in Germany."
+      }
+    },
+    {
+      "slug": "ai-automation",
+      "icon": "Sparkles",
+      "accent": "from-fuchsia-500 to-purple-500",
+      "title": {
+        "en": "AI Automation",
+        "de": "KI-Automatisierung"
+      },
+      "short": {
+        "en": "AI copilots and workflow automation that remove real manual work — with governance included.",
+        "de": "KI-Copiloten und Workflow-Automatisierung, die echte manuelle Arbeit einsparen — inklusive Governance."
+      },
+      "long": {
+        "en": "We design and build AI-powered automation for support triage, lead qualification, document processing, and internal reporting — using retrieval-augmented generation (RAG) where it genuinely improves accuracy, not AI for its own sake. Every deployment includes monitoring, human-in-the-loop escalation, and a clear view of what data the system can access.",
+        "de": "Wir konzipieren und entwickeln KI-gestützte Automatisierung für Support-Triage, Lead-Qualifizierung, Dokumentenverarbeitung und internes Reporting — mit Retrieval-Augmented Generation (RAG), wo sie die Genauigkeit wirklich verbessert. Jede Umsetzung umfasst Monitoring, eine Eskalation an Menschen bei Grenzfällen sowie eine klare Übersicht der Datenzugriffe."
+      },
+      "benefits": {
+        "en": [
+          "Scoped around a real, measurable business process",
+          "Human-in-the-loop escalation, not a fully unsupervised black box",
+          "Monitoring and cost controls from day one",
+          "Data access boundaries documented for your own compliance records"
+        ],
+        "de": [
+          "Ausgerichtet auf einen echten, messbaren Geschäftsprozess",
+          "Eskalation an Menschen bei Grenzfällen statt unüberwachter Blackbox",
+          "Monitoring und Kostenkontrolle ab dem ersten Tag",
+          "Dokumentierte Datenzugriffsgrenzen für Ihre eigene Compliance"
+        ]
+      },
+      "cta": {
+        "en": "Explore AI Automation",
+        "de": "KI-Automatisierung erkunden"
+      },
+      "seoTitle": {
+        "de": "KI-Automatisierung für Unternehmen | MIHI's",
+        "en": "AI Automation for Businesses | MIHI's"
+      },
+      "metaDescription": {
+        "de": "KI-Copiloten und Automatisierung für Support, Vertrieb und interne Prozesse — mit Governance und Monitoring.",
+        "en": "AI copilots and automation for support, sales, and internal processes — with governance and monitoring."
+      }
+    }
+  ],
+  "social": {
+    "twitter": "https://twitter.com/mihisagency",
+    "github": "https://github.com/mihis-agency",
+    "linkedin": "https://linkedin.com/company/mihis-agency",
+    "instagram": "https://instagram.com/mihis.agency"
+  },
+  "settings": {
+    "name": "MIHI's",
+    "tagline": "Brand. Build. Scale.",
+    "email": "info@mihis.agency",
+    "phone": "",
+    "address": "Berlin, Deutschland",
+    "founded": 2026
+  },
+  "clients": [
+    {
+      "name": "24/7 availability mindset",
+      "logo": "default"
+    },
+    {
+      "name": "Always reachable",
+      "logo": "default"
+    },
+    {
+      "name": "Clear fixed-scope quotes",
+      "logo": "default"
+    },
+    {
+      "name": "GDPR-aware by default",
+      "logo": "default"
+    },
+    {
+      "name": "Lighthouse 90+ target",
+      "logo": "default"
+    },
+    {
+      "name": "Reply within 24h",
+      "logo": "default"
+    },
+    {
+      "name": "Full handover documentation",
+      "logo": "default"
+    },
+    {
+      "name": "Transparent project pricing",
+      "logo": "default"
+    }
+  ],
+  "templates": [
+    {
+      "id": "TPL-001",
+      "name": "Maison Lumière",
+      "slug": "maison-lumiere",
+      "categories": [
+        "Restaurant"
+      ],
+      "image": "/httpsmihi-maison-lumiere-restaurant.vercel.app.png",
+      "websiteUrl": "https://mihi-maison-lumiere-restaurant.vercel.app/",
+      "featured": true
+    },
+    {
+      "id": "TPL-002",
+      "name": "Luxury Fine Dining",
+      "slug": "luxury-fine-dining",
+      "categories": [
+        "Restaurant"
+      ],
+      "image": "/httpsmihi-luxury-fine-dining.vercel.app.png",
+      "websiteUrl": "https://mihi-luxury-fine-dining.vercel.app/",
+      "featured": true
+    },
+    {
+      "id": "TPL-003",
+      "name": "Modern Minimal",
+      "slug": "modern-minimal",
+      "categories": [
+        "Restaurant"
+      ],
+      "image": "/httpsmihi-modern-minimal.vercel.app.png",
+      "websiteUrl": "https://mihi-modern-minimal.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-004",
+      "name": "Italian Family",
+      "slug": "italian-family",
+      "categories": [
+        "Restaurant"
+      ],
+      "image": "/httpsmihi-italian-family.vercel.app.png",
+      "websiteUrl": "https://mihi-italian-family.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-005",
+      "name": "Steakhouse",
+      "slug": "steakhouse",
+      "categories": [
+        "Restaurant"
+      ],
+      "image": "/httpsmihi-steakhouse.vercel.app.png",
+      "websiteUrl": "https://mihi-steakhouse.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-006",
+      "name": "Mediterranean",
+      "slug": "mediterranean",
+      "categories": [
+        "Restaurant"
+      ],
+      "image": "/httpsmihi-mediterranean.vercel.app.png",
+      "websiteUrl": "https://mihi-mediterranean.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-007",
+      "name": "Cafe Bakery",
+      "slug": "cafe-bakery",
+      "categories": [
+        "Cafe",
+        "Restaurant"
+      ],
+      "image": "/httpsmihi-cafe-bakery.vercel.app.png",
+      "websiteUrl": "https://mihi-cafe-bakery.vercel.app/",
+      "featured": true
+    },
+    {
+      "id": "TPL-008",
+      "name": "Fusion Contemporary",
+      "slug": "fusion-contemporary",
+      "categories": [
+        "Restaurant"
+      ],
+      "image": "/httpsmihi-fusion-contemporary.vercel.app.png",
+      "websiteUrl": "https://mihi-fusion-contemporary.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-009",
+      "name": "Macup",
+      "slug": "macup",
+      "categories": [
+        "Cafe",
+        "Restaurant"
+      ],
+      "image": "/httpsmihi-macup.vercel.app.png",
+      "websiteUrl": "https://mihi-macup.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-010",
+      "name": "Impeccify",
+      "slug": "impeccify",
+      "categories": [
+        "Restaurant"
+      ],
+      "image": "/httpsmihi-impeccify.vercel.app.png",
+      "websiteUrl": "https://mihi-impeccify.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-011",
+      "name": "Purple Portfolio",
+      "slug": "purple-portfolio",
+      "categories": [
+        "Portfolio"
+      ],
+      "image": "/httpsmihi-purple-portfolio.vercel.app.png",
+      "websiteUrl": "https://mihi-purple-portfolio.vercel.app/",
+      "featured": true
+    },
+    {
+      "id": "TPL-012",
+      "name": "Catrip",
+      "slug": "catrip",
+      "categories": [
+        "Events"
+      ],
+      "image": "/httpsmihi-catrip.vercel.app.png",
+      "websiteUrl": "https://mihi-catrip.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-013",
+      "name": "Voice",
+      "slug": "voice",
+      "categories": [
+        "Media",
+        "Creator"
+      ],
+      "image": "/httpsmihi-voice.vercel.app.png",
+      "websiteUrl": "https://mihi-voice.vercel.app/",
+      "featured": true
+    },
+    {
+      "id": "TPL-014",
+      "name": "Luxury Salon",
+      "slug": "luxury-salon",
+      "categories": [
+        "Salon"
+      ],
+      "image": "/httpsmihi-luxury-salon.vercel.app.png",
+      "websiteUrl": "https://mihi-luxury-salon.vercel.app/",
+      "featured": true
+    },
+    {
+      "id": "TPL-015",
+      "name": "Minimal Salon",
+      "slug": "minimal-salon",
+      "categories": [
+        "Salon"
+      ],
+      "image": "/httpsmihi-minimal-salon.vercel.app.png",
+      "websiteUrl": "https://mihi-minimal-salon.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-016",
+      "name": "Hair Studio",
+      "slug": "hair-studio",
+      "categories": [
+        "Salon"
+      ],
+      "image": "/httpsmihi-hair-studio.vercel.app.png",
+      "websiteUrl": "https://mihi-hair-studio.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-017",
+      "name": "Spa",
+      "slug": "spa",
+      "categories": [
+        "Salon",
+        "Spa"
+      ],
+      "image": "/httpsmihi-spa.vercel.app.png",
+      "websiteUrl": "https://mihi-spa.vercel.app/",
+      "featured": true
+    },
+    {
+      "id": "TPL-018",
+      "name": "Grooming",
+      "slug": "grooming",
+      "categories": [
+        "Salon"
+      ],
+      "image": "/httpsmihi-grooming.vercel.app.png",
+      "websiteUrl": "https://mihi-grooming.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-019",
+      "name": "Korean Salon",
+      "slug": "korean-salon",
+      "categories": [
+        "Salon"
+      ],
+      "image": "/httpsmihi-korean-salon.vercel.app.png",
+      "websiteUrl": "https://mihi-korean-salon.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-020",
+      "name": "Beauty Bar",
+      "slug": "beauty-bar",
+      "categories": [
+        "Salon"
+      ],
+      "image": "/httpsmihi-beauty-bar.vercel.app.png",
+      "websiteUrl": "https://mihi-beauty-bar.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-021",
+      "name": "Fashion Salon",
+      "slug": "fashion-salon",
+      "categories": [
+        "Salon"
+      ],
+      "image": "/httpsmihi-fashion-salon.vercel.app.png",
+      "websiteUrl": "https://mihi-fashion-salon.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-022",
+      "name": "YogaBN",
+      "slug": "yogabn",
+      "categories": [
+        "Fitness",
+        "Yoga"
+      ],
+      "image": "/httpsmihi-yogabn.vercel.app.png",
+      "websiteUrl": "https://mihi-yogabn.vercel.app/",
+      "featured": true
+    },
+    {
+      "id": "TPL-023",
+      "name": "Steevip",
+      "slug": "steevip",
+      "categories": [
+        "Engineering"
+      ],
+      "image": "/httpsmihi-steevip.vercel.app.png",
+      "websiteUrl": "https://mihi-steevip.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-024",
+      "name": "Monetix",
+      "slug": "monetix",
+      "categories": [
+        "Finance"
+      ],
+      "image": "/httpsmihi-monetix.vercel.app.png",
+      "websiteUrl": "https://mihi-monetix.vercel.app/",
+      "featured": true
+    },
+    {
+      "id": "TPL-025",
+      "name": "Exterior",
+      "slug": "exterior",
+      "categories": [
+        "Interior"
+      ],
+      "image": "/httpsmihi-exterior.vercel.app.png",
+      "websiteUrl": "https://mihi-exterior.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-026",
+      "name": "Estafb",
+      "slug": "estafb",
+      "categories": [
+        "Real Estate"
+      ],
+      "image": "/httpsmihi-estafb.vercel.app.png",
+      "websiteUrl": "https://mihi-estafb.vercel.app/",
+      "featured": true
+    },
+    {
+      "id": "TPL-027",
+      "name": "Golf Kit",
+      "slug": "golf-kit",
+      "categories": [
+        "Golf",
+        "Ecommerce"
+      ],
+      "image": "/httpsmihi-golf-kit.vercel.app.png",
+      "websiteUrl": "https://mihi-golf-kit.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-028",
+      "name": "WorkVLP",
+      "slug": "workvlp",
+      "categories": [
+        "Business",
+        "Coworking"
+      ],
+      "image": "/httpsmihi-workvlp.vercel.app.png",
+      "websiteUrl": "https://mihi-workvlp.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-029",
+      "name": "AI Shop",
+      "slug": "ai-shop",
+      "categories": [
+        "AI",
+        "Ecommerce"
+      ],
+      "image": "/httpsmihi-ai-shop.vercel.app.png",
+      "websiteUrl": "https://mihi-ai-shop.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-030",
+      "name": "Sporen",
+      "slug": "sporen",
+      "categories": [
+        "Tennis",
+        "Coaching",
+        "Sports"
+      ],
+      "image": "/httpsmihi-sporen.vercel.app.png",
+      "websiteUrl": "https://mihi-sporen.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-031",
+      "name": "VoltEdge",
+      "slug": "voltedge",
+      "categories": [
+        "Electrical",
+        "Engineering",
+        "Maintenance"
+      ],
+      "image": "/httpsmihi-voltedge.vercel.app.png",
+      "websiteUrl": "https://mihi-voltedge.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-032",
+      "name": "Verde",
+      "slug": "verde",
+      "categories": [
+        "Landscape",
+        "Home & Garden",
+        "Business"
+      ],
+      "image": "/httpsmihi-verde.vercel.app.png",
+      "websiteUrl": "https://mihi-verde.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-033",
+      "name": "Eduvo",
+      "slug": "eduvo",
+      "categories": [
+        "Education",
+        "Courses"
+      ],
+      "image": "/httpsmihi-eduvo.vercel.app.png",
+      "websiteUrl": "https://mihi-eduvo.vercel.app/",
+      "featured": true
+    },
+    {
+      "id": "TPL-034",
+      "name": "Cuoio",
+      "slug": "cuoio",
+      "categories": [
+        "Education",
+        "Ecommerce",
+        "Coaching",
+        "Courses"
+      ],
+      "image": "/httpsmihi-cuoio.vercel.app.png",
+      "websiteUrl": "https://mihi-cuoio.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-035",
+      "name": "Tezmiy",
+      "slug": "tezmiy",
+      "categories": [
+        "SaaS",
+        "Technology",
+        "Business"
+      ],
+      "image": "/httpsmihi-tezmiy.vercel.app.png",
+      "websiteUrl": "https://mihi-tezmiy.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-036",
+      "name": "Vixcz",
+      "slug": "vixcz",
+      "categories": [
+        "AI",
+        "SaaS"
+      ],
+      "image": "/httpsmihi-vixcz.vercel.app.png",
+      "websiteUrl": "https://mihi-vixcz.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-037",
+      "name": "Coivt",
+      "slug": "coivt",
+      "categories": [
+        "SaaS",
+        "Crypto",
+        "Finance"
+      ],
+      "image": "/httpsmihi-coivt.vercel.app.png",
+      "websiteUrl": "https://mihi-coivt.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-038",
+      "name": "Habx",
+      "slug": "habx",
+      "categories": [
+        "Real Estate",
+        "Ecommerce"
+      ],
+      "image": "/httpsmihi-habx.vercel.app.png",
+      "websiteUrl": "https://mihi-habx.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-039",
+      "name": "Styleo",
+      "slug": "styleo",
+      "categories": [
+        "Fashion",
+        "Ecommerce"
+      ],
+      "image": "/httpsmihi-styleo.vercel.app.png",
+      "websiteUrl": "https://mihi-styleo.vercel.app/",
+      "featured": true
+    },
+    {
+      "id": "TPL-040",
+      "name": "Vitara",
+      "slug": "vitara",
+      "categories": [
+        "Beauty",
+        "Ecommerce"
+      ],
+      "image": "/httpsmihi-vitara.vercel.app.png",
+      "websiteUrl": "https://mihi-vitara.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-041",
+      "name": "Rank Ryz",
+      "slug": "rank-ryz",
+      "categories": [
+        "SaaS",
+        "Technology"
+      ],
+      "image": "/httpsmihi-rank-ryz.vercel.app.png",
+      "websiteUrl": "https://mihi-rank-ryz.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-042",
+      "name": "Revivy",
+      "slug": "revivy",
+      "categories": [
+        "Beauty",
+        "Ecommerce"
+      ],
+      "image": "/httpsmihi-revivy.vercel.app.png",
+      "websiteUrl": "https://mihi-revivy.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-043",
+      "name": "CBRLP",
+      "slug": "cbrlp",
+      "categories": [
+        "Car Rental"
+      ],
+      "image": "/httpsmihi-cbrlp.vercel.app.png",
+      "websiteUrl": "https://mihi-cbrlp.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-044",
+      "name": "Journey",
+      "slug": "journey",
+      "categories": [
+        "Logistics",
+        "Transportation",
+        "Business"
+      ],
+      "image": "/httpsmihi-journey.vercel.app.png",
+      "websiteUrl": "https://mihi-journey.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-045",
+      "name": "Lamply",
+      "slug": "lamply",
+      "categories": [
+        "Lighting",
+        "Interior",
+        "Ecommerce"
+      ],
+      "image": "/httpsmihi-lamply.vercel.app.png",
+      "websiteUrl": "https://mihi-lamply.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-046",
+      "name": "Eyelpx",
+      "slug": "eyelpx",
+      "categories": [
+        "Eyewear",
+        "Fashion",
+        "Ecommerce"
+      ],
+      "image": "/httpsmihi-eyelpx.vercel.app.png",
+      "websiteUrl": "https://mihi-eyelpx.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-047",
+      "name": "CharityLP",
+      "slug": "charitylp",
+      "categories": [
+        "Charity",
+        "Nonprofit"
+      ],
+      "image": "/httpsmihi-charitylp.vercel.app.png",
+      "websiteUrl": "https://mihi-charitylp.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-048",
+      "name": "CSPV",
+      "slug": "cspv",
+      "categories": [
+        "Furniture",
+        "Interior",
+        "Ecommerce",
+        "Home & Garden"
+      ],
+      "image": "/httpscslpv.vercel.app.png",
+      "websiteUrl": "https://cslpv.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-049",
+      "name": "Nestify",
+      "slug": "nestify",
+      "categories": [
+        "Real Estate"
+      ],
+      "image": "/httpsmihi-nestify.vercel.app.png",
+      "websiteUrl": "https://mihi-nestify.vercel.app/",
+      "featured": false
+    },
+    {
+      "id": "TPL-050",
+      "name": "IT-X",
+      "slug": "it-x",
+      "categories": [
+        "Marketing",
+        "Business",
+        "Agency"
+      ],
+      "image": "/httpsit-x.vercel.app.png",
+      "websiteUrl": "https://it-x.vercel.app/",
+      "featured": false
+    }
+  ],
+  "legal": {
+    "de": {
+      "privacy": {
+        "title": "Datenschutzerklärung",
+        "description": "Informationen zur Verarbeitung personenbezogener Daten bei MIHI's.",
+        "body": [
+          "Wir verarbeiten personenbezogene Daten ausschließlich zur Bearbeitung Ihrer Anfragen und zur Bereitstellung dieser Website.",
+          "Kontaktformular-Daten (Name, E-Mail, optional Telefon, Betreff, Nachricht) werden an uns übermittelt, um Ihre Anfrage zu beantworten, und nicht an Dritte verkauft.",
+          "Rechtsgrundlage ist Art. 6 Abs. 1 lit. b und f DSGVO. Sie können Auskunft, Berichtigung oder Löschung Ihrer Daten verlangen.",
+          "Kontakt: info@mihis.agency"
+        ]
+      },
+      "terms": {
+        "title": "Allgemeine Geschäftsbedingungen",
+        "description": "Rahmenbedingungen für die Zusammenarbeit mit MIHI's.",
+        "body": [
+          "Leistungen werden individuell angeboten und schriftlich bestätigt.",
+          "Preise verstehen sich zuzüglich gesetzlicher Umsatzsteuer, sofern nicht anders vereinbart.",
+          "Geistiges Eigentum an gelieferten Arbeiten geht nach vollständiger Zahlung gemäß Projektvereinbarung über.",
+          "Es gilt das Recht der Bundesrepublik Deutschland."
+        ]
+      },
+      "cookies": {
+        "title": "Cookie-Hinweis",
+        "description": "Informationen zu Cookies und ähnlichen Technologien.",
+        "body": [
+          "Diese Website setzt technisch notwendige Cookies bzw. lokale Speicherung für Theme- und Spracheinstellungen ein.",
+          "Es werden keine Tracking-Cookies von Drittanbietern ohne Ihre Einwilligung gesetzt.",
+          "Sie können Cookies in Ihren Browsereinstellungen jederzeit löschen oder blockieren."
+        ]
+      },
+      "impressum": {
+        "title": "Impressum",
+        "description": "Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz).",
+        "body": [
+          "MIHI's",
+          "Inhaber: [Vollständiger Name]",
+          "Anschrift: Berlin, Deutschland — [Straße, PLZ Ort]",
+          "E-Mail: info@mihis.agency",
+          "Umsatzsteuer-ID: [falls vorhanden, sonst weglassen]",
+          "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: [Vollständiger Name], Berlin.",
+          "Hinweis: Bitte ersetzen Sie die Platzhalter in eckigen Klammern durch Ihre echten Angaben, bevor die Website kommerziell live geht."
+        ]
+      }
+    },
+    "en": {
+      "privacy": {
+        "title": "Privacy Policy",
+        "description": "How MIHI's processes personal data.",
+        "body": [
+          "We process personal data only to handle your inquiries and to operate this website.",
+          "Contact form data (name, email, optional phone, subject, message) is sent to us so we can reply and is not sold to third parties.",
+          "Legal bases include Art. 6(1)(b) and (f) GDPR. You may request access, correction, or deletion of your data.",
+          "Contact: info@mihis.agency"
+        ]
+      },
+      "terms": {
+        "title": "Terms of Service",
+        "description": "Framework terms for working with MIHI's.",
+        "body": [
+          "Services are scoped individually and confirmed in writing.",
+          "Prices are exclusive of statutory VAT unless otherwise agreed.",
+          "Intellectual property in delivered work transfers after full payment as defined in the project agreement.",
+          "The laws of the Federal Republic of Germany apply."
+        ]
+      },
+      "cookies": {
+        "title": "Cookie Notice",
+        "description": "Information about cookies and similar technologies.",
+        "body": [
+          "This site uses technically necessary cookies or local storage for theme and language preferences.",
+          "No third-party tracking cookies are set without your consent.",
+          "You can delete or block cookies in your browser settings at any time."
+        ]
+      },
+      "impressum": {
+        "title": "Legal notice (Impressum)",
+        "description": "Information required under German Digital Services Act (DDG).",
+        "body": [
+          "MIHI's",
+          "Owner: [Full legal name]",
+          "Address: Berlin, Germany — [Street, postcode, city]",
+          "Email: info@mihis.agency",
+          "VAT ID: [if applicable]",
+          "Responsible for content (MStV § 18(2)): [Full legal name], Berlin.",
+          "Note: Replace the bracketed placeholders with your real details before taking commercial clients."
+        ]
+      }
+    }
+  },
+  "consultation": {
+    "journeys": [
+      {
+        "id": "build-brand",
+        "title": "Build a Brand From Scratch",
+        "description": "For new entrepreneurs, startup founders, freelancers, and small businesses that want to start and launch a brand.",
+        "enabled": true,
+        "rounds": [
+          {
+            "id": "round-1",
+            "title": "Your Idea",
+            "questions": [
+              {
+                "id": "business-idea",
+                "label": "What is your business idea?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "problem-solved",
+                "label": "What problem does your business solve?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "ideal-customer",
+                "label": "Who is your ideal customer?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              }
+            ]
+          },
+          {
+            "id": "round-2",
+            "title": "Differentiation",
+            "questions": [
+              {
+                "id": "business-name",
+                "label": "Do you already have a business name?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "differentiator",
+                "label": "What makes your business different?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "competitors",
+                "label": "Who are your biggest competitors?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              }
+            ]
+          },
+          {
+            "id": "round-3",
+            "title": "Offer & Market",
+            "questions": [
+              {
+                "id": "products-services",
+                "label": "What products or services will you offer?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "monthly-budget",
+                "label": "What is your expected monthly budget?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "markets",
+                "label": "Which countries or cities will you serve?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              }
+            ]
+          },
+          {
+            "id": "round-4",
+            "title": "Growth Plans",
+            "questions": [
+              {
+                "id": "marketing-channels",
+                "label": "Which marketing channels will you use?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "challenges",
+                "label": "What are your biggest challenges?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "goals-12-months",
+                "label": "What are your goals for the next 12 months?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "improve-business",
+        "title": "Improve an Existing Business",
+        "description": "For established businesses that want expert recommendations on branding, marketing, sales, operations, and growth.",
+        "enabled": true,
+        "rounds": [
+          {
+            "id": "round-1",
+            "title": "Your Business Today",
+            "questions": [
+              {
+                "id": "business-description",
+                "label": "What does your business do?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "operating-time",
+                "label": "How long have you been operating?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "biggest-challenge",
+                "label": "What is your biggest business challenge today?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              }
+            ]
+          },
+          {
+            "id": "round-2",
+            "title": "Market & Revenue",
+            "questions": [
+              {
+                "id": "current-channels",
+                "label": "What marketing channels are you currently using?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "main-competitors",
+                "label": "Who are your main competitors?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "revenue-range",
+                "label": "What is your current monthly revenue range?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              }
+            ]
+          },
+          {
+            "id": "round-3",
+            "title": "Team & Goals",
+            "questions": [
+              {
+                "id": "team-size",
+                "label": "How large is your team?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "improvement-areas",
+                "label": "Which areas need improvement?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "current-goals",
+                "label": "What are your current business goals?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              }
+            ]
+          },
+          {
+            "id": "round-4",
+            "title": "Brand & Vision",
+            "questions": [
+              {
+                "id": "branding-assets",
+                "label": "What branding assets do you already have?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "best-campaigns",
+                "label": "Which marketing campaigns worked best?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              },
+              {
+                "id": "one-year-target",
+                "label": "What do you want to achieve within the next year?",
+                "placeholder": "",
+                "required": true,
+                "enabled": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "ai": {
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.7,
+      "maxOutputTokens": 8192,
+      "systemPrompt": "You are a senior branding consultant, startup advisor, marketing strategist, and business analyst working for Mihi's Agency.\n\nRules you must always follow:\n- Never provide generic answers; personalize every recommendation to the user's specific answers.\n- Use all previous answers and analyses as context and build on them.\n- Identify hidden opportunities and weaknesses the user may not see.\n- Give practical, realistic, and actionable advice.\n- Explain why each recommendation is made.\n- Be encouraging but honest; do not flatter or invent facts the user did not provide."
+    },
+    "offerBanner": {
+      "enabled": false,
+      "title": "",
+      "description": "",
+      "ctaLabel": "",
+      "ctaHref": "",
+      "backgroundColor": "#0f172a",
+      "textColor": "#f8fafc",
+      "startsAt": null,
+      "endsAt": null,
+      "countdownTo": null
+    }
+  }
+}

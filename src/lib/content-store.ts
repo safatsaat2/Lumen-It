@@ -10,6 +10,11 @@ import {
 import type { ConsultationConfig } from "@/lib/consultation/types";
 import { clients as defaultClients, type Client } from "@/data/clients";
 import { services as defaultServices, type ServiceContent } from "@/data/services";
+import {
+  defaultTemplates,
+  normalizeTemplates,
+  type WebsiteTemplate,
+} from "@/data/templates";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/types";
 
@@ -49,6 +54,7 @@ export type SiteContent = {
   social: SocialLinks;
   settings: SiteSettings;
   clients: Client[];
+  templates: WebsiteTemplate[];
   legal: {
     de: LegalBundle;
     en: LegalBundle;
@@ -253,6 +259,14 @@ export function mergeDictionary(
         faq: { ...base.faq, ...editable.faq },
         contact: { ...base.contact, ...editable.contact },
         footer: { ...base.footer, ...editable.footer },
+        templates: {
+          ...base.templates,
+          ...((editable as Dictionary).templates ?? {}),
+        },
+        consultationPromo: {
+          ...base.consultationPromo,
+          ...((editable as Dictionary).consultationPromo ?? {}),
+        },
         projects: editable.projects ?? base.projects,
       }
     : (() => {
@@ -370,6 +384,7 @@ async function buildDefaults(): Promise<SiteContent> {
     social: defaultSocial(),
     settings: defaultSettings(),
     clients: structuredClone(defaultClients),
+    templates: structuredClone(defaultTemplates),
     legal: defaultLegal(),
     consultation: defaultConsultationConfig(),
   };
@@ -384,6 +399,7 @@ export async function normalizeSiteContent(
     social: defaultSocial(),
     settings: defaultSettings(),
     clients: structuredClone(defaultClients),
+    templates: structuredClone(defaultTemplates),
     legal: defaultLegal(),
   };
 
@@ -423,6 +439,9 @@ export async function normalizeSiteContent(
       )
         ? raw.clients
         : defaults.clients,
+    templates: Array.isArray(raw.templates)
+      ? normalizeTemplates(raw.templates)
+      : defaults.templates,
     legal: {
       de: {
         ...defaults.legal.de,

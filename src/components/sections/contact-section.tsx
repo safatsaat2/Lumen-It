@@ -1,26 +1,56 @@
 "use client";
 
 import { CheckCircle2, Loader2, Mail, MapPin, Phone } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 
 import { SectionHeading } from "@/components/layout/section-heading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { getTemplateById, type WebsiteTemplate } from "@/data/templates";
 import type { Dictionary } from "@/i18n/dictionaries/types";
 import type { SiteSettings } from "@/lib/content-store";
 
 type ContactSectionProps = {
   dictionary: Dictionary;
   settings: SiteSettings;
+  templates?: WebsiteTemplate[];
 };
 
-function ContactForm({ dictionary }: { dictionary: Dictionary }) {
+function ContactForm({
+  dictionary,
+  templates = [],
+}: {
+  dictionary: Dictionary;
+  templates?: WebsiteTemplate[];
+}) {
+  const searchParams = useSearchParams();
+  const t = dictionary.contact;
+  const initialTemplateId = (searchParams.get("template") ?? "").trim().toUpperCase();
+  const matched = getTemplateById(initialTemplateId, templates);
+
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const t = dictionary.contact;
+  const [templateId, setTemplateId] = useState(initialTemplateId);
+  const [subject, setSubject] = useState(() =>
+    matched
+      ? t.templateInquirySubject.replace("{id}", matched.id)
+      : "",
+  );
+  const activeTemplate = getTemplateById(templateId, templates);
+
+  useEffect(() => {
+    const fromUrl = (searchParams.get("template") ?? "").trim().toUpperCase();
+    if (!fromUrl) return;
+    setTemplateId(fromUrl);
+    const found = getTemplateById(fromUrl, templates);
+    if (found) {
+      setSubject(t.templateInquirySubject.replace("{id}", found.id));
+    }
+  }, [searchParams, t.templateInquirySubject, templates]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -30,6 +60,9 @@ function ContactForm({ dictionary }: { dictionary: Dictionary }) {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const cleanedTemplateId = String(formData.get("templateId") || "")
+      .trim()
+      .toUpperCase();
 
     try {
       const response = await fetch("/api/contact", {
@@ -41,6 +74,7 @@ function ContactForm({ dictionary }: { dictionary: Dictionary }) {
           phone: formData.get("phone") || undefined,
           subject: formData.get("subject"),
           message: formData.get("message"),
+          templateId: cleanedTemplateId || undefined,
         }),
       });
 
@@ -52,6 +86,8 @@ function ContactForm({ dictionary }: { dictionary: Dictionary }) {
 
       setSuccess(true);
       form.reset();
+      setTemplateId("");
+      setSubject("");
     } catch {
       setError(t.error);
     } finally {
@@ -125,8 +161,27 @@ function ContactForm({ dictionary }: { dictionary: Dictionary }) {
             name="subject"
             placeholder={t.subjectPlaceholder}
             required
+            value={subject}
+            onChange={(event) => setSubject(event.target.value)}
           />
         </div>
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="templateId">{t.templateId}</Label>
+        <Input
+          id="templateId"
+          name="templateId"
+          placeholder={t.templateIdPlaceholder}
+          value={templateId}
+          onChange={(event) => setTemplateId(event.target.value.toUpperCase())}
+          autoComplete="off"
+        />
+        <p className="text-xs text-muted-foreground">{t.templateIdHelper}</p>
+        {activeTemplate ? (
+          <p className="text-xs font-medium text-primary">
+            {activeTemplate.name} · {activeTemplate.categories.join(" · ")}
+          </p>
+        ) : null}
       </div>
       <div className="space-y-2">
         <Label htmlFor="message">{t.message}</Label>
@@ -170,13 +225,18 @@ function ContactFormSkeleton() {
         <div className="h-16 animate-pulse rounded-xl bg-muted" />
         <div className="h-16 animate-pulse rounded-xl bg-muted" />
       </div>
+      <div className="h-20 animate-pulse rounded-xl bg-muted" />
       <div className="h-32 animate-pulse rounded-xl bg-muted" />
       <div className="h-12 animate-pulse rounded-full bg-muted" />
     </div>
   );
 }
 
-export function ContactSection({ dictionary, settings }: ContactSectionProps) {
+export function ContactSection({
+  dictionary,
+  settings,
+  templates = [],
+}: ContactSectionProps) {
   const [formReady, setFormReady] = useState(false);
 
   useEffect(() => {
@@ -224,7 +284,9 @@ export function ContactSection({ dictionary, settings }: ContactSectionProps) {
             </div>
 
             {formReady ? (
-              <ContactForm dictionary={dictionary} />
+              <Suspense fallback={<ContactFormSkeleton />}>
+                <ContactForm dictionary={dictionary} templates={templates} />
+              </Suspense>
             ) : (
               <ContactFormSkeleton />
             )}
