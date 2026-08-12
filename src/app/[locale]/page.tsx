@@ -61,7 +61,7 @@ export default async function HomePage({
           dictionary={dictionary}
           templates={content.templates}
         />
-        <WorkSection dictionary={dictionary} />
+        <WorkSection locale={locale} dictionary={dictionary} />
         <ProcessSection dictionary={dictionary} />
         <PricingSection locale={locale} dictionary={dictionary} />
         <TestimonialsSection dictionary={dictionary} />

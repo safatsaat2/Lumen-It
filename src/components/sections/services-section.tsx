@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { SectionHeading } from "@/components/layout/section-heading";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { localizedPath } from "@/config/site";
 import { resolveServiceIcon } from "@/data/service-icons";
 import type { ServiceContent } from "@/data/services";
@@ -21,6 +22,8 @@ export function ServicesSection({
   dictionary,
   services,
 }: ServicesSectionProps) {
+  const preview = services.slice(0, 6);
+
   return (
     <section id="services" className="scroll-mt-24 border-t border-border/60 py-20 sm:py-28">
       <div className="container space-y-14">
@@ -31,7 +34,7 @@ export function ServicesSection({
         />
 
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => {
+          {preview.map((service) => {
             const Icon = resolveServiceIcon(service.icon);
             return (
               <article
@@ -71,7 +74,13 @@ export function ServicesSection({
           })}
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <Button variant="primary" size="lg" asChild>
+            <Link href={localizedPath(locale, "/services")}>
+              {dictionary.services.viewAll}
+              <ArrowRight className="size-4" aria-hidden />
+            </Link>
+          </Button>
           <Badge variant="accent">{dictionary.services.footerNote}</Badge>
         </div>
       </div>

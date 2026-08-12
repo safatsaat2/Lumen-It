@@ -150,6 +150,10 @@ const en: Dictionary = {
     benefitsLabel: "What you get",
     backToServices: "All services",
     relatedCta: "Discuss your project",
+    viewAll: "View all services",
+    pageTitle: "All services",
+    pageDescription:
+      "Explore every practice we offer — from custom web and e-commerce to SEO, design, automation, and ongoing care.",
   },
   work: {
     badge: "What we deliver",
@@ -157,6 +161,10 @@ const en: Dictionary = {
     description:
       "Honest scopes across custom web, shops, APIs, and campaign pages — no fake client logos or invented metrics.",
     viewCase: "Discuss this offer",
+    viewAll: "View all work",
+    pageTitle: "All work",
+    pageDescription:
+      "Browse the full set of offerings you can discuss with us — scopes, categories, and next steps in one place.",
   },
   process: {
     badge: "Process",

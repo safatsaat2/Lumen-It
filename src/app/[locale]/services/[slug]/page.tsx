@@ -81,7 +81,7 @@ export default async function ServicePage({
       <main id="main-content" className="pt-28 pb-20 sm:pt-32 sm:pb-28">
         <article className="container max-w-4xl">
           <Link
-            href={`${localizedPath(locale)}#services`}
+            href={localizedPath(locale, "/services")}
             className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
           >
             <ArrowLeft className="size-4" aria-hidden />

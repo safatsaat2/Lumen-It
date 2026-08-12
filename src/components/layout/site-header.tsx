@@ -102,6 +102,10 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
       href: localizedPath(locale, "/consultation"),
       featured: true,
     },
+    {
+      label: dictionary.nav.templates,
+      href: localizedPath(locale, "/templates"),
+    },
     { label: dictionary.nav.services, href: homeSection(locale, "services") },
     { label: dictionary.nav.pricing, href: homeSection(locale, "pricing") },
     {

@@ -83,12 +83,18 @@ export type Dictionary = {
     benefitsLabel: string;
     backToServices: string;
     relatedCta: string;
+    viewAll: string;
+    pageTitle: string;
+    pageDescription: string;
   };
   work: {
     badge: string;
     title: string;
     description: string;
     viewCase: string;
+    viewAll: string;
+    pageTitle: string;
+    pageDescription: string;
   };
   process: {
     badge: string;

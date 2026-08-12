@@ -21,6 +21,8 @@ function revalidatePublicSite(content: SiteContent) {
     revalidatePath(`/${locale}/consultation`);
     revalidatePath(`/${locale}/templates`);
     revalidatePath(`/${locale}/contact`);
+    revalidatePath(`/${locale}/services`);
+    revalidatePath(`/${locale}/work`);
     revalidatePath(`/${locale}/privacy`);
     revalidatePath(`/${locale}/terms`);
     revalidatePath(`/${locale}/cookies`);

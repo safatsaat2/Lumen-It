@@ -1,17 +1,22 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { SectionHeading } from "@/components/layout/section-heading";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { RemoteImage } from "@/components/ui/remote-image";
+import { localizedPath } from "@/config/site";
+import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/types";
 
 type WorkSectionProps = {
+  locale: Locale;
   dictionary: Dictionary;
 };
 
-export function WorkSection({ dictionary }: WorkSectionProps) {
+export function WorkSection({ locale, dictionary }: WorkSectionProps) {
   const featured = dictionary.projects.slice(0, 4);
+  const contactHref = localizedPath(locale, "/contact");
 
   return (
     <section id="work" className="scroll-mt-24 py-20 sm:py-28">
@@ -67,7 +72,7 @@ export function WorkSection({ dictionary }: WorkSectionProps) {
                     ))}
                   </div>
                   <Link
-                    href="#contact"
+                    href={contactHref}
                     className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary"
                   >
                     {dictionary.work.viewCase}
@@ -77,6 +82,15 @@ export function WorkSection({ dictionary }: WorkSectionProps) {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="flex justify-center">
+          <Button variant="primary" size="lg" asChild>
+            <Link href={localizedPath(locale, "/work")}>
+              {dictionary.work.viewAll}
+              <ArrowRight className="size-4" aria-hidden />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

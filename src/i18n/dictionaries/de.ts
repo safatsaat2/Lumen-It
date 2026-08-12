@@ -150,6 +150,10 @@ const de: Dictionary = {
     benefitsLabel: "Ihre Vorteile",
     backToServices: "Alle Leistungen",
     relatedCta: "Projekt besprechen",
+    viewAll: "Alle Leistungen ansehen",
+    pageTitle: "Alle Leistungen",
+    pageDescription:
+      "Entdecken Sie alle Leistungen — von individueller Webentwicklung und E-Commerce bis SEO, Design, Automatisierung und laufender Betreuung.",
   },
   work: {
     badge: "Was wir liefern",
@@ -157,6 +161,10 @@ const de: Dictionary = {
     description:
       "Ehrliche Scopes für individuelle Websites, Shops, APIs und Kampagnenseiten — ohne erfundene Kundenlogos oder Kennzahlen.",
     viewCase: "Angebot besprechen",
+    viewAll: "Alle Angebote ansehen",
+    pageTitle: "Alle Angebote",
+    pageDescription:
+      "Durchstöbern Sie alle Angebote, die Sie mit uns besprechen können — Scopes, Kategorien und nächste Schritte an einem Ort.",
   },
   process: {
     badge: "Ablauf",
