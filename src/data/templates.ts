@@ -1,50 +1,75 @@
 export const TEMPLATE_CATEGORIES = [
   "Restaurant",
-  "Cafe",
-  "Portfolio",
-  "Events",
-  "Media",
-  "Creator",
   "Salon",
-  "Spa",
-  "Fitness",
-  "Yoga",
+  "Creative",
+  "Sports",
   "Engineering",
   "Finance",
   "Interior",
   "Real Estate",
-  "Golf",
   "Ecommerce",
-  "Coworking",
-  "AI",
-  "Technology",
-  "Sports",
-  "Tennis",
-  "Coaching",
-  "Electrical",
-  "Maintenance",
-  "Landscape",
-  "Home & Garden",
-  "Education",
-  "Courses",
-  "SaaS",
-  "Crypto",
-  "Fashion",
-  "Beauty",
-  "Car Rental",
-  "Logistics",
-  "Transportation",
-  "Lighting",
-  "Eyewear",
-  "Charity",
-  "Nonprofit",
-  "Furniture",
-  "Marketing",
-  "Agency",
   "Business",
+  "Technology",
+  "Education",
+  "Fashion",
+  "Logistics",
+  "Nonprofit",
 ] as const;
 
 export type TemplateCategory = (typeof TEMPLATE_CATEGORIES)[number];
+
+/** Map narrow / duplicate labels onto the broader filter categories. */
+const CATEGORY_ALIASES: Record<string, TemplateCategory> = {
+  Cafe: "Restaurant",
+  Spa: "Salon",
+  Portfolio: "Creative",
+  Events: "Creative",
+  Media: "Creative",
+  Creator: "Creative",
+  Fitness: "Sports",
+  Yoga: "Sports",
+  Golf: "Sports",
+  Tennis: "Sports",
+  Coaching: "Education",
+  Electrical: "Engineering",
+  Maintenance: "Engineering",
+  Crypto: "Finance",
+  Lighting: "Interior",
+  Furniture: "Interior",
+  Landscape: "Interior",
+  "Home & Garden": "Interior",
+  Coworking: "Business",
+  Marketing: "Business",
+  Agency: "Business",
+  AI: "Technology",
+  SaaS: "Technology",
+  Courses: "Education",
+  Beauty: "Fashion",
+  Eyewear: "Fashion",
+  "Car Rental": "Logistics",
+  Transportation: "Logistics",
+  Charity: "Nonprofit",
+};
+
+export function canonicalizeCategory(category: string): string {
+  const trimmed = category.trim();
+  if (!trimmed) return trimmed;
+  return CATEGORY_ALIASES[trimmed] ?? trimmed;
+}
+
+export function canonicalizeCategories(categories: string[]): string[] {
+  const seen = new Set<string>();
+  const result: string[] = [];
+
+  for (const category of categories) {
+    const mapped = canonicalizeCategory(category);
+    if (!mapped || seen.has(mapped)) continue;
+    seen.add(mapped);
+    result.push(mapped);
+  }
+
+  return result;
+}
 
 export type WebsiteTemplate = {
   id: string;
@@ -95,9 +120,11 @@ export function normalizeTemplate(
     .replace(/[^A-Z0-9-]/g, "");
   const slug =
     String(raw.slug ?? "").trim() || slugifyTemplateName(name) || fallbackId.toLowerCase();
-  const categories = Array.isArray(raw.categories)
-    ? raw.categories.map((c) => String(c).trim()).filter(Boolean)
-    : [];
+  const categories = canonicalizeCategories(
+    Array.isArray(raw.categories)
+      ? raw.categories.map((c) => String(c).trim()).filter(Boolean)
+      : [],
+  );
   const image =
     String(raw.image ?? "").trim() || imageFromUrl(websiteUrl) || "/logo.svg";
 
@@ -209,7 +236,7 @@ export const defaultTemplates: WebsiteTemplate[] = [
     "TPL-007",
     "Cafe Bakery",
     "cafe-bakery",
-    ["Cafe", "Restaurant"],
+    ["Restaurant"],
     "https://mihi-cafe-bakery.vercel.app/",
     true,
   ),
@@ -224,7 +251,7 @@ export const defaultTemplates: WebsiteTemplate[] = [
     "TPL-009",
     "Macup",
     "macup",
-    ["Cafe", "Restaurant"],
+    ["Restaurant"],
     "https://mihi-macup.vercel.app/",
   ),
   template(
@@ -238,7 +265,7 @@ export const defaultTemplates: WebsiteTemplate[] = [
     "TPL-011",
     "Purple Portfolio",
     "purple-portfolio",
-    ["Portfolio"],
+    ["Creative"],
     "https://mihi-purple-portfolio.vercel.app/",
     true,
   ),
@@ -246,14 +273,14 @@ export const defaultTemplates: WebsiteTemplate[] = [
     "TPL-012",
     "Catrip",
     "catrip",
-    ["Events"],
+    ["Creative"],
     "https://mihi-catrip.vercel.app/",
   ),
   template(
     "TPL-013",
     "Voice",
     "voice",
-    ["Media", "Creator"],
+    ["Creative"],
     "https://mihi-voice.vercel.app/",
     true,
   ),
@@ -283,7 +310,7 @@ export const defaultTemplates: WebsiteTemplate[] = [
     "TPL-017",
     "Spa",
     "spa",
-    ["Salon", "Spa"],
+    ["Salon"],
     "https://mihi-spa.vercel.app/",
     true,
   ),
@@ -319,7 +346,7 @@ export const defaultTemplates: WebsiteTemplate[] = [
     "TPL-022",
     "YogaBN",
     "yogabn",
-    ["Fitness", "Yoga"],
+    ["Sports"],
     "https://mihi-yogabn.vercel.app/",
     true,
   ),
@@ -357,49 +384,49 @@ export const defaultTemplates: WebsiteTemplate[] = [
     "TPL-027",
     "Golf Kit",
     "golf-kit",
-    ["Golf", "Ecommerce"],
+    ["Sports", "Ecommerce"],
     "https://mihi-golf-kit.vercel.app/",
   ),
   template(
     "TPL-028",
     "WorkVLP",
     "workvlp",
-    ["Business", "Coworking"],
+    ["Business"],
     "https://mihi-workvlp.vercel.app/",
   ),
   template(
     "TPL-029",
     "AI Shop",
     "ai-shop",
-    ["AI", "Ecommerce"],
+    ["Technology", "Ecommerce"],
     "https://mihi-ai-shop.vercel.app/",
   ),
   template(
     "TPL-030",
     "Sporen",
     "sporen",
-    ["Tennis", "Coaching", "Sports"],
+    ["Sports", "Education"],
     "https://mihi-sporen.vercel.app/",
   ),
   template(
     "TPL-031",
     "VoltEdge",
     "voltedge",
-    ["Electrical", "Engineering", "Maintenance"],
+    ["Engineering"],
     "https://mihi-voltedge.vercel.app/",
   ),
   template(
     "TPL-032",
     "Verde",
     "verde",
-    ["Landscape", "Home & Garden", "Business"],
+    ["Interior", "Business"],
     "https://mihi-verde.vercel.app/",
   ),
   template(
     "TPL-033",
     "Eduvo",
     "eduvo",
-    ["Education", "Courses"],
+    ["Education"],
     "https://mihi-eduvo.vercel.app/",
     true,
   ),
@@ -407,28 +434,28 @@ export const defaultTemplates: WebsiteTemplate[] = [
     "TPL-034",
     "Cuoio",
     "cuoio",
-    ["Education", "Ecommerce", "Coaching", "Courses"],
+    ["Education", "Ecommerce"],
     "https://mihi-cuoio.vercel.app/",
   ),
   template(
     "TPL-035",
     "Tezmiy",
     "tezmiy",
-    ["SaaS", "Technology", "Business"],
+    ["Technology", "Business"],
     "https://mihi-tezmiy.vercel.app/",
   ),
   template(
     "TPL-036",
     "Vixcz",
     "vixcz",
-    ["AI", "SaaS"],
+    ["Technology"],
     "https://mihi-vixcz.vercel.app/",
   ),
   template(
     "TPL-037",
     "Coivt",
     "coivt",
-    ["SaaS", "Crypto", "Finance"],
+    ["Finance", "Technology"],
     "https://mihi-coivt.vercel.app/",
   ),
   template(
@@ -450,63 +477,63 @@ export const defaultTemplates: WebsiteTemplate[] = [
     "TPL-040",
     "Vitara",
     "vitara",
-    ["Beauty", "Ecommerce"],
+    ["Fashion", "Ecommerce"],
     "https://mihi-vitara.vercel.app/",
   ),
   template(
     "TPL-041",
     "Rank Ryz",
     "rank-ryz",
-    ["SaaS", "Technology"],
+    ["Technology"],
     "https://mihi-rank-ryz.vercel.app/",
   ),
   template(
     "TPL-042",
     "Revivy",
     "revivy",
-    ["Beauty", "Ecommerce"],
+    ["Fashion", "Ecommerce"],
     "https://mihi-revivy.vercel.app/",
   ),
   template(
     "TPL-043",
     "CBRLP",
     "cbrlp",
-    ["Car Rental"],
+    ["Logistics"],
     "https://mihi-cbrlp.vercel.app/",
   ),
   template(
     "TPL-044",
     "Journey",
     "journey",
-    ["Logistics", "Transportation", "Business"],
+    ["Logistics", "Business"],
     "https://mihi-journey.vercel.app/",
   ),
   template(
     "TPL-045",
     "Lamply",
     "lamply",
-    ["Lighting", "Interior", "Ecommerce"],
+    ["Interior", "Ecommerce"],
     "https://mihi-lamply.vercel.app/",
   ),
   template(
     "TPL-046",
     "Eyelpx",
     "eyelpx",
-    ["Eyewear", "Fashion", "Ecommerce"],
+    ["Fashion", "Ecommerce"],
     "https://mihi-eyelpx.vercel.app/",
   ),
   template(
     "TPL-047",
     "CharityLP",
     "charitylp",
-    ["Charity", "Nonprofit"],
+    ["Nonprofit"],
     "https://mihi-charitylp.vercel.app/",
   ),
   template(
     "TPL-048",
     "CSPV",
     "cspv",
-    ["Furniture", "Interior", "Ecommerce", "Home & Garden"],
+    ["Interior", "Ecommerce"],
     "https://cslpv.vercel.app/",
   ),
   template(
@@ -520,7 +547,7 @@ export const defaultTemplates: WebsiteTemplate[] = [
     "TPL-050",
     "IT-X",
     "it-x",
-    ["Marketing", "Business", "Agency"],
+    ["Business"],
     "https://it-x.vercel.app/",
   ),
 ];

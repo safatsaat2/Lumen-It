@@ -119,7 +119,12 @@ export function TemplateCard({
           </p>
         </div>
         <div className="mt-auto flex flex-col gap-2 sm:flex-row">
-          <Button variant="outline" size="sm" className="flex-1" asChild>
+          <Button
+            variant="outline"
+            size="sm"
+            className="h-auto min-h-11 w-full whitespace-normal px-4 py-2.5 sm:flex-1 sm:whitespace-nowrap"
+            asChild
+          >
             <a
               href={template.websiteUrl}
               target="_blank"
@@ -129,7 +134,12 @@ export function TemplateCard({
               <ExternalLink className="size-3.5" aria-hidden />
             </a>
           </Button>
-          <Button variant="primary" size="sm" className="flex-1" asChild>
+          <Button
+            variant="primary"
+            size="sm"
+            className="h-auto min-h-11 w-full whitespace-normal px-4 py-2.5 sm:flex-1 sm:whitespace-nowrap"
+            asChild
+          >
             <Link href={getHref}>
               <ShoppingBag className="size-3.5" aria-hidden />
               {copy.getTemplate}

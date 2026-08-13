@@ -1297,7 +1297,6 @@
       "name": "Cafe Bakery",
       "slug": "cafe-bakery",
       "categories": [
-        "Cafe",
         "Restaurant"
       ],
       "image": "/httpsmihi-cafe-bakery.vercel.app.png",
@@ -1320,7 +1319,6 @@
       "name": "Macup",
       "slug": "macup",
       "categories": [
-        "Cafe",
         "Restaurant"
       ],
       "image": "/httpsmihi-macup.vercel.app.png",
@@ -1343,7 +1341,7 @@
       "name": "Purple Portfolio",
       "slug": "purple-portfolio",
       "categories": [
-        "Portfolio"
+        "Creative"
       ],
       "image": "/httpsmihi-purple-portfolio.vercel.app.png",
       "websiteUrl": "https://mihi-purple-portfolio.vercel.app/",
@@ -1354,7 +1352,7 @@
       "name": "Catrip",
       "slug": "catrip",
       "categories": [
-        "Events"
+        "Creative"
       ],
       "image": "/httpsmihi-catrip.vercel.app.png",
       "websiteUrl": "https://mihi-catrip.vercel.app/",
@@ -1365,8 +1363,7 @@
       "name": "Voice",
       "slug": "voice",
       "categories": [
-        "Media",
-        "Creator"
+        "Creative"
       ],
       "image": "/httpsmihi-voice.vercel.app.png",
       "websiteUrl": "https://mihi-voice.vercel.app/",
@@ -1410,8 +1407,7 @@
       "name": "Spa",
       "slug": "spa",
       "categories": [
-        "Salon",
-        "Spa"
+        "Salon"
       ],
       "image": "/httpsmihi-spa.vercel.app.png",
       "websiteUrl": "https://mihi-spa.vercel.app/",
@@ -1466,8 +1462,7 @@
       "name": "YogaBN",
       "slug": "yogabn",
       "categories": [
-        "Fitness",
-        "Yoga"
+        "Sports"
       ],
       "image": "/httpsmihi-yogabn.vercel.app.png",
       "websiteUrl": "https://mihi-yogabn.vercel.app/",
@@ -1522,7 +1517,7 @@
       "name": "Golf Kit",
       "slug": "golf-kit",
       "categories": [
-        "Golf",
+        "Sports",
         "Ecommerce"
       ],
       "image": "/httpsmihi-golf-kit.vercel.app.png",
@@ -1534,8 +1529,7 @@
       "name": "WorkVLP",
       "slug": "workvlp",
       "categories": [
-        "Business",
-        "Coworking"
+        "Business"
       ],
       "image": "/httpsmihi-workvlp.vercel.app.png",
       "websiteUrl": "https://mihi-workvlp.vercel.app/",
@@ -1546,7 +1540,7 @@
       "name": "AI Shop",
       "slug": "ai-shop",
       "categories": [
-        "AI",
+        "Technology",
         "Ecommerce"
       ],
       "image": "/httpsmihi-ai-shop.vercel.app.png",
@@ -1558,9 +1552,8 @@
       "name": "Sporen",
       "slug": "sporen",
       "categories": [
-        "Tennis",
-        "Coaching",
-        "Sports"
+        "Sports",
+        "Education"
       ],
       "image": "/httpsmihi-sporen.vercel.app.png",
       "websiteUrl": "https://mihi-sporen.vercel.app/",
@@ -1571,9 +1564,7 @@
       "name": "VoltEdge",
       "slug": "voltedge",
       "categories": [
-        "Electrical",
-        "Engineering",
-        "Maintenance"
+        "Engineering"
       ],
       "image": "/httpsmihi-voltedge.vercel.app.png",
       "websiteUrl": "https://mihi-voltedge.vercel.app/",
@@ -1584,8 +1575,7 @@
       "name": "Verde",
       "slug": "verde",
       "categories": [
-        "Landscape",
-        "Home & Garden",
+        "Interior",
         "Business"
       ],
       "image": "/httpsmihi-verde.vercel.app.png",
@@ -1597,8 +1587,7 @@
       "name": "Eduvo",
       "slug": "eduvo",
       "categories": [
-        "Education",
-        "Courses"
+        "Education"
       ],
       "image": "/httpsmihi-eduvo.vercel.app.png",
       "websiteUrl": "https://mihi-eduvo.vercel.app/",
@@ -1610,9 +1599,7 @@
       "slug": "cuoio",
       "categories": [
         "Education",
-        "Ecommerce",
-        "Coaching",
-        "Courses"
+        "Ecommerce"
       ],
       "image": "/httpsmihi-cuoio.vercel.app.png",
       "websiteUrl": "https://mihi-cuoio.vercel.app/",
@@ -1623,7 +1610,6 @@
       "name": "Tezmiy",
       "slug": "tezmiy",
       "categories": [
-        "SaaS",
         "Technology",
         "Business"
       ],
@@ -1636,8 +1622,7 @@
       "name": "Vixcz",
       "slug": "vixcz",
       "categories": [
-        "AI",
-        "SaaS"
+        "Technology"
       ],
       "image": "/httpsmihi-vixcz.vercel.app.png",
       "websiteUrl": "https://mihi-vixcz.vercel.app/",
@@ -1648,8 +1633,7 @@
       "name": "Coivt",
       "slug": "coivt",
       "categories": [
-        "SaaS",
-        "Crypto",
+        "Technology",
         "Finance"
       ],
       "image": "/httpsmihi-coivt.vercel.app.png",
@@ -1685,7 +1669,7 @@
       "name": "Vitara",
       "slug": "vitara",
       "categories": [
-        "Beauty",
+        "Fashion",
         "Ecommerce"
       ],
       "image": "/httpsmihi-vitara.vercel.app.png",
@@ -1697,7 +1681,6 @@
       "name": "Rank Ryz",
       "slug": "rank-ryz",
       "categories": [
-        "SaaS",
         "Technology"
       ],
       "image": "/httpsmihi-rank-ryz.vercel.app.png",
@@ -1709,7 +1692,7 @@
       "name": "Revivy",
       "slug": "revivy",
       "categories": [
-        "Beauty",
+        "Fashion",
         "Ecommerce"
       ],
       "image": "/httpsmihi-revivy.vercel.app.png",
@@ -1721,7 +1704,7 @@
       "name": "CBRLP",
       "slug": "cbrlp",
       "categories": [
-        "Car Rental"
+        "Logistics"
       ],
       "image": "/httpsmihi-cbrlp.vercel.app.png",
       "websiteUrl": "https://mihi-cbrlp.vercel.app/",
@@ -1733,7 +1716,6 @@
       "slug": "journey",
       "categories": [
         "Logistics",
-        "Transportation",
         "Business"
       ],
       "image": "/httpsmihi-journey.vercel.app.png",
@@ -1745,7 +1727,6 @@
       "name": "Lamply",
       "slug": "lamply",
       "categories": [
-        "Lighting",
         "Interior",
         "Ecommerce"
       ],
@@ -1758,7 +1739,6 @@
       "name": "Eyelpx",
       "slug": "eyelpx",
       "categories": [
-        "Eyewear",
         "Fashion",
         "Ecommerce"
       ],
@@ -1771,7 +1751,6 @@
       "name": "CharityLP",
       "slug": "charitylp",
       "categories": [
-        "Charity",
         "Nonprofit"
       ],
       "image": "/httpsmihi-charitylp.vercel.app.png",
@@ -1783,10 +1762,8 @@
       "name": "CSPV",
       "slug": "cspv",
       "categories": [
-        "Furniture",
         "Interior",
-        "Ecommerce",
-        "Home & Garden"
+        "Ecommerce"
       ],
       "image": "/httpscslpv.vercel.app.png",
       "websiteUrl": "https://cslpv.vercel.app/",
@@ -1808,9 +1785,7 @@
       "name": "IT-X",
       "slug": "it-x",
       "categories": [
-        "Marketing",
-        "Business",
-        "Agency"
+        "Business"
       ],
       "image": "/httpsit-x.vercel.app.png",
       "websiteUrl": "https://it-x.vercel.app/",

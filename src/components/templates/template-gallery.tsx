@@ -41,6 +41,7 @@ export function TemplateGallery({
 
     return Array.from(counts.entries())
       .map(([name, count]) => ({ name, count }))
+      .filter((category) => category.count >= 2)
       .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
   }, [initialTemplates]);
 
