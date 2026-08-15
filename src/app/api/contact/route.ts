@@ -167,9 +167,9 @@ function formatFromAddress(value: string) {
 }
 
 function formatResendError(error: {
-  message?: string;
+  message?: string | null;
   name?: string;
-  statusCode?: number;
+  statusCode?: number | null;
 }) {
   const parts = [
     error.name,
