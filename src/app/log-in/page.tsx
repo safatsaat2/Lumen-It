@@ -2,8 +2,9 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, Suspense, useState } from "react";
-import { Lock, Sparkles } from "lucide-react";
+import { Lock } from "lucide-react";
 
+import { BrandLogo } from "@/components/layout/brand-logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -104,12 +105,7 @@ export default function LoginPage() {
         aria-hidden
       />
       <div className="relative flex w-full flex-col items-center gap-6">
-        <div className="flex items-center gap-2 font-display text-lg font-semibold">
-          <span className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 via-fuchsia-500 to-amber-400 text-white">
-            <Sparkles className="size-4" aria-hidden />
-          </span>
-          MIHI&apos;s
-        </div>
+        <BrandLogo alt="MIHI's" className="h-10 w-[11rem]" />
         <Suspense
           fallback={
             <div className="h-80 w-full max-w-md animate-pulse rounded-3xl bg-muted" />

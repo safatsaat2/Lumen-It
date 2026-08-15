@@ -59,7 +59,7 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|favicon.svg|manifest.webmanifest|logo.svg|og.png|robots.txt|sitemap.xml).*)",
+    "/((?!_next/static|_next/image|favicon.ico|favicon.svg|fav.jpeg|manifest.webmanifest|logo.svg|colorfull-logo.png|miHi-BLACK-logo.png|og.png|robots.txt|sitemap.xml).*)",
   ],
 };
 

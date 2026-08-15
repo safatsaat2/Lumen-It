@@ -1,4 +1,4 @@
-import { Sparkles } from "lucide-react";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 
@@ -44,8 +44,15 @@ export function PageLoader({
             className="absolute -inset-3 animate-loader-pulse rounded-3xl bg-gradient-to-br from-violet-500/30 via-fuchsia-500/20 to-amber-400/20"
             aria-hidden
           />
-          <div className="relative flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 via-fuchsia-500 to-amber-400 text-white shadow-glow">
-            <Sparkles className="size-6 animate-loader-spin-slow" aria-hidden />
+          <div className="relative size-16 overflow-hidden rounded-2xl shadow-glow">
+            <Image
+              src="/fav.jpeg"
+              alt=""
+              fill
+              sizes="64px"
+              className="object-cover"
+              aria-hidden
+            />
           </div>
           <div
             className="absolute -inset-1 animate-loader-ring rounded-[1.15rem] border border-primary/40"

@@ -42,8 +42,9 @@ export async function generateMetadata({
     metadataBase: new URL(siteConfig.url),
     ...buildPageMetadata({ locale, dictionary }),
     icons: {
-      icon: "/favicon.svg",
-      apple: "/favicon.svg",
+      icon: [{ url: "/fav.jpeg", type: "image/jpeg" }],
+      apple: "/fav.jpeg",
+      shortcut: "/fav.jpeg",
     },
     manifest: "/manifest.webmanifest",
   };

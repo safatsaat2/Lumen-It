@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
-import { ChevronDown, Menu, Sparkles, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
+import { BrandLogo } from "@/components/layout/brand-logo";
 import { LanguageToggle } from "@/components/layout/language-toggle";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -180,10 +181,11 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
           href={home}
           className="group flex min-w-0 items-center gap-2 font-display text-lg font-semibold tracking-tight"
         >
-          <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 via-fuchsia-500 to-amber-400 text-white shadow-glow transition-transform group-hover:scale-105">
-            <Sparkles className="size-4" aria-hidden />
-          </span>
-          <span className="truncate">{siteName}</span>
+          <BrandLogo
+            alt={siteName}
+            priority
+            className="transition-transform group-hover:scale-[1.02]"
+          />
         </Link>
 
         <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Main">

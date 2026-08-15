@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
 
+import { BrandLogo } from "@/components/layout/brand-logo";
 import { Separator } from "@/components/ui/separator";
 import { localizedPath } from "@/config/site";
 import type { Locale } from "@/i18n/config";
@@ -81,12 +81,9 @@ export function SiteFooter({
           <div className="space-y-4">
             <Link
               href={localizedPath(locale)}
-              className="flex items-center gap-2 font-display text-lg font-semibold"
+              className="inline-flex items-center"
             >
-              <span className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 via-fuchsia-500 to-amber-400 text-white">
-                <Sparkles className="size-4" aria-hidden />
-              </span>
-              {settings.name}
+              <BrandLogo alt={settings.name} />
             </Link>
             <p className="max-w-sm text-sm text-muted-foreground">
               {dictionary.meta.description}

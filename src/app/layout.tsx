@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Toaster } from "sonner";
 
 import { NavigationProgressHost } from "@/components/layout/navigation-progress-host";
@@ -6,6 +7,14 @@ import { fontDisplay, fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
+
+export const metadata: Metadata = {
+  icons: {
+    icon: [{ url: "/fav.jpeg", type: "image/jpeg" }],
+    apple: "/fav.jpeg",
+    shortcut: "/fav.jpeg",
+  },
+};
 
 export default function RootLayout({
   children,
