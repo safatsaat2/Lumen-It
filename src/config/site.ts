@@ -8,8 +8,8 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://mihis.agency",
   ogImage: "/og.png",
-  email: "info@mihis.agency",
-  contactEmail: "info@mihis.agency",
+  email: "info@mihitech.org",
+  contactEmail: "info@mihitech.org",
   phone: "",
   address: "Berlin, Deutschland",
   founded: 2026,

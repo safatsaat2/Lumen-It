@@ -31,7 +31,10 @@ export async function POST(request: Request) {
     }
 
     const { name, email, phone, subject, message, templateId } = parsed.data;
-    const to = process.env.CONTACT_TO_EMAIL ?? siteConfig.contactEmail;
+    const to = parseRecipients(
+      process.env.CONTACT_TO_EMAIL,
+      siteConfig.contactEmail,
+    );
     const from =
       process.env.CONTACT_FROM_EMAIL ?? "MIHI's Website <onboarding@resend.dev>";
 
@@ -85,7 +88,7 @@ export async function POST(request: Request) {
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
       from,
-      to: [to],
+      to,
       replyTo: email,
       subject: `[MIHI's Contact]${templateId ? ` [${templateId}]` : ""} ${subject}`,
       html,
@@ -108,6 +111,15 @@ export async function POST(request: Request) {
       { status: 500 },
     );
   }
+}
+
+function parseRecipients(value: string | undefined, fallback: string) {
+  const emails = (value ?? fallback)
+    .split(/[,;]+/)
+    .map((entry) => entry.trim())
+    .filter((entry) => z.string().email().safeParse(entry).success);
+
+  return emails.length > 0 ? emails : [fallback];
 }
 
 function escapeHtml(value: string) {
