@@ -13,6 +13,43 @@ import { getTemplateById, type WebsiteTemplate } from "@/data/templates";
 import type { Dictionary } from "@/i18n/dictionaries/types";
 import type { SiteSettings } from "@/lib/content-store";
 
+function formatContactError(
+  status: number,
+  data: {
+    error?: string;
+    fields?: { field: string; message: string }[];
+    resend?: unknown;
+    debug?: Record<string, unknown>;
+    details?: string;
+  },
+) {
+  const lines = [
+    `HTTP ${status}`,
+    data.error || "Request failed.",
+  ];
+
+  if (data.fields?.length) {
+    lines.push("", "Fields:");
+    for (const field of data.fields) {
+      lines.push(`- ${field.field}: ${field.message}`);
+    }
+  }
+
+  if (data.resend) {
+    lines.push("", "Resend:", JSON.stringify(data.resend, null, 2));
+  }
+
+  if (data.debug) {
+    lines.push("", "Debug:", JSON.stringify(data.debug, null, 2));
+  }
+
+  if (data.details) {
+    lines.push("", data.details);
+  }
+
+  return lines.join("\n");
+}
+
 type ContactSectionProps = {
   dictionary: Dictionary;
   settings: SiteSettings;
@@ -69,27 +106,42 @@ function ContactForm({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: formData.get("name"),
-          email: formData.get("email"),
-          phone: formData.get("phone") || undefined,
-          subject: formData.get("subject"),
-          message: formData.get("message"),
+          name: String(formData.get("name") ?? "").trim(),
+          email: String(formData.get("email") ?? "").trim(),
+          phone: String(formData.get("phone") ?? "").trim() || undefined,
+          subject: String(formData.get("subject") ?? "").trim(),
+          message: String(formData.get("message") ?? "").trim(),
           templateId: cleanedTemplateId || undefined,
         }),
       });
 
-      const data = (await response.json()) as { ok?: boolean; error?: string };
+      const raw = await response.text();
+      let data: {
+        ok?: boolean;
+        error?: string;
+        fields?: { field: string; message: string }[];
+        resend?: unknown;
+        debug?: Record<string, unknown>;
+        details?: string;
+      } = {};
+      try {
+        data = raw ? (JSON.parse(raw) as typeof data) : {};
+      } catch {
+        throw new Error(
+          `HTTP ${response.status}: server did not return JSON.\n${raw.slice(0, 500)}`,
+        );
+      }
 
       if (!response.ok || !data.ok) {
-        throw new Error(data.error || t.error);
+        throw new Error(formatContactError(response.status, data));
       }
 
       setSuccess(true);
       form.reset();
       setTemplateId("");
       setSubject("");
-    } catch {
-      setError(t.error);
+    } catch (err) {
+      setError(err instanceof Error && err.message ? err.message : t.error);
     } finally {
       setLoading(false);
     }
@@ -193,9 +245,12 @@ function ContactForm({
         />
       </div>
       {error ? (
-        <p className="text-sm text-destructive" role="alert">
+        <pre
+          className="whitespace-pre-wrap break-words rounded-2xl border border-destructive/30 bg-destructive/10 p-4 text-left text-xs leading-relaxed text-destructive"
+          role="alert"
+        >
           {error}
-        </p>
+        </pre>
       ) : null}
       <Button type="submit" variant="primary" size="lg" className="w-full" disabled={loading}>
         {loading ? (
