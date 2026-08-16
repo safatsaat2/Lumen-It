@@ -33,7 +33,7 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
 
       <div className="container relative">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <Badge variant="glow" className="mb-6 animate-fade-up">
+          <Badge variant="eyebrow" className="mb-6 animate-fade-up">
             <span
               className="size-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_theme(colors.emerald.400)]"
               aria-hidden

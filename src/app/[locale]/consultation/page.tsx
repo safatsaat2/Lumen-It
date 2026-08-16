@@ -62,8 +62,8 @@ export default async function ConsultationPage({
         <div className="pointer-events-none absolute left-1/2 top-16 size-[28rem] -translate-x-1/2 rounded-full bg-violet-500/15 blur-[110px]" aria-hidden />
         <section className="container relative">
           <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
-            <Badge variant="glow">
-              <Sparkles className="size-3.5 text-primary" aria-hidden />
+            <Badge variant="eyebrow">
+              <Sparkles className="size-4 text-primary" aria-hidden />
               {de ? "Kostenlose KI-Beratung" : "Free AI consultation"}
             </Badge>
             <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight sm:text-6xl">

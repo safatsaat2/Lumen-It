@@ -66,8 +66,8 @@ export default async function ServicesIndexPage({
         />
         <section className="container relative space-y-12">
           <div className="mx-auto max-w-3xl text-center">
-            <Badge variant="glow">
-              <Wrench className="size-3.5 text-primary" aria-hidden />
+            <Badge variant="eyebrow">
+              <Wrench className="size-4 text-primary" aria-hidden />
               {dictionary.services.badge}
             </Badge>
             <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight sm:text-6xl">

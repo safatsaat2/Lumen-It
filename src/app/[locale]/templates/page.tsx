@@ -66,8 +66,8 @@ export default async function TemplatesPage({
         />
         <section className="container relative">
           <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
-            <Badge variant="glow">
-              <LayoutTemplate className="size-3.5 text-primary" aria-hidden />
+            <Badge variant="eyebrow">
+              <LayoutTemplate className="size-4 text-primary" aria-hidden />
               {copy.badge}
             </Badge>
             <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight sm:text-6xl">

@@ -66,8 +66,8 @@ export default async function WorkIndexPage({
         />
         <section className="container relative space-y-12">
           <div className="mx-auto max-w-3xl text-center">
-            <Badge variant="glow">
-              <Briefcase className="size-3.5 text-primary" aria-hidden />
+            <Badge variant="eyebrow">
+              <Briefcase className="size-4 text-primary" aria-hidden />
               {dictionary.work.badge}
             </Badge>
             <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight sm:text-6xl">

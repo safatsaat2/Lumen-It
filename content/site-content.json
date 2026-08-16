@@ -54,12 +54,12 @@
     "hero": {
       "badge": "Neue Projekte willkommen",
       "titleBefore": "Wir bauen",
-      "titleHighlight": "digitale Produkte",
-      "titleAfter": ", die skalieren",
-      "description": "MIHI's ist Ihre Agentur für Webentwicklung, E-Commerce und Automatisierung — mit DSGVO-bewussten Standards, messbarer Performance und klarer Übergabe an Ihr Team.",
+      "titleHighlight": "Marken & Produkte",
+      "titleAfter": ", die verkaufen und skalieren",
+      "description": "Smart Branding, Smart Sales und digitale Produkte — Websites, Shops und Automatisierung, die Ihre Marke schärfen und Verkäufe antreiben. DSGVO-bewusst, messbar und mit klarer Übergabe an Ihr Team.",
       "ctaPrimary": "Angebot anfragen",
       "ctaSecondary": "Leistungen ansehen",
-      "trust": "Brand. Build. Scale. · Immer erreichbar · Antwort innerhalb von 24h"
+      "trust": "Smart Branding · Smart Sales · Antwort innerhalb von 24h"
     },
     "clients": {
       "label": "Worauf Sie zählen können"
@@ -513,12 +513,12 @@
     "hero": {
       "badge": "Accepting new projects",
       "titleBefore": "We build",
-      "titleHighlight": "digital products",
-      "titleAfter": " that scale",
-      "description": "MIHI's is your agency for web development, e-commerce, and automation — with GDPR-aware defaults, measurable performance, and a handover your team can own.",
+      "titleHighlight": "brands & products",
+      "titleAfter": " that sell and scale",
+      "description": "Smart branding, smart sales, and digital products — websites, shops, and automation that sharpen your brand and drive revenue. GDPR-aware, measurable, and handed over so your team can own it.",
       "ctaPrimary": "Request a quote",
       "ctaSecondary": "Explore services",
-      "trust": "Brand. Build. Scale. · Always reachable · Reply within 24h"
+      "trust": "Smart branding · Smart sales · Reply within 24h"
     },
     "clients": {
       "label": "What you can count on"

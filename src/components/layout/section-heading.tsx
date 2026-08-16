@@ -25,7 +25,7 @@ export function SectionHeading({
       )}
     >
       {badge ? (
-        <Badge variant="primary" className={cn(align === "center" && "mx-auto")}>
+        <Badge variant="eyebrow" className={cn(align === "center" && "mx-auto")}>
           {badge}
         </Badge>
       ) : null}

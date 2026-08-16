@@ -58,13 +58,13 @@ const en: Dictionary = {
   hero: {
     badge: "Accepting new projects",
     titleBefore: "We build",
-    titleHighlight: "digital products",
-    titleAfter: " that scale",
+    titleHighlight: "brands & products",
+    titleAfter: " that sell and scale",
     description:
-      "MIHI's is your agency for web development, e-commerce, and automation — with GDPR-aware defaults, measurable performance, and a handover your team can own.",
+      "Smart branding, smart sales, and digital products — websites, shops, and automation that sharpen your brand and drive revenue. GDPR-aware, measurable, and handed over so your team can own it.",
     ctaPrimary: "Request a quote",
     ctaSecondary: "Explore services",
-    trust: "Brand. Build. Scale. · Always reachable · Reply within 24h",
+    trust: "Smart branding · Smart sales · Reply within 24h",
   },
   clients: {
     label: "What you can count on",

@@ -38,8 +38,8 @@ export function AiConsultantPromo({
             // Avoid layout thrash / removeChild races during route unmount.
             layout={false}
           >
-            <Badge variant="glow" className="mb-5">
-              <Sparkles aria-hidden className="size-3.5 text-primary" />
+            <Badge variant="eyebrow" className="mb-5">
+              <Sparkles aria-hidden className="size-4 text-primary" />
               {copy.badge}
             </Badge>
             <h2 className="max-w-3xl font-display text-3xl font-semibold tracking-tight sm:text-5xl">

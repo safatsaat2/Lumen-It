@@ -16,6 +16,8 @@ const badgeVariants = cva(
           "border-foreground/10 bg-foreground/5 text-foreground/80",
         glow:
           "border-border/80 bg-muted/70 text-foreground backdrop-blur-md shadow-glow dark:border-white/15 dark:bg-white/10",
+        eyebrow:
+          "border-primary/45 bg-primary/15 px-4 py-1.5 font-display text-sm font-semibold tracking-wide text-primary shadow-glow sm:px-5 sm:py-2 sm:text-base",
       },
     },
     defaultVariants: { variant: "default" },
