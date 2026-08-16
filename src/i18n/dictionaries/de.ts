@@ -339,6 +339,12 @@ const de: Dictionary = {
           "Wir kalkulieren nach Scope und Ergebnis, nicht nach offenen Stunden. Nach einem kurzen Gespräch erhalten Sie ein Festpreisangebot mit Deliverables, Meilensteinen und Abnahmekriterien. Optionale Care-Pläne werden separat abgerechnet.",
       },
       {
+        question:
+          "Bieten Sie Social-Media-Management, Marketing und Video auch ohne Webdesign und Entwicklung an?",
+        answer:
+          "Ja, unbedingt. Auch wenn wir vollständige Marken oft über Webdesign und Entwicklung aufbauen, bieten wir Social-Media-Management, Marketing und Video auch einzeln an — auch wenn Sie kein Webdesign oder keine Entwicklung brauchen.\n\nEin eigenes Inhouse-Team kümmert sich professionell und kontinuierlich um Ihre Kanäle, Kampagnen und Videoinhalte.\n\nWenn Sie unser Webdesign- und Entwicklungspaket wählen, erhalten Sie in den ersten drei Monaten 60 % Rabatt auf Social-Media-Management, Marketing und Video.",
+      },
+      {
         question: "Mit wem arbeite ich?",
         answer:
           "MIHI's ist ein founder-geführtes Studio. Sie arbeiten direkt mit den Menschen, die Ihr Projekt umsetzen — keine anonyme Ticket-Warteschlange.",

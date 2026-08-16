@@ -27,7 +27,7 @@ export function FAQSection({ dictionary }: FAQSectionProps) {
           {dictionary.faq.items.map((item, index) => (
             <AccordionItem key={item.question} value={`item-${index}`}>
               <AccordionTrigger>{item.question}</AccordionTrigger>
-              <AccordionContent>{item.answer}</AccordionContent>
+              <AccordionContent className="whitespace-pre-line">{item.answer}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>

@@ -338,6 +338,12 @@ const en: Dictionary = {
           "We price by scope and outcome, not open-ended hours. After a short call you receive a fixed-fee proposal with deliverables, milestones, and acceptance criteria. Optional care plans are billed separately.",
       },
       {
+        question:
+          "Can you offer social media management, marketing, and video services without choosing web design and development?",
+        answer:
+          "Yes, absolutely. While we focus on building complete brands through web design and development, we also provide social media management, marketing, and video services separately — even if you don’t need web design or development.\n\nWe have a dedicated in-house team specializing in these services, so we can handle your social media, marketing campaigns, and video content professionally and consistently.\n\nIf you choose our web design and development package, we can offer you 60% off social media management, marketing, and video services for the first three months.",
+      },
+      {
         question: "Who will I work with?",
         answer:
           "MIHI's is a founder-led studio. You work directly with the people building your project — no anonymous ticket queue.",
