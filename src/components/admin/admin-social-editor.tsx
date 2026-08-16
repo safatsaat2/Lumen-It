@@ -5,9 +5,10 @@ import { Label } from "@/components/ui/label";
 import type { SocialLinks } from "@/lib/content-store";
 
 const SOCIAL_FIELDS: { key: keyof SocialLinks; label: string }[] = [
+  { key: "facebook", label: "Facebook URL" },
+  { key: "instagram", label: "Instagram URL" },
   { key: "twitter", label: "Twitter / X URL" },
   { key: "linkedin", label: "LinkedIn URL" },
-  { key: "instagram", label: "Instagram URL" },
   { key: "github", label: "GitHub URL" },
 ];
 

@@ -20,10 +20,11 @@ import type { Dictionary } from "@/i18n/dictionaries/types";
 import { isVercelBlobEnabled } from "@/lib/use-vercel-blob";
 
 export type SocialLinks = {
+  facebook: string;
+  instagram: string;
   twitter: string;
   github: string;
   linkedin: string;
-  instagram: string;
 };
 
 export type SiteSettings = {
@@ -110,10 +111,11 @@ function hasGitHubConfig() {
 
 function defaultSocial(): SocialLinks {
   return {
+    facebook: siteConfig.social.facebook,
+    instagram: siteConfig.social.instagram,
     twitter: siteConfig.social.twitter,
     github: siteConfig.social.github,
     linkedin: siteConfig.social.linkedin,
-    instagram: siteConfig.social.instagram,
   };
 }
 

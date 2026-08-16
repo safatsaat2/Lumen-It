@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { BrandLogo } from "@/components/layout/brand-logo";
+import { SocialNetworkIcon, socialLabel } from "@/components/layout/social-icons";
 import { Separator } from "@/components/ui/separator";
 import { localizedPath } from "@/config/site";
 import type { Locale } from "@/i18n/config";
@@ -120,16 +121,17 @@ export function SiteFooter({
           <p>
             © {year} {settings.name}. {dictionary.footer.rights}
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap items-center gap-2">
             {socialEntries.map(([key, href]) => (
               <a
                 key={key}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="capitalize hover:text-foreground"
+                aria-label={socialLabel(key)}
+                className="inline-flex size-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:border-foreground/30 hover:bg-foreground/5 hover:text-foreground"
               >
-                {key}
+                <SocialNetworkIcon network={key} />
               </a>
             ))}
           </div>

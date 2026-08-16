@@ -17,7 +17,7 @@ export const organizationSchema = (description: string) => ({
     addressLocality: "Berlin",
     addressCountry: "DE",
   },
-  sameAs: Object.values(siteConfig.social),
+  sameAs: Object.values(siteConfig.social).filter(Boolean),
 });
 
 /** Website schema. */

@@ -14,10 +14,11 @@ export const siteConfig = {
   address: "Berlin, Deutschland",
   founded: 2026,
   social: {
-    twitter: "https://twitter.com/mihisagency",
-    github: "https://github.com/mihis-agency",
-    linkedin: "https://linkedin.com/company/mihis-agency",
-    instagram: "https://instagram.com/mihis.agency",
+    facebook: "https://www.facebook.com/mihistech",
+    instagram: "https://www.instagram.com/mihi_tech/",
+    twitter: "",
+    github: "",
+    linkedin: "",
   },
 } as const;
 
