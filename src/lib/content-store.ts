@@ -390,6 +390,30 @@ async function buildDefaults(): Promise<SiteContent> {
   };
 }
 
+function normalizeClients(
+  raw: Client[] | undefined,
+  defaults: Client[],
+): Client[] {
+  const usable =
+    Array.isArray(raw) &&
+    raw.length > 0 &&
+    !raw.some((client) =>
+      /Northwind|Lumen Cloud|Harvest AI|Atlas Mobility|Moonlit|Kindred|Helio Labs|Vanta Studio/i.test(
+        client.name,
+      ),
+    )
+      ? raw
+      : defaults;
+
+  const deByEnName = new Map(defaults.map((client) => [client.name, client.nameDe]));
+
+  return usable.map((client) => ({
+    name: client.name,
+    logo: client.logo,
+    nameDe: client.nameDe?.trim() || deByEnName.get(client.name) || client.name,
+  }));
+}
+
 export async function normalizeSiteContent(
   raw: Partial<SiteContent>,
 ): Promise<SiteContent> {
@@ -429,16 +453,7 @@ export async function normalizeSiteContent(
           ? defaults.settings.founded
           : (raw.settings?.founded ?? defaults.settings.founded),
     },
-    clients:
-      Array.isArray(raw.clients) &&
-      raw.clients.length > 0 &&
-      !raw.clients.some((client) =>
-        /Northwind|Lumen Cloud|Harvest AI|Atlas Mobility|Moonlit|Kindred|Helio Labs|Vanta Studio/i.test(
-          client.name,
-        ),
-      )
-        ? raw.clients
-        : defaults.clients,
+    clients: normalizeClients(raw.clients, defaults.clients),
     templates: Array.isArray(raw.templates)
       ? normalizeTemplates(raw.templates)
       : defaults.templates,

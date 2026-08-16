@@ -36,7 +36,7 @@ export function AdminClientsEditor({
           onClick={() =>
             onClientsChange([
               ...clients,
-              { name: "New client", logo: "orbit" },
+              { name: "New client", nameDe: "Neuer Eintrag", logo: "orbit" },
             ])
           }
         >
@@ -48,14 +48,24 @@ export function AdminClientsEditor({
       {clients.map((client, index) => (
         <article
           key={`${client.name}-${index}`}
-          className="grid gap-4 rounded-2xl border border-border bg-card/60 p-4 sm:grid-cols-[1fr_1fr_auto]"
+          className="grid gap-4 rounded-2xl border border-border bg-card/60 p-4 sm:grid-cols-[1fr_1fr_1fr_auto]"
         >
-          <Field label="Name">
+          <Field label="Name (EN)">
             <Input
               value={client.name}
               onChange={(e) => {
                 const next = [...clients];
                 next[index] = { ...next[index], name: e.target.value };
+                onClientsChange(next);
+              }}
+            />
+          </Field>
+          <Field label="Name (DE)">
+            <Input
+              value={client.nameDe ?? ""}
+              onChange={(e) => {
+                const next = [...clients];
+                next[index] = { ...next[index], nameDe: e.target.value };
                 onClientsChange(next);
               }}
             />

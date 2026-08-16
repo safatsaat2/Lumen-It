@@ -47,6 +47,7 @@ export default async function HomePage({
         <HeroSection locale={locale} dictionary={dictionary} />
         <ClientsMarquee
           label={dictionary.clients.label}
+          locale={locale}
           clients={content.clients}
         />
         <AiConsultantPromo locale={locale} dictionary={dictionary} />

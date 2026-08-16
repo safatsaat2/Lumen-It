@@ -1194,34 +1194,42 @@
   "clients": [
     {
       "name": "24/7 availability mindset",
+      "nameDe": "24/7-Erreichbarkeit",
       "logo": "default"
     },
     {
       "name": "Always reachable",
+      "nameDe": "Immer erreichbar",
       "logo": "default"
     },
     {
       "name": "Clear fixed-scope quotes",
+      "nameDe": "Klare Festpreisangebote",
       "logo": "default"
     },
     {
       "name": "GDPR-aware by default",
+      "nameDe": "DSGVO-bewusst von Anfang an",
       "logo": "default"
     },
     {
       "name": "Lighthouse 90+ target",
+      "nameDe": "Lighthouse-Ziel 90+",
       "logo": "default"
     },
     {
       "name": "Reply within 24h",
+      "nameDe": "Antwort innerhalb von 24h",
       "logo": "default"
     },
     {
       "name": "Full handover documentation",
+      "nameDe": "Vollständige Übergabe-Dokumentation",
       "logo": "default"
     },
     {
       "name": "Transparent project pricing",
+      "nameDe": "Transparente Projektpreise",
       "logo": "default"
     }
   ],

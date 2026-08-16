@@ -1,12 +1,14 @@
 import { ClientLogo } from "@/components/layout/client-logo";
-import type { Client } from "@/data/clients";
+import { clientDisplayName, type Client } from "@/data/clients";
+import type { Locale } from "@/i18n/config";
 
 type ClientsMarqueeProps = {
   label: string;
+  locale: Locale;
   clients: Client[];
 };
 
-export function ClientsMarquee({ label, clients }: ClientsMarqueeProps) {
+export function ClientsMarquee({ label, locale, clients }: ClientsMarqueeProps) {
   const items = [...clients, ...clients];
 
   return (
@@ -24,7 +26,7 @@ export function ClientsMarquee({ label, clients }: ClientsMarqueeProps) {
               className="flex shrink-0 items-center gap-3 font-display text-lg font-semibold tracking-tight text-muted-foreground transition-colors hover:text-foreground"
             >
               <ClientLogo id={client.logo} />
-              <span>{client.name}</span>
+              <span>{clientDisplayName(client, locale)}</span>
             </li>
           ))}
         </ul>
