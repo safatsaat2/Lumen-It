@@ -16,6 +16,7 @@ import {
   updateConsultation,
 } from "@/lib/consultation/store";
 import {
+  consultationRecordSchema,
   isValidConsultationId,
   type ConsultationRecord,
 } from "@/lib/consultation/types";
@@ -33,6 +34,8 @@ const submitSchema = z.object({
       message: "Too many answers.",
     })
     .default({}),
+  /** Browser-held snapshot so rounds still work when Blob is disabled. */
+  consultation: consultationRecordSchema.optional(),
 });
 
 function aiErrorResponse(error: ConsultationAiError) {
@@ -75,7 +78,10 @@ export async function POST(
   }
 
   try {
-    const record = await readConsultation(id);
+    let record = await readConsultation(id);
+    if (!record && parsed.consultation && parsed.consultation.id === id) {
+      record = parsed.consultation;
+    }
     if (!record) {
       return NextResponse.json(
         { ok: false, error: "Consultation not found." },

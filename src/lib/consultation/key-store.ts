@@ -3,6 +3,8 @@ import { promises as fs } from "fs";
 import path from "path";
 import { get, put } from "@vercel/blob";
 
+import { isVercelBlobEnabled } from "@/lib/use-vercel-blob";
+
 /**
  * Private, encrypted-at-rest storage for the admin-configured Groq API key.
  *
@@ -42,7 +44,8 @@ function isVercel() {
 }
 
 function hasBlobToken() {
-  return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+  // Blob is off until USE_VERCEL_BLOB is set true in src/lib/use-vercel-blob.ts
+  return isVercelBlobEnabled();
 }
 
 function decodeEncryptionKey(raw: string): Buffer | null {

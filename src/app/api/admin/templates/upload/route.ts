@@ -2,6 +2,7 @@ import { put } from "@vercel/blob";
 import { NextResponse } from "next/server";
 
 import { getAdminSession } from "@/lib/auth";
+import { isVercelBlobEnabled } from "@/lib/use-vercel-blob";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -20,12 +21,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
   }
 
-  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+  if (!isVercelBlobEnabled()) {
     return NextResponse.json(
       {
         ok: false,
         error:
-          "BLOB_READ_WRITE_TOKEN is not configured. Paste a public/ path or image URL instead.",
+          "Vercel Blob is temporarily disabled (USE_VERCEL_BLOB). Paste a public/ path or image URL instead.",
       },
       { status: 503 },
     );

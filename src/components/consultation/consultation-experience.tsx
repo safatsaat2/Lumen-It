@@ -48,6 +48,25 @@ type ConsultationResponse = {
 };
 
 const STORAGE_KEY = "mihis-consultation-id";
+const RECORD_KEY = "mihis-consultation-record";
+
+function persistSession(next: ConsultationRecord) {
+  window.localStorage.setItem(STORAGE_KEY, next.id);
+  window.localStorage.setItem(RECORD_KEY, JSON.stringify(next));
+}
+
+function readStoredRecord(id?: string): ConsultationRecord | null {
+  try {
+    const raw = window.localStorage.getItem(RECORD_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as ConsultationRecord;
+    if (!parsed?.id) return null;
+    if (id && parsed.id !== id) return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
 
 const deQuestionLabels: Record<string, string> = {
   "business-idea": "Was ist Ihre Geschäftsidee?",
@@ -121,13 +140,30 @@ export function ConsultationExperience({
         cache: "no-store",
       });
       const data = (await response.json()) as ConsultationResponse;
-      if (!response.ok || !data.consultation) {
-        throw new Error(data.error || (de ? "Beratung nicht gefunden." : "Consultation not found."));
+      if (response.ok && data.consultation) {
+        setRecord(data.consultation);
+        setJourney(data.journey ?? journeys.find((item) => item.id === data.consultation?.journeyId) ?? null);
+        persistSession(data.consultation);
+        return;
       }
-      setRecord(data.consultation);
-      setJourney(data.journey ?? null);
-      window.localStorage.setItem(STORAGE_KEY, data.consultation.id);
+
+      const stored = readStoredRecord(id);
+      if (stored) {
+        setRecord(stored);
+        setJourney(journeys.find((item) => item.id === stored.journeyId) ?? null);
+        persistSession(stored);
+        return;
+      }
+
+      throw new Error(data.error || (de ? "Beratung nicht gefunden." : "Consultation not found."));
     } catch (loadError) {
+      const stored = readStoredRecord(id);
+      if (stored) {
+        setRecord(stored);
+        setJourney(journeys.find((item) => item.id === stored.journeyId) ?? null);
+        setError("");
+        return;
+      }
       setError(loadError instanceof Error ? loadError.message : "Could not load consultation.");
     } finally {
       setLoading(false);
@@ -159,7 +195,7 @@ export function ConsultationExperience({
       setRecord(data.consultation);
       setJourney(data.journey);
       setReviewing(false);
-      window.localStorage.setItem(STORAGE_KEY, data.consultation.id);
+      persistSession(data.consultation);
       window.history.replaceState(null, "", `?id=${data.consultation.id}`);
     } catch (startError) {
       setError(startError instanceof Error ? startError.message : "Could not start.");
@@ -176,13 +212,17 @@ export function ConsultationExperience({
       const response = await fetch(`/api/consultation/${record.id}/submit`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ answers: retryFinal ? {} : answers }),
+        body: JSON.stringify({
+          answers: retryFinal ? {} : answers,
+          consultation: record,
+        }),
       });
       const data = (await response.json()) as ConsultationResponse;
       if (!response.ok || !data.consultation) {
         throw new Error(data.error || (de ? "Antworten konnten nicht verarbeitet werden." : "Could not process your answers."));
       }
       setRecord(data.consultation);
+      persistSession(data.consultation);
       setAnswers({});
       setReviewing(data.consultation.status !== "completed");
     } catch (submitError) {
@@ -196,6 +236,7 @@ export function ConsultationExperience({
         const refreshed = (await refresh.json()) as ConsultationResponse;
         if (refresh.ok && refreshed.consultation) {
           setRecord(refreshed.consultation);
+          persistSession(refreshed.consultation);
           if (refreshed.journey) setJourney(refreshed.journey);
         }
       } catch {
@@ -208,6 +249,7 @@ export function ConsultationExperience({
 
   function reset() {
     window.localStorage.removeItem(STORAGE_KEY);
+    window.localStorage.removeItem(RECORD_KEY);
     window.history.replaceState(null, "", window.location.pathname);
     setRecord(null);
     setJourney(null);
@@ -297,7 +339,7 @@ export function ConsultationExperience({
         </div>
         <ConsultationReport
           report={record.report as BrandingReport}
-          consultationId={record.id}
+          record={record}
           locale={locale}
         />
       </div>

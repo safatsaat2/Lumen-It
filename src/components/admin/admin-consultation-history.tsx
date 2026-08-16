@@ -159,7 +159,7 @@ export function AdminConsultationHistory() {
         {selected.report ? (
           <ConsultationReport
             report={selected.report}
-            consultationId={selected.id}
+            record={selected}
             locale="en"
           />
         ) : (

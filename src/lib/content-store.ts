@@ -17,6 +17,7 @@ import {
 } from "@/data/templates";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/types";
+import { isVercelBlobEnabled } from "@/lib/use-vercel-blob";
 
 export type SocialLinks = {
   twitter: string;
@@ -99,7 +100,8 @@ function isVercel() {
 }
 
 function hasBlobToken() {
-  return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+  // Blob is off until USE_VERCEL_BLOB is set true in src/lib/use-vercel-blob.ts
+  return isVercelBlobEnabled();
 }
 
 function hasGitHubConfig() {

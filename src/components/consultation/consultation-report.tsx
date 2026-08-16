@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ArrowDownToLine,
   CheckCircle2,
@@ -6,11 +8,12 @@ import {
   Lightbulb,
   Target,
 } from "lucide-react";
+import { toast } from "sonner";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import type { BrandingReport } from "@/lib/consultation/types";
+import type { BrandingReport, ConsultationRecord } from "@/lib/consultation/types";
 
 function TextSection({
   title,
@@ -56,11 +59,11 @@ function ListBlock({ title, items }: { title: string; items: string[] }) {
 
 export function ConsultationReport({
   report,
-  consultationId,
+  record,
   locale,
 }: {
   report: BrandingReport;
-  consultationId: string;
+  record: ConsultationRecord;
   locale: "de" | "en";
 }) {
   const de = locale === "de";
@@ -70,6 +73,30 @@ export function ConsultationReport({
     [de ? "Sechs Monate" : "Six months", report.growthRoadmap.sixMonths],
     [de ? "Ein Jahr" : "One year", report.growthRoadmap.oneYear],
   ] as const;
+
+  async function downloadPdf() {
+    try {
+      const response = await fetch(`/api/consultation/${record.id}/pdf`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ consultation: record }),
+      });
+      if (!response.ok) {
+        throw new Error(de ? "PDF konnte nicht erstellt werden." : "Could not generate the PDF.");
+      }
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `branding-report-${record.id}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    } catch {
+      toast.error(de ? "PDF konnte nicht erstellt werden." : "Could not generate the PDF.");
+    }
+  }
 
   return (
     <div className="space-y-6">
@@ -84,11 +111,9 @@ export function ConsultationReport({
         <p className="mt-5 max-w-4xl whitespace-pre-line text-base leading-relaxed text-muted-foreground">
           {report.executiveSummary}
         </p>
-        <Button variant="primary" className="mt-7" asChild>
-          <a href={`/api/consultation/${consultationId}/pdf`} download>
-            <ArrowDownToLine aria-hidden />
-            {de ? "PDF herunterladen" : "Download PDF"}
-          </a>
+        <Button variant="primary" className="mt-7" type="button" onClick={() => void downloadPdf()}>
+          <ArrowDownToLine aria-hidden />
+          {de ? "PDF herunterladen" : "Download PDF"}
         </Button>
       </Card>
 
