@@ -28,7 +28,7 @@ export default async function AdminLayout({
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
           <div className="flex items-center gap-3">
             <Link href="/admin" className="flex items-center gap-2 font-display font-semibold">
-              <BrandLogo alt="MIHI's" className="h-8 w-[8.5rem] sm:h-9 sm:w-[10rem]" />
+              <BrandLogo alt="MIHI's" className="h-10 w-[13rem] sm:h-11 sm:w-[14.5rem]" />
               <span className="hidden text-sm text-muted-foreground sm:inline">Admin</span>
             </Link>
             <Link href="/admin" className="hidden items-center gap-1 rounded-full border border-border px-2.5 py-1 text-xs text-muted-foreground transition hover:text-foreground sm:inline-flex">

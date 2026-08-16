@@ -12,23 +12,23 @@ export function BrandLogo({ alt, className, priority = false }: BrandLogoProps) 
   return (
     <span
       className={cn(
-        "relative inline-flex h-9 w-[9.5rem] shrink-0 items-center sm:h-10 sm:w-[11rem]",
+        "relative inline-flex h-11 w-[13rem] shrink-0 items-center sm:h-12 sm:w-[15rem] lg:h-14 lg:w-[17.5rem]",
         className,
       )}
     >
       <Image
-        src="/logo-dark.png"
+        src="/logo-white.png"
         alt={alt}
         fill
-        sizes="176px"
+        sizes="(min-width: 1024px) 280px, 240px"
         priority={priority}
         className="object-contain object-left dark:hidden"
       />
       <Image
-        src="/logo-white.png"
+        src="/logo-dark.png"
         alt=""
         fill
-        sizes="176px"
+        sizes="(min-width: 1024px) 280px, 240px"
         priority={priority}
         aria-hidden
         className="hidden object-contain object-left dark:block"

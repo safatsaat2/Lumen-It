@@ -105,7 +105,7 @@ export default function LoginPage() {
         aria-hidden
       />
       <div className="relative flex w-full flex-col items-center gap-6">
-        <BrandLogo alt="MIHI's" className="h-10 w-[11rem]" />
+        <BrandLogo alt="MIHI's" className="h-12 w-[15rem]" />
         <Suspense
           fallback={
             <div className="h-80 w-full max-w-md animate-pulse rounded-3xl bg-muted" />
