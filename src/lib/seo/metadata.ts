@@ -11,15 +11,20 @@ export function buildPageMetadata({
   title,
   description,
   path = "",
+  keywords,
 }: {
   locale: Locale;
   dictionary: Dictionary;
   title?: string;
   description?: string;
   path?: string;
+  keywords?: string[];
 }): Metadata {
   const pageTitle = title ?? dictionary.meta.title;
   const pageDescription = description ?? dictionary.meta.description;
+  const pageKeywords = keywords?.length
+    ? keywords
+    : [...dictionary.meta.keywords];
   const canonicalPath = path ? `/${locale}${path}` : `/${locale}`;
   const url = `${siteConfig.url}${canonicalPath}`;
 
@@ -30,7 +35,7 @@ export function buildPageMetadata({
   return {
     title: pageTitle,
     description: pageDescription,
-    keywords: [...dictionary.meta.keywords],
+    keywords: pageKeywords,
     authors: [{ name: siteConfig.name, url: siteConfig.url }],
     creator: siteConfig.name,
     publisher: siteConfig.name,

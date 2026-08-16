@@ -7,6 +7,8 @@ import { ContactSection } from "@/components/sections/contact-section";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { readSiteContent } from "@/lib/content-store";
+import { buildPageMetadata } from "@/lib/seo/metadata";
+import { siteConfig } from "@/config/site";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -18,15 +20,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (!isLocale(localeParam)) return {};
-  const dictionary = await getDictionary(localeParam);
+  const locale = localeParam as Locale;
+  const dictionary = await getDictionary(locale);
 
   return {
-    title: `${dictionary.contact.title} · MIHI's`,
-    description: dictionary.contact.description,
-    alternates: {
-      canonical: `/${localeParam}/contact`,
-      languages: { de: "/de/contact", en: "/en/contact" },
-    },
+    metadataBase: new URL(siteConfig.url),
+    ...buildPageMetadata({
+      locale,
+      dictionary,
+      title: `${dictionary.contact.title} | ${siteConfig.name}`,
+      description: dictionary.contact.description,
+      path: "/contact",
+    }),
   };
 }
 

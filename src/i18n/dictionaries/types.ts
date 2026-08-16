@@ -15,6 +15,7 @@ export type Dictionary = {
     pricing: string;
     faq: string;
     contact: string;
+    blog: string;
     more: string;
     cta: string;
     menu: string;
@@ -171,6 +172,18 @@ export type Dictionary = {
     success: string;
     error: string;
   };
+  blog: {
+    badge: string;
+    title: string;
+    description: string;
+    pageTitle: string;
+    pageDescription: string;
+    viewAll: string;
+    minRead: string;
+    related: string;
+    backToBlog: string;
+    relatedServices: string;
+  };
   footer: {
     agency: string;
     resources: string;
@@ -179,6 +192,7 @@ export type Dictionary = {
     about: string;
     services: string;
     templates: string;
+    blog: string;
     process: string;
     faq: string;
     pricing: string;

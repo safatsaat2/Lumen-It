@@ -7,11 +7,13 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { localizedPath } from "@/config/site";
+import { localizedPath, siteConfig } from "@/config/site";
 import { resolveServiceIcon } from "@/data/service-icons";
+import { seoLandingPages } from "@/data/seo-pages";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { readSiteContent } from "@/lib/content-store";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { cn } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
@@ -24,15 +26,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (!isLocale(localeParam)) return {};
-  const dictionary = await getDictionary(localeParam);
+  const locale = localeParam as Locale;
+  const dictionary = await getDictionary(locale);
 
   return {
-    title: `${dictionary.services.pageTitle} · MIHI's`,
-    description: dictionary.services.pageDescription,
-    alternates: {
-      canonical: `/${localeParam}/services`,
-      languages: { de: "/de/services", en: "/en/services" },
-    },
+    metadataBase: new URL(siteConfig.url),
+    ...buildPageMetadata({
+      locale,
+      dictionary,
+      title: `${dictionary.services.pageTitle} | ${siteConfig.name}`,
+      description: dictionary.services.pageDescription,
+      path: "/services",
+    }),
   };
 }
 
@@ -126,6 +131,42 @@ export default async function ServicesIndexPage({
               </Link>
             </Button>
           </div>
+
+          <nav className="mx-auto max-w-3xl border-t border-border pt-10 text-center">
+            <p className="text-sm font-medium">
+              {locale === "de" ? "Themen" : "Topics"}
+            </p>
+            <ul className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2">
+              {seoLandingPages
+                .filter((page) => page.kind === "topic")
+                .map((page) => (
+                  <li key={page.slug}>
+                    <Link
+                      href={localizedPath(locale, `/${page.slug}`)}
+                      className="text-sm text-primary hover:underline"
+                    >
+                      {page[locale].h1.split("—")[0].split(":")[0].trim()}
+                    </Link>
+                  </li>
+                ))}
+              <li>
+                <Link
+                  href={localizedPath(locale, "/consultation")}
+                  className="text-sm text-primary hover:underline"
+                >
+                  {dictionary.nav.consultation}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={localizedPath(locale, "/blog")}
+                  className="text-sm text-primary hover:underline"
+                >
+                  {dictionary.nav.blog}
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </section>
       </main>
       <SiteFooter

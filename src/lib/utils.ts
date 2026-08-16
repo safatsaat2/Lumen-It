@@ -1,6 +1,8 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+import type { Locale } from "@/i18n/config";
+
 /**
  * Combine class names with conditional logic and intelligently
  * merge conflicting Tailwind utilities (e.g. `p-2` overrides `p-4`).
@@ -33,9 +35,10 @@ export function readingTime(text: string) {
   return Math.max(1, Math.round(words / 200));
 }
 
-/** Format ISO date to "Jan 1, 2026". */
-export function formatDate(date: string | Date) {
-  return new Intl.DateTimeFormat("en-US", {
+/** Format ISO date. */
+export function formatDate(date: string | Date, locale: Locale = "en") {
+  const tag = locale === "de" ? "de-DE" : "en-US";
+  return new Intl.DateTimeFormat(tag, {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -46,6 +49,6 @@ export function formatDate(date: string | Date) {
 export function absoluteUrl(path = "/") {
   const base =
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://lumen.agency";
+    "https://mihitech.org";
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }

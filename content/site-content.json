@@ -1,18 +1,21 @@
 {
   "de": {
     "meta": {
-      "title": "MIHI's — Digitale Agentur für Web, E-Commerce & Automatisierung",
-      "description": "MIHI's ist Ihre digitale Agentur in Deutschland: individuelle Webentwicklung, Shopify, SEO, UI/UX und KI-Automatisierung — DSGVO-bewusst und ergebnisorientiert.",
-      "ogAlt": "MIHI's — Digitale Agentur für Unternehmen in Deutschland",
+      "title": "MIHI's — Branding Agentur & individuelle Websites in Deutschland",
+      "description": "MIHI's entwickelt Marken und individuelle Websites für Unternehmen in Deutschland und der DACH-Region: Markenidentität, Markenstrategie, Webdesign, Shopify, SEO und KI-Automatisierung — DSGVO-bewusst und verkaufsstark.",
+      "ogAlt": "MIHI's — Branding Agentur und individuelle Webentwicklung in Deutschland",
       "keywords": [
+        "Branding Agentur",
+        "Markenentwicklung",
+        "Markenidentität",
+        "Markenstrategie",
+        "Webdesign Agentur",
+        "individuelle Webentwicklung",
         "Webentwicklung Deutschland",
         "Shopify Agentur",
         "WordPress Entwicklung",
         "SEO Optimierung",
-        "UI UX Design",
-        "KI Automatisierung",
-        "Website Wartung",
-        "E-Commerce Agentur"
+        "KI Markenberater"
       ]
     },
     "nav": {
@@ -25,6 +28,7 @@
       "pricing": "Preise",
       "faq": "FAQ",
       "contact": "Kontakt",
+      "blog": "Insights",
       "more": "Mehr",
       "cta": "Projekt starten",
       "menu": "Menü",
@@ -354,6 +358,18 @@
       "success": "Vielen Dank! Ihre Nachricht wurde gesendet. Wir melden uns in der Regel innerhalb von 24 Stunden.",
       "error": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt per E-Mail."
     },
+    "blog": {
+      "badge": "Insights",
+      "title": "Aus dem Studio",
+      "description": "Praxisnahe Notizen zu Markenaufbau, individuellen Websites und Wachstum in Deutschland.",
+      "pageTitle": "Insights zu Branding und individuellen Websites",
+      "pageDescription": "Artikel von MIHI's zu Markenstrategie, Identität, Webdesign und dem KI-Berater, bevor Sie bauen.",
+      "viewAll": "Alle Insights",
+      "minRead": "Min. Lesezeit",
+      "related": "Ähnliche Artikel",
+      "backToBlog": "Alle Insights",
+      "relatedServices": "Verwandte Seiten"
+    },
     "footer": {
       "agency": "Agentur",
       "resources": "Ressourcen",
@@ -362,6 +378,7 @@
       "about": "Über uns",
       "services": "Leistungen",
       "templates": "Templates",
+      "blog": "Insights",
       "process": "Ablauf",
       "faq": "FAQ",
       "pricing": "Preise",
@@ -464,18 +481,21 @@
   },
   "en": {
     "meta": {
-      "title": "MIHI's — Digital Agency for Web, E-Commerce & Automation",
-      "description": "MIHI's is a digital agency for German and DACH businesses: custom web development, Shopify, SEO, UI/UX, and AI automation — GDPR-aware and outcome-focused.",
-      "ogAlt": "MIHI's — Digital agency for businesses in Germany",
+      "title": "MIHI's — Branding Agency & Custom Websites in Germany",
+      "description": "MIHI's creates brands and custom websites for German and DACH businesses: brand identity, brand strategy, web design, Shopify, SEO, and AI automation — GDPR-aware and built to sell.",
+      "ogAlt": "MIHI's — Branding agency and custom website development in Germany",
       "keywords": [
+        "branding agency",
+        "brand creation",
+        "brand identity",
+        "brand strategy",
+        "custom website development",
+        "web design Germany",
         "web development Germany",
         "Shopify agency",
         "WordPress development",
         "SEO optimization",
-        "UI UX design",
-        "AI automation",
-        "website maintenance",
-        "e-commerce agency"
+        "AI brand consultant"
       ]
     },
     "nav": {
@@ -488,6 +508,7 @@
       "pricing": "Pricing",
       "faq": "FAQ",
       "contact": "Contact",
+      "blog": "Insights",
       "more": "More",
       "cta": "Start a project",
       "menu": "Menu",
@@ -817,6 +838,18 @@
       "success": "Thank you! Your message was sent. We'll usually reply within 24 hours.",
       "error": "We couldn't send your message. Please try again or email us directly."
     },
+    "blog": {
+      "badge": "Insights",
+      "title": "From the studio",
+      "description": "Practical notes on brand creation, custom websites, and growing a business in Germany.",
+      "pageTitle": "Insights on branding and custom websites",
+      "pageDescription": "Articles from MIHI's on brand strategy, identity, web design, and using the AI consultant before you build.",
+      "viewAll": "View all insights",
+      "minRead": "min read",
+      "related": "Related articles",
+      "backToBlog": "All insights",
+      "relatedServices": "Related pages"
+    },
     "footer": {
       "agency": "Agency",
       "resources": "Resources",
@@ -825,6 +858,7 @@
       "about": "About",
       "services": "Services",
       "templates": "Templates",
+      "blog": "Insights",
       "process": "Process",
       "faq": "FAQ",
       "pricing": "Pricing",

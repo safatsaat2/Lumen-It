@@ -2,19 +2,22 @@ import type { Dictionary } from "./types";
 
 const en: Dictionary = {
   meta: {
-    title: "MIHI's — Digital Agency for Web, E-Commerce & Automation",
+    title: "MIHI's — Branding Agency & Custom Websites in Germany",
     description:
-      "MIHI's is a digital agency for German and DACH businesses: custom web development, Shopify, SEO, UI/UX, and AI automation — GDPR-aware and outcome-focused.",
-    ogAlt: "MIHI's — Digital agency for businesses in Germany",
+      "MIHI's creates brands and custom websites for German and DACH businesses: brand identity, brand strategy, web design, Shopify, SEO, and AI automation — GDPR-aware and built to sell.",
+    ogAlt: "MIHI's — Branding agency and custom website development in Germany",
     keywords: [
+      "branding agency",
+      "brand creation",
+      "brand identity",
+      "brand strategy",
+      "custom website development",
+      "web design Germany",
       "web development Germany",
       "Shopify agency",
       "WordPress development",
       "SEO optimization",
-      "UI UX design",
-      "AI automation",
-      "website maintenance",
-      "e-commerce agency",
+      "AI brand consultant",
     ],
   },
   nav: {
@@ -27,6 +30,7 @@ const en: Dictionary = {
     pricing: "Pricing",
     faq: "FAQ",
     contact: "Contact",
+    blog: "Insights",
     more: "More",
     cta: "Start a project",
     menu: "Menu",
@@ -397,6 +401,20 @@ const en: Dictionary = {
     error:
       "We couldn't send your message. Please try again or email us directly.",
   },
+  blog: {
+    badge: "Insights",
+    title: "From the studio",
+    description:
+      "Practical notes on brand creation, custom websites, and growing a business in Germany.",
+    pageTitle: "Insights on branding and custom websites",
+    pageDescription:
+      "Articles from MIHI's on brand strategy, identity, web design, and using the AI consultant before you build.",
+    viewAll: "View all insights",
+    minRead: "min read",
+    related: "Related articles",
+    backToBlog: "All insights",
+    relatedServices: "Related pages",
+  },
   footer: {
     agency: "Agency",
     resources: "Resources",
@@ -405,6 +423,7 @@ const en: Dictionary = {
     about: "About",
     services: "Services",
     templates: "Templates",
+    blog: "Insights",
     process: "Process",
     faq: "FAQ",
     pricing: "Pricing",

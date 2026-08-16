@@ -14,6 +14,7 @@ import { ServicesSection } from "@/components/sections/services-section";
 import { TemplatesShowcase } from "@/components/sections/templates-showcase";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { WorkSection } from "@/components/sections/work-section";
+import { BlogPreviewSection } from "@/components/sections/blog-preview-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -67,6 +68,7 @@ export default async function HomePage({
         <PricingSection locale={locale} dictionary={dictionary} />
         <TestimonialsSection dictionary={dictionary} />
         <FAQSection dictionary={dictionary} />
+        <BlogPreviewSection locale={locale} dictionary={dictionary} />
         <ContactSection
           dictionary={dictionary}
           settings={content.settings}

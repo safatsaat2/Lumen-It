@@ -65,6 +65,43 @@ export const serviceSchema = (service: {
   },
 });
 
+/** Article schema for blog posts. */
+export const articleSchema = (article: {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  dateModified?: string;
+  locale: Locale;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: article.title,
+  description: article.description,
+  url: article.url,
+  datePublished: article.datePublished,
+  dateModified: article.dateModified ?? article.datePublished,
+  inLanguage: article.locale === "de" ? "de-DE" : "en-US",
+  author: {
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteConfig.url}/favicon-192.png`,
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": article.url,
+  },
+});
+
 /** BreadcrumbList schema generator. */
 export const breadcrumbSchema = (
   items: { name: string; href: string }[],

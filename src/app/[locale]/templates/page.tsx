@@ -9,6 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { readSiteContent } from "@/lib/content-store";
+import { buildPageMetadata } from "@/lib/seo/metadata";
+import { siteConfig } from "@/config/site";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -20,16 +22,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (!isLocale(localeParam)) return {};
-  const dictionary = await getDictionary(localeParam);
+  const locale = localeParam as Locale;
+  const dictionary = await getDictionary(locale);
   const copy = dictionary.templates;
 
   return {
-    title: `${copy.pageTitle} · MIHI's`,
-    description: copy.pageDescription,
-    alternates: {
-      canonical: `/${localeParam}/templates`,
-      languages: { de: "/de/templates", en: "/en/templates" },
-    },
+    metadataBase: new URL(siteConfig.url),
+    ...buildPageMetadata({
+      locale,
+      dictionary,
+      title: `${copy.pageTitle} | ${siteConfig.name}`,
+      description: copy.pageDescription,
+      path: "/templates",
+    }),
   };
 }
 

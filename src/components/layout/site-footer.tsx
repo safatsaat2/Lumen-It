@@ -32,6 +32,7 @@ export function SiteFooter({
       links: [
         { label: dictionary.footer.about, href: section("about") },
         { label: dictionary.footer.services, href: localizedPath(locale, "/services") },
+        { label: "Branding", href: localizedPath(locale, "/branding") },
         { label: dictionary.footer.process, href: section("process") },
         { label: dictionary.footer.contact, href: localizedPath(locale, "/contact") },
       ],
@@ -42,6 +43,11 @@ export function SiteFooter({
         {
           label: dictionary.footer.templates,
           href: localizedPath(locale, "/templates"),
+        },
+        { label: dictionary.footer.blog, href: localizedPath(locale, "/blog") },
+        {
+          label: dictionary.nav.consultation,
+          href: localizedPath(locale, "/consultation"),
         },
         { label: dictionary.nav.work, href: localizedPath(locale, "/work") },
         { label: dictionary.footer.faq, href: section("faq") },

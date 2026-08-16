@@ -11,6 +11,8 @@ import { localizedPath } from "@/config/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { readSiteContent } from "@/lib/content-store";
+import { buildPageMetadata } from "@/lib/seo/metadata";
+import { siteConfig } from "@/config/site";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -22,15 +24,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (!isLocale(localeParam)) return {};
-  const dictionary = await getDictionary(localeParam);
+  const locale = localeParam as Locale;
+  const dictionary = await getDictionary(locale);
 
   return {
-    title: `${dictionary.work.pageTitle} · MIHI's`,
-    description: dictionary.work.pageDescription,
-    alternates: {
-      canonical: `/${localeParam}/work`,
-      languages: { de: "/de/work", en: "/en/work" },
-    },
+    metadataBase: new URL(siteConfig.url),
+    ...buildPageMetadata({
+      locale,
+      dictionary,
+      title: `${dictionary.work.pageTitle} | ${siteConfig.name}`,
+      description: dictionary.work.pageDescription,
+      path: "/work",
+    }),
   };
 }
 

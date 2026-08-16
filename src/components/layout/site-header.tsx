@@ -117,6 +117,7 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
 
   const moreNav: NavItem[] = [
     { label: dictionary.nav.work, href: homeSection(locale, "work") },
+    { label: dictionary.nav.blog, href: localizedPath(locale, "/blog") },
     { label: dictionary.nav.process, href: homeSection(locale, "process") },
     { label: dictionary.nav.faq, href: homeSection(locale, "faq") },
   ];

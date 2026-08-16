@@ -2,19 +2,22 @@ import type { Dictionary } from "./types";
 
 const de: Dictionary = {
   meta: {
-    title: "MIHI's — Digitale Agentur für Web, E-Commerce & Automatisierung",
+    title: "MIHI's — Branding Agentur & individuelle Websites in Deutschland",
     description:
-      "MIHI's ist Ihre digitale Agentur in Deutschland: individuelle Webentwicklung, Shopify, SEO, UI/UX und KI-Automatisierung — DSGVO-bewusst und ergebnisorientiert.",
-    ogAlt: "MIHI's — Digitale Agentur für Unternehmen in Deutschland",
+      "MIHI's entwickelt Marken und individuelle Websites für Unternehmen in Deutschland und der DACH-Region: Markenidentität, Markenstrategie, Webdesign, Shopify, SEO und KI-Automatisierung — DSGVO-bewusst und verkaufsstark.",
+    ogAlt: "MIHI's — Branding Agentur und individuelle Webentwicklung in Deutschland",
     keywords: [
+      "Branding Agentur",
+      "Markenentwicklung",
+      "Markenidentität",
+      "Markenstrategie",
+      "Webdesign Agentur",
+      "individuelle Webentwicklung",
       "Webentwicklung Deutschland",
       "Shopify Agentur",
       "WordPress Entwicklung",
       "SEO Optimierung",
-      "UI UX Design",
-      "KI Automatisierung",
-      "Website Wartung",
-      "E-Commerce Agentur",
+      "KI Markenberater",
     ],
   },
   nav: {
@@ -27,6 +30,7 @@ const de: Dictionary = {
     pricing: "Preise",
     faq: "FAQ",
     contact: "Kontakt",
+    blog: "Insights",
     more: "Mehr",
     cta: "Projekt starten",
     menu: "Menü",
@@ -398,6 +402,20 @@ const de: Dictionary = {
     error:
       "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt per E-Mail.",
   },
+  blog: {
+    badge: "Insights",
+    title: "Aus dem Studio",
+    description:
+      "Praxisnahe Notizen zu Markenaufbau, individuellen Websites und Wachstum in Deutschland.",
+    pageTitle: "Insights zu Branding und individuellen Websites",
+    pageDescription:
+      "Artikel von MIHI's zu Markenstrategie, Identität, Webdesign und dem KI-Berater, bevor Sie bauen.",
+    viewAll: "Alle Insights",
+    minRead: "Min. Lesezeit",
+    related: "Ähnliche Artikel",
+    backToBlog: "Alle Insights",
+    relatedServices: "Verwandte Seiten",
+  },
   footer: {
     agency: "Agentur",
     resources: "Ressourcen",
@@ -406,6 +424,7 @@ const de: Dictionary = {
     about: "Über uns",
     services: "Leistungen",
     templates: "Templates",
+    blog: "Insights",
     process: "Ablauf",
     faq: "FAQ",
     pricing: "Preise",

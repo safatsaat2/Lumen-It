@@ -11,6 +11,8 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { toPublicJourney } from "@/lib/consultation/service";
 import { isValidConsultationId } from "@/lib/consultation/types";
 import { readSiteContent } from "@/lib/content-store";
+import { buildPageMetadata } from "@/lib/seo/metadata";
+import { siteConfig } from "@/config/site";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -20,17 +22,25 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const { locale: localeParam } = await params;
+  if (!isLocale(localeParam)) return {};
+  const locale = localeParam as Locale;
+  const dictionary = await getDictionary(locale);
   const de = locale === "de";
+
   return {
-    title: de ? "KI Business-Berater · MIHI's" : "AI Branding Consultant · MIHI's",
-    description: de
-      ? "Kostenlose, KI-gestützte Marken- und Geschäftsberatung mit individueller Strategie und PDF-Bericht."
-      : "Free AI-powered branding and business consultation with a personalized strategy and downloadable report.",
-    alternates: {
-      canonical: `/${locale}/consultation`,
-      languages: { de: "/de/consultation", en: "/en/consultation" },
-    },
+    metadataBase: new URL(siteConfig.url),
+    ...buildPageMetadata({
+      locale,
+      dictionary,
+      title: de
+        ? "KI Business-Berater | MIHI's"
+        : "AI Branding Consultant | MIHI's",
+      description: de
+        ? "Kostenlose, KI-gestützte Marken- und Geschäftsberatung mit individueller Strategie und PDF-Bericht."
+        : "Free AI-powered branding and business consultation with a personalized strategy and downloadable report.",
+      path: "/consultation",
+    }),
   };
 }
 

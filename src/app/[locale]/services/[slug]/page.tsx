@@ -135,6 +135,46 @@ export default async function ServicePage({
               </Link>
             </Button>
           </div>
+
+          <nav className="mt-14 border-t border-border pt-8">
+            <p className="text-sm font-medium">
+              {locale === "de" ? "Verwandte Seiten" : "Related pages"}
+            </p>
+            <ul className="mt-4 flex flex-wrap gap-3">
+              <li>
+                <Link
+                  href={localizedPath(locale, "/branding")}
+                  className="text-sm text-primary hover:underline"
+                >
+                  Branding
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={localizedPath(locale, "/custom-websites")}
+                  className="text-sm text-primary hover:underline"
+                >
+                  {locale === "de" ? "Individuelle Websites" : "Custom websites"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={localizedPath(locale, "/consultation")}
+                  className="text-sm text-primary hover:underline"
+                >
+                  {dictionary.nav.consultation}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={localizedPath(locale, "/blog")}
+                  className="text-sm text-primary hover:underline"
+                >
+                  {dictionary.nav.blog}
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </article>
       </main>
       <SiteFooter
