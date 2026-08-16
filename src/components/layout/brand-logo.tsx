@@ -17,7 +17,7 @@ export function BrandLogo({ alt, className, priority = false }: BrandLogoProps) 
       )}
     >
       <Image
-        src="/miHi-BLACK-logo.png"
+        src="/logo-dark.png"
         alt={alt}
         fill
         sizes="176px"
@@ -25,7 +25,7 @@ export function BrandLogo({ alt, className, priority = false }: BrandLogoProps) 
         className="object-contain object-left dark:hidden"
       />
       <Image
-        src="/colorfull-logo.png"
+        src="/logo-white.png"
         alt=""
         fill
         sizes="176px"
