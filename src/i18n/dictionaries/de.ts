@@ -90,7 +90,7 @@ const de: Dictionary = {
     storyP1:
       "MIHI's ist ein founder-geführtes Studio für individuelle Webprojekte, WordPress, Shopify, APIs und KI-Automatisierung. Wir arbeiten auf Deutsch und Englisch, mit DSGVO-bewussten Standards von Tag eins — und einer klaren Übergabe, die Ihr nächstes Team wirklich nutzen kann.",
     storyP2:
-      "Wir messen Erfolg an nachvollziehbaren Ergebnissen: klarer Scope, messbare Performance-Ziele und Systeme, die Ihr Team nach dem Launch selbst beherrscht — ohne erfundene Erfolgsgeschichten.",
+      "Wir messen Erfolg an nachvollziehbaren Ergebnissen: klarer Scope, messbare Performance-Ziele und Systeme, die Ihr Team nach dem Launch selbst beherrscht.",
     stats: [
       {
         value: "24/7",
@@ -159,7 +159,7 @@ const de: Dictionary = {
     badge: "Was wir liefern",
     title: "Angebote, die Sie mit uns besprechen können",
     description:
-      "Ehrliche Scopes für individuelle Websites, Shops, APIs und Kampagnenseiten — ohne erfundene Kundenlogos oder Kennzahlen.",
+      "Klare Scopes für individuelle Websites, Shops, APIs und Kampagnenseiten.",
     viewCase: "Angebot besprechen",
     viewAll: "Alle Angebote ansehen",
     pageTitle: "Alle Angebote",
@@ -288,7 +288,7 @@ const de: Dictionary = {
     badge: "Versprechen",
     title: "Verbindlichkeiten, die wir halten",
     description:
-      "Keine erfundenen Zitate von erfundenen Personen — nur Studio-Versprechen, an die Sie uns halten können.",
+      "Studio-Versprechen, an die Sie uns halten können.",
     items: [
       {
         id: "1",
@@ -341,7 +341,7 @@ const de: Dictionary = {
       {
         question: "Mit wem arbeite ich?",
         answer:
-          "MIHI's ist ein founder-geführtes Studio. Sie arbeiten direkt mit den Menschen, die Ihr Projekt umsetzen — keine anonyme Ticket-Warteschlange und kein erfundenes „embedded Squad“.",
+          "MIHI's ist ein founder-geführtes Studio. Sie arbeiten direkt mit den Menschen, die Ihr Projekt umsetzen — keine anonyme Ticket-Warteschlange.",
       },
       {
         question: "Welche Technologien nutzen Sie?",

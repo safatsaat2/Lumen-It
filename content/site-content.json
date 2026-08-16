@@ -84,7 +84,7 @@
       "description": "Strategie, Design und Engineering unter einem Dach — damit Sie schneller liefern, ohne Qualität zu opfern.",
       "storyTitle": "So arbeiten wir",
       "storyP1": "MIHI's ist ein founder-geführtes Studio für individuelle Webprojekte, WordPress, Shopify, APIs und KI-Automatisierung. Wir arbeiten auf Deutsch und Englisch, mit DSGVO-bewussten Standards von Tag eins — und einer klaren Übergabe, die Ihr nächstes Team wirklich nutzen kann.",
-      "storyP2": "Wir messen Erfolg an nachvollziehbaren Ergebnissen: klarer Scope, messbare Performance-Ziele und Systeme, die Ihr Team nach dem Launch selbst beherrscht — ohne erfundene Erfolgsgeschichten.",
+      "storyP2": "Wir messen Erfolg an nachvollziehbaren Ergebnissen: klarer Scope, messbare Performance-Ziele und Systeme, die Ihr Team nach dem Launch selbst beherrscht.",
       "stats": [
         {
           "value": "24/7",
@@ -143,7 +143,7 @@
     "work": {
       "badge": "Was wir liefern",
       "title": "Angebote, die Sie mit uns besprechen können",
-      "description": "Ehrliche Scopes für individuelle Websites, Shops, APIs und Kampagnenseiten — ohne erfundene Kundenlogos oder Kennzahlen.",
+      "description": "Klare Scopes für individuelle Websites, Shops, APIs und Kampagnenseiten.",
       "viewCase": "Angebot besprechen"
     },
     "process": {
@@ -261,7 +261,7 @@
     "testimonials": {
       "badge": "Versprechen",
       "title": "Verbindlichkeiten, die wir halten",
-      "description": "Keine erfundenen Zitate von erfundenen Personen — nur Studio-Versprechen, an die Sie uns halten können.",
+      "description": "Studio-Versprechen, an die Sie uns halten können.",
       "items": [
         {
           "id": "1",
@@ -307,7 +307,7 @@
         },
         {
           "question": "Mit wem arbeite ich?",
-          "answer": "MIHI's ist ein founder-geführtes Studio. Sie arbeiten direkt mit den Menschen, die Ihr Projekt umsetzen — keine anonyme Ticket-Warteschlange und kein erfundenes „embedded Squad“."
+          "answer": "MIHI's ist ein founder-geführtes Studio. Sie arbeiten direkt mit den Menschen, die Ihr Projekt umsetzen — keine anonyme Ticket-Warteschlange."
         },
         {
           "question": "Welche Technologien nutzen Sie?",
@@ -543,7 +543,7 @@
       "description": "Strategy, design, and engineering under one roof — so you ship faster without sacrificing quality.",
       "storyTitle": "How we work",
       "storyP1": "MIHI's is a founder-led studio for custom web, WordPress, Shopify, APIs, and AI automation. We work in German and English, with GDPR-aware defaults from day one — and a clear handover your next team can actually use.",
-      "storyP2": "We measure success in outcomes you can verify: clear scope, measurable performance targets, and systems your team can run after launch — without invented track records or filler claims.",
+      "storyP2": "We measure success in outcomes you can verify: clear scope, measurable performance targets, and systems your team can run after launch.",
       "stats": [
         {
           "value": "24/7",
@@ -602,7 +602,7 @@
     "work": {
       "badge": "What we deliver",
       "title": "Offerings you can discuss with us",
-      "description": "Honest scopes across custom web, shops, APIs, and campaign pages — no fake client logos or invented metrics.",
+      "description": "Clear scopes across custom web, shops, APIs, and campaign pages.",
       "viewCase": "Discuss this offer"
     },
     "process": {
@@ -720,7 +720,7 @@
     "testimonials": {
       "badge": "Promises",
       "title": "Commitments we stand behind",
-      "description": "No fabricated quotes from invented people — just studio promises you can hold us to.",
+      "description": "Studio promises you can hold us to.",
       "items": [
         {
           "id": "1",
@@ -766,7 +766,7 @@
         },
         {
           "question": "Who will I work with?",
-          "answer": "MIHI's is a founder-led studio. You work directly with the people building your project — no anonymous ticket queue and no invented “embedded squad.”"
+          "answer": "MIHI's is a founder-led studio. You work directly with the people building your project — no anonymous ticket queue."
         },
         {
           "question": "What is your tech stack?",

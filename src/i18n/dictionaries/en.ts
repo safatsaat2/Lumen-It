@@ -90,7 +90,7 @@ const en: Dictionary = {
     storyP1:
       "MIHI's is a founder-led studio for custom web, WordPress, Shopify, APIs, and AI automation. We work in German and English, with GDPR-aware defaults from day one — and a clear handover your next team can actually use.",
     storyP2:
-      "We measure success in outcomes you can verify: clear scope, measurable performance targets, and systems your team can run after launch — without invented track records or filler claims.",
+      "We measure success in outcomes you can verify: clear scope, measurable performance targets, and systems your team can run after launch.",
     stats: [
       {
         value: "24/7",
@@ -159,7 +159,7 @@ const en: Dictionary = {
     badge: "What we deliver",
     title: "Offerings you can discuss with us",
     description:
-      "Honest scopes across custom web, shops, APIs, and campaign pages — no fake client logos or invented metrics.",
+      "Clear scopes across custom web, shops, APIs, and campaign pages.",
     viewCase: "Discuss this offer",
     viewAll: "View all work",
     pageTitle: "All work",
@@ -288,7 +288,7 @@ const en: Dictionary = {
     badge: "Promises",
     title: "Commitments we stand behind",
     description:
-      "No fabricated quotes from invented people — just studio promises you can hold us to.",
+      "Studio promises you can hold us to.",
     items: [
       {
         id: "1",
@@ -340,7 +340,7 @@ const en: Dictionary = {
       {
         question: "Who will I work with?",
         answer:
-          "MIHI's is a founder-led studio. You work directly with the people building your project — no anonymous ticket queue and no invented “embedded squad.”",
+          "MIHI's is a founder-led studio. You work directly with the people building your project — no anonymous ticket queue.",
       },
       {
         question: "What is your tech stack?",
