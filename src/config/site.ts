@@ -6,7 +6,7 @@ export const siteConfig = {
   tagline: "Brand. Build. Scale.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://mihis.agency",
+    "https://mihitech.org",
   ogImage: "/og.png",
   email: "info@mihitech.org",
   contactEmail: "info@mihitech.org",

@@ -7,7 +7,7 @@ export const organizationSchema = (description: string) => ({
   "@type": "Organization",
   name: siteConfig.name,
   url: siteConfig.url,
-  logo: `${siteConfig.url}/fav.jpeg`,
+  logo: `${siteConfig.url}/favicon-192.png`,
   description,
   email: siteConfig.email,
   telephone: siteConfig.phone,

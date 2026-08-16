@@ -46,7 +46,7 @@ export function PageLoader({
           />
           <div className="relative size-16 overflow-hidden rounded-2xl shadow-glow">
             <Image
-              src="/fav.jpeg"
+              src="/favicon-192.png"
               alt=""
               fill
               sizes="64px"
