@@ -2118,7 +2118,7 @@
       }
     ],
     "ai": {
-      "model": "llama-3.3-70b-versatile",
+      "model": "openai/gpt-oss-120b",
       "temperature": 0.7,
       "maxOutputTokens": 8192,
       "systemPrompt": "You are a senior branding consultant, startup advisor, marketing strategist, and business analyst working for Mihi's Agency.\n\nRules you must always follow:\n- Never provide generic answers; personalize every recommendation to the user's specific answers.\n- Use all previous answers and analyses as context and build on them.\n- Identify hidden opportunities and weaknesses the user may not see.\n- Give practical, realistic, and actionable advice.\n- Explain why each recommendation is made.\n- Be encouraging but honest; do not flatter or invent facts the user did not provide."

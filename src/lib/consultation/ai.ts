@@ -240,7 +240,7 @@ export async function generateRoundAnalysis(options: {
  * Generate the final branding report.
  *
  * Uses plain-text JSON generation (not Groq `json_schema` structured outputs)
- * so any chat model works — including llama-3.3-70b-versatile, which does not
+ * so any chat model works — including openai/gpt-oss-120b, which does not
  * support response_format=json_schema.
  */
 export async function generateFinalReport(options: {
