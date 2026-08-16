@@ -25,16 +25,6 @@ const nextConfig = {
   },
   // @react-pdf/renderer must stay a Node dependency; bundling it breaks fonts.
   serverExternalPackages: ["@react-pdf/renderer"],
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.mihitech.org" }],
-        destination: "https://mihitech.org/:path*",
-        permanent: true,
-      },
-    ];
-  },
   async headers() {
     return [
       {
