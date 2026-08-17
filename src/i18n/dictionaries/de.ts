@@ -390,7 +390,7 @@ const de: Dictionary = {
       "Wenn Sie uns wegen eines Ready-to-Go Templates kontaktieren, tragen Sie hier die Template-ID ein.",
     namePlaceholder: "Max Mustermann",
     emailPlaceholder: "Sie@firma.de",
-    phonePlaceholder: "+49 170 0000000",
+    phonePlaceholder: "+49 176 61965122",
     subjectPlaceholder: "Anfrage Webentwicklung",
     messagePlaceholder: "Was möchten Sie umsetzen? Zeitplan? Ungefährer Budgetrahmen?",
     templateIdPlaceholder: "Template-ID eingeben, z. B. TPL-001",

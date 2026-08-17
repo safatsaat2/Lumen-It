@@ -63,13 +63,16 @@ export function LanguageToggle({
       asChild
       variant="outline"
       size="sm"
-      className={cn("min-w-[4.5rem] gap-1.5 font-medium", className)}
+      className={cn(
+        "h-9 gap-1 px-2 font-medium sm:h-9 sm:min-w-[4.5rem] sm:gap-1.5 sm:px-3",
+        className,
+      )}
     >
       <Link href={href} aria-label={label} title={label}>
         <Languages className="size-3.5" aria-hidden />
         <span aria-hidden>{localeLabels[locale]}</span>
         <span className="sr-only">{label}</span>
-        <span className="text-muted-foreground" aria-hidden>
+        <span className="hidden text-muted-foreground sm:inline" aria-hidden>
           → {localeLabels[nextLocale]}
         </span>
       </Link>

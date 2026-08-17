@@ -180,7 +180,7 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
       <div className="container flex h-16 items-center justify-between gap-2 sm:gap-4 lg:h-[4.5rem]">
         <Link
           href={home}
-          className="group flex min-w-0 items-center gap-2 font-display text-lg font-semibold tracking-tight"
+          className="group flex min-w-0 max-w-[min(100%,9.5rem)] items-center gap-2 font-display text-lg font-semibold tracking-tight sm:max-w-none"
         >
           <BrandLogo
             alt={siteName}

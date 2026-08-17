@@ -348,7 +348,7 @@
       "templateIdHelper": "Wenn Sie uns wegen eines Ready-to-Go Templates kontaktieren, tragen Sie hier die Template-ID ein.",
       "namePlaceholder": "Max Mustermann",
       "emailPlaceholder": "Sie@firma.de",
-      "phonePlaceholder": "+49 170 0000000",
+      "phonePlaceholder": "+49 176 61965122",
       "subjectPlaceholder": "Anfrage Webentwicklung",
       "messagePlaceholder": "Was möchten Sie umsetzen? Zeitplan? Ungefährer Budgetrahmen?",
       "templateIdPlaceholder": "Template-ID eingeben, z. B. TPL-001",
@@ -828,7 +828,7 @@
       "templateIdHelper": "If you're contacting us about a Ready-to-Go Template, enter its Template ID here.",
       "namePlaceholder": "Alex Rivera",
       "emailPlaceholder": "you@company.com",
-      "phonePlaceholder": "+49 170 0000000",
+      "phonePlaceholder": "+49 176 61965122",
       "subjectPlaceholder": "Web development inquiry",
       "messagePlaceholder": "What are you building? Timeline? Approximate budget?",
       "templateIdPlaceholder": "Enter template ID, e.g. TPL-001",
@@ -1230,8 +1230,8 @@
     "name": "MIHI's",
     "tagline": "Brand. Build. Scale.",
     "email": "info@mihitech.org",
-    "phone": "",
-    "address": "Berlin, Deutschland",
+    "phone": "+49 176 61965122",
+    "address": "Dortmund, Deutschland",
     "founded": 2026
   },
   "clients": [
@@ -1880,10 +1880,11 @@
         "body": [
           "MIHI's",
           "Inhaber: [Vollständiger Name]",
-          "Anschrift: Berlin, Deutschland — [Straße, PLZ Ort]",
+          "Anschrift: Dortmund, Deutschland — [Straße, PLZ Ort]",
           "E-Mail: info@mihitech.org",
+          "Telefon: +49 176 61965122",
           "Umsatzsteuer-ID: [falls vorhanden, sonst weglassen]",
-          "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: [Vollständiger Name], Berlin.",
+          "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: [Vollständiger Name], Dortmund.",
           "Hinweis: Bitte ersetzen Sie die Platzhalter in eckigen Klammern durch Ihre echten Angaben, bevor die Website kommerziell live geht."
         ]
       }
@@ -1924,10 +1925,11 @@
         "body": [
           "MIHI's",
           "Owner: [Full legal name]",
-          "Address: Berlin, Germany — [Street, postcode, city]",
+          "Address: Dortmund, Germany — [Street, postcode, city]",
           "Email: info@mihitech.org",
+          "Phone: +49 176 61965122",
           "VAT ID: [if applicable]",
-          "Responsible for content (MStV § 18(2)): [Full legal name], Berlin.",
+          "Responsible for content (MStV § 18(2)): [Full legal name], Dortmund.",
           "Note: Replace the bracketed placeholders with your real details before taking commercial clients."
         ]
       }

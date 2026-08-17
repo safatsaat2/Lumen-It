@@ -573,16 +573,16 @@ export const seoLandingPages: SeoLandingPage[] = [
     slug: "branding-agency-germany",
     kind: "location",
     keywords: {
-      en: ["branding agency Germany", "branding agency Berlin", "DACH branding"],
-      de: ["Branding Agentur Deutschland", "Branding Agentur Berlin"],
+      en: ["branding agency Germany", "branding agency Dortmund", "DACH branding"],
+      de: ["Branding Agentur Deutschland", "Branding Agentur Dortmund"],
     },
     en: {
-      title: "Branding Agency in Germany | Berlin-based | MIHI's",
+      title: "Branding Agency in Germany | Dortmund-based | MIHI's",
       description:
-        "MIHI's is a branding agency working with German and DACH companies from Berlin: brand creation, identity, and websites that carry the brand — GDPR-aware.",
+        "MIHI's is a branding agency working with German and DACH companies from Dortmund: brand creation, identity, and websites that carry the brand — GDPR-aware.",
       h1: "A branding agency for companies that sell in Germany",
       intro:
-        "We work from Berlin with clients across Germany and DACH. The work is bilingual when it needs to be. Legal and privacy expectations are German by default.",
+        "We work from Dortmund with clients across Germany and DACH. The work is bilingual when it needs to be. Legal and privacy expectations are German by default.",
       sections: [
         {
           heading: "Why location still matters",
@@ -594,9 +594,9 @@ export const seoLandingPages: SeoLandingPage[] = [
       ],
       faqs: [
         {
-          question: "Do I need to be in Berlin?",
+          question: "Do I need to be in Dortmund?",
           answer:
-            "No. Berlin is where we are based. Projects run remotely across Germany and DACH.",
+            "No. Dortmund is where we are based. Projects run remotely across Germany and DACH.",
         },
       ],
       related: [
@@ -609,12 +609,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       ctaLabel: "Start a conversation",
     },
     de: {
-      title: "Branding Agency in Germany | Sitz Berlin | MIHI's",
+      title: "Branding Agency in Germany | Sitz Dortmund | MIHI's",
       description:
-        "MIHI's ist eine Branding-Agentur für Unternehmen in Deutschland und der DACH-Region, mit Sitz in Berlin: Markenaufbau, Identität und Websites — DSGVO-bewusst.",
+        "MIHI's ist eine Branding-Agentur für Unternehmen in Deutschland und der DACH-Region, mit Sitz in Dortmund: Markenaufbau, Identität und Websites — DSGVO-bewusst.",
       h1: "Branding-Agentur für Unternehmen, die in Deutschland verkaufen",
       intro:
-        "Wir arbeiten aus Berlin mit Kundinnen und Kunden in Deutschland und der DACH-Region. Zweisprachig, wenn nötig. Recht und Datenschutz standardmäßig deutsch.",
+        "Wir arbeiten aus Dortmund mit Kundinnen und Kunden in Deutschland und der DACH-Region. Zweisprachig, wenn nötig. Recht und Datenschutz standardmäßig deutsch.",
       sections: [
         {
           heading: "Warum der Standort zählt",
@@ -626,9 +626,9 @@ export const seoLandingPages: SeoLandingPage[] = [
       ],
       faqs: [
         {
-          question: "Muss ich in Berlin sein?",
+          question: "Muss ich in Dortmund sein?",
           answer:
-            "Nein. Berlin ist der Sitz. Projekte laufen remote in Deutschland und der DACH-Region.",
+            "Nein. Dortmund ist der Sitz. Projekte laufen remote in Deutschland und der DACH-Region.",
         },
       ],
       related: [
@@ -645,7 +645,7 @@ export const seoLandingPages: SeoLandingPage[] = [
     slug: "web-design-germany",
     kind: "location",
     keywords: {
-      en: ["web design Germany", "web design agency Germany", "website design Berlin"],
+      en: ["web design Germany", "web design agency Germany", "website design Dortmund"],
       de: ["Webdesign Deutschland", "Webdesign Agentur Deutschland"],
     },
     en: {
@@ -716,10 +716,10 @@ export const seoLandingPages: SeoLandingPage[] = [
     kind: "location",
     keywords: {
       en: ["Branding Agentur", "Markenentwicklung Agentur"],
-      de: ["Branding Agentur", "Markenentwicklung", "Agentur Berlin"],
+      de: ["Branding Agentur", "Markenentwicklung", "Agentur Dortmund"],
     },
     en: {
-      title: "Branding-Agentur | MIHI's Berlin",
+      title: "Branding-Agentur | MIHI's Dortmund",
       description:
         "MIHI's is a branding agency (Branding-Agentur) in Germany: Markenentwicklung, identity, and websites — with an AI consultant as the first structured conversation.",
       h1: "Branding-Agentur — Markenentwicklung with a website attached",
@@ -750,9 +750,9 @@ export const seoLandingPages: SeoLandingPage[] = [
       ctaLabel: "KI-Berater starten",
     },
     de: {
-      title: "Branding-Agentur Berlin | Markenentwicklung | MIHI's",
+      title: "Branding-Agentur Dortmund | Markenentwicklung | MIHI's",
       description:
-        "MIHI's ist Ihre Branding-Agentur in Deutschland: Markenentwicklung, Identität und Websites — mit KI-Berater als strukturiertem Erstgespräch. Sitz Berlin, Projekte in der DACH-Region.",
+        "MIHI's ist Ihre Branding-Agentur in Deutschland: Markenentwicklung, Identität und Websites — mit KI-Berater als strukturiertem Erstgespräch. Sitz Dortmund, Projekte in der DACH-Region.",
       h1: "Branding-Agentur: Markenentwicklung mit Website",
       intro:
         "Wir entwickeln Positionierung, Identität und den digitalen Auftritt so, dass Vertrieb und Website dieselbe Sprache sprechen — auf Deutsch, DSGVO-bewusst, ohne leere Agenturphrasen.",
@@ -765,9 +765,9 @@ export const seoLandingPages: SeoLandingPage[] = [
           ],
         },
         {
-          heading: "Berlin und remote",
+          heading: "Dortmund und remote",
           paragraphs: [
-            "Sitz in Berlin. Zusammenarbeit remote in ganz Deutschland. Impressum und rechtliche Seiten gehören zum Lieferumfang einer Site, nicht zur Fußnote.",
+            "Sitz in Dortmund. Zusammenarbeit remote in ganz Deutschland. Impressum und rechtliche Seiten gehören zum Lieferumfang einer Site, nicht zur Fußnote.",
           ],
         },
       ],
@@ -778,8 +778,8 @@ export const seoLandingPages: SeoLandingPage[] = [
             "Dieselbe Praxis. Diese URL trifft die deutsche Suche. /branding ist die englisch geführte Themenseite. Beide verlinken auf Beratung und Leistungen.",
         },
         {
-          question: "Arbeitet ihr nur in Berlin?",
-          answer: "Nein. Berlin ist der Sitz. Kundinnen und Kunden sitzen in der DACH-Region.",
+          question: "Arbeitet ihr nur in Dortmund?",
+          answer: "Nein. Dortmund ist der Sitz. Kundinnen und Kunden sitzen in der DACH-Region.",
         },
       ],
       related: [
@@ -797,7 +797,7 @@ export const seoLandingPages: SeoLandingPage[] = [
     kind: "location",
     keywords: {
       en: ["Webdesign Agentur", "web design agency Germany"],
-      de: ["Webdesign Agentur", "Webdesign Berlin", "Agentur Webdesign"],
+      de: ["Webdesign Agentur", "Webdesign Dortmund", "Agentur Webdesign"],
     },
     en: {
       title: "Webdesign-Agentur | MIHI's",

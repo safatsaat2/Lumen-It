@@ -169,10 +169,11 @@ function defaultLegal(): SiteContent["legal"] {
         body: [
           "MIHI's",
           "Inhaber: [Vollständiger Name]",
-          "Anschrift: Berlin, Deutschland — [Straße, PLZ Ort]",
+          "Anschrift: Dortmund, Deutschland — [Straße, PLZ Ort]",
           `E-Mail: ${siteConfig.email}`,
+          `Telefon: ${siteConfig.phone}`,
           "Umsatzsteuer-ID: [falls vorhanden, sonst weglassen]",
-          "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: [Vollständiger Name], Berlin.",
+          "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: [Vollständiger Name], Dortmund.",
           "Hinweis: Bitte ersetzen Sie die Platzhalter in eckigen Klammern durch Ihre echten Angaben, bevor die Website kommerziell live geht.",
         ],
       },
@@ -213,10 +214,11 @@ function defaultLegal(): SiteContent["legal"] {
         body: [
           "MIHI's",
           "Owner: [Full legal name]",
-          "Address: Berlin, Germany — [Street, postcode, city]",
+          "Address: Dortmund, Germany — [Street, postcode, city]",
           `Email: ${siteConfig.email}`,
+          `Phone: ${siteConfig.phone}`,
           "VAT ID: [if applicable]",
-          "Responsible for content (MStV § 18(2)): [Full legal name], Berlin.",
+          "Responsible for content (MStV § 18(2)): [Full legal name], Dortmund.",
           "Note: Replace the bracketed placeholders with your real details before taking commercial clients.",
         ],
       },
@@ -449,9 +451,13 @@ export async function normalizeSiteContent(
           ? raw.settings.email
           : defaults.settings.email,
       phone:
-        raw.settings?.phone === "+49 30 12345678"
+        !raw.settings?.phone || raw.settings.phone === "+49 30 12345678"
           ? defaults.settings.phone
-          : (raw.settings?.phone ?? defaults.settings.phone),
+          : raw.settings.phone,
+      address:
+        !raw.settings?.address || /Berlin/i.test(raw.settings.address)
+          ? defaults.settings.address
+          : raw.settings.address,
       founded:
         raw.settings?.founded === 2020
           ? defaults.settings.founded

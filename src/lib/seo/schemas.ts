@@ -14,7 +14,7 @@ export const organizationSchema = (description: string) => ({
   foundingDate: `${siteConfig.founded}-01-01`,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Berlin",
+    addressLocality: "Dortmund",
     addressCountry: "DE",
   },
   sameAs: Object.values(siteConfig.social).filter(Boolean),

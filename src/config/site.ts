@@ -29,8 +29,8 @@ export const siteConfig = {
   ogImage: "/og.png",
   email: "info@mihitech.org",
   contactEmail: "info@mihitech.org",
-  phone: "",
-  address: "Berlin, Deutschland",
+  phone: "+49 176 61965122",
+  address: "Dortmund, Deutschland",
   founded: 2026,
   social: {
     facebook: "https://www.facebook.com/mihistech",

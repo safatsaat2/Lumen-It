@@ -12,7 +12,7 @@ export function BrandLogo({ alt, className, priority = false }: BrandLogoProps) 
   return (
     <span
       className={cn(
-        "relative inline-flex h-11 w-[13rem] shrink-0 items-center sm:h-12 sm:w-[15rem] lg:h-14 lg:w-[17.5rem]",
+        "relative inline-flex h-8 w-[7.25rem] shrink-0 items-center sm:h-11 sm:w-[13rem] lg:h-14 lg:w-[17.5rem]",
         className,
       )}
     >
@@ -20,7 +20,7 @@ export function BrandLogo({ alt, className, priority = false }: BrandLogoProps) 
         src="/logo-white.png"
         alt={alt}
         fill
-        sizes="(min-width: 1024px) 280px, 240px"
+        sizes="(min-width: 1024px) 280px, (min-width: 640px) 208px, 116px"
         priority={priority}
         className="object-contain object-left dark:hidden"
       />
@@ -28,7 +28,7 @@ export function BrandLogo({ alt, className, priority = false }: BrandLogoProps) 
         src="/logo-dark.png"
         alt=""
         fill
-        sizes="(min-width: 1024px) 280px, 240px"
+        sizes="(min-width: 1024px) 280px, (min-width: 640px) 208px, 116px"
         priority={priority}
         aria-hidden
         className="hidden object-contain object-left dark:block"

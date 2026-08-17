@@ -389,7 +389,7 @@ const en: Dictionary = {
       "If you're contacting us about a Ready-to-Go Template, enter its Template ID here.",
     namePlaceholder: "Alex Rivera",
     emailPlaceholder: "you@company.com",
-    phonePlaceholder: "+49 170 0000000",
+    phonePlaceholder: "+49 176 61965122",
     subjectPlaceholder: "Web development inquiry",
     messagePlaceholder: "What are you building? Timeline? Approximate budget?",
     templateIdPlaceholder: "Enter template ID, e.g. TPL-001",
