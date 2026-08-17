@@ -1,5 +1,3 @@
-import { headers } from "next/headers";
-
 /** Production domain used in sitemap, robots, schema, and canonical URLs. */
 export const CANONICAL_SITE_URL = "https://mihitech.org";
 
@@ -19,26 +17,6 @@ export function resolveSiteUrl(): string {
     return CANONICAL_SITE_URL;
   }
   return fromEnv;
-}
-
-/**
- * Site URL for the current request — prefers the live host on mihitech.org
- * so /sitemap.xml lists the same domain Google is crawling.
- */
-export async function getPublicSiteUrl(): Promise<string> {
-  try {
-    const headersList = await headers();
-    const host = (headersList.get("x-forwarded-host") ?? headersList.get("host") ?? "")
-      .split(",")[0]
-      .trim()
-      .toLowerCase();
-    if (host.endsWith("mihitech.org")) {
-      return `https://${host}`;
-    }
-  } catch {
-    // headers unavailable during static generation
-  }
-  return resolveSiteUrl();
 }
 
 /**

@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 
-import { getPublicSiteUrl } from "@/config/site";
+import { resolveSiteUrl } from "@/config/site";
 
-export default async function robots(): Promise<MetadataRoute.Robots> {
-  const siteUrl = await getPublicSiteUrl();
+export default function robots(): MetadataRoute.Robots {
+  const siteUrl = resolveSiteUrl();
   return {
     rules: {
       userAgent: "*",

@@ -1,13 +1,13 @@
 import type { MetadataRoute } from "next";
 
-import { getPublicSiteUrl } from "@/config/site";
+import { resolveSiteUrl } from "@/config/site";
 import { blogSlugs } from "@/data/posts";
 import { seoPageSlugs } from "@/data/seo-pages";
 import { locales } from "@/i18n/config";
 import { readSiteContent } from "@/lib/content-store";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const siteUrl = await getPublicSiteUrl();
+  const siteUrl = resolveSiteUrl();
   const lastModified = new Date();
   const content = await readSiteContent();
 
