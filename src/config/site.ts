@@ -1,12 +1,53 @@
+import { headers } from "next/headers";
+
+/** Production domain used in sitemap, robots, schema, and canonical URLs. */
+export const CANONICAL_SITE_URL = "https://mihitech.org";
+
+const STALE_SITE_URLS = new Set([
+  "https://lumen-it.vercel.app",
+  "http://lumen-it.vercel.app",
+]);
+
+/**
+ * Resolve the public site URL from env, ignoring stale Vercel project URLs
+ * (e.g. lumen-it.vercel.app) so sitemap and metadata stay on mihitech.org.
+ */
+export function resolveSiteUrl(): string {
+  const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+  if (!fromEnv) return CANONICAL_SITE_URL;
+  if (STALE_SITE_URLS.has(fromEnv) || fromEnv.endsWith(".vercel.app")) {
+    return CANONICAL_SITE_URL;
+  }
+  return fromEnv;
+}
+
+/**
+ * Site URL for the current request — prefers the live host on mihitech.org
+ * so /sitemap.xml lists the same domain Google is crawling.
+ */
+export async function getPublicSiteUrl(): Promise<string> {
+  try {
+    const headersList = await headers();
+    const host = (headersList.get("x-forwarded-host") ?? headersList.get("host") ?? "")
+      .split(",")[0]
+      .trim()
+      .toLowerCase();
+    if (host.endsWith("mihitech.org")) {
+      return `https://${host}`;
+    }
+  } catch {
+    // headers unavailable during static generation
+  }
+  return resolveSiteUrl();
+}
+
 /**
  * Single source of truth for site-wide metadata and external links.
  */
 export const siteConfig = {
   name: "MIHI's",
   tagline: "Brand. Build. Scale.",
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://mihitech.org",
+  url: resolveSiteUrl(),
   ogImage: "/og.png",
   email: "info@mihitech.org",
   contactEmail: "info@mihitech.org",

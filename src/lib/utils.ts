@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+import { resolveSiteUrl } from "@/config/site";
 import type { Locale } from "@/i18n/config";
 
 /**
@@ -45,10 +46,8 @@ export function formatDate(date: string | Date, locale: Locale = "en") {
   }).format(new Date(date));
 }
 
-/** Get absolute URL from a relative path, using NEXT_PUBLIC_SITE_URL. */
+/** Get absolute URL from a relative path. */
 export function absoluteUrl(path = "/") {
-  const base =
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://mihitech.org";
+  const base = resolveSiteUrl();
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
