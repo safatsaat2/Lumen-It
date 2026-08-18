@@ -196,6 +196,7 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
               <Link
                 key={item.href}
                 href={item.href}
+                scroll={!item.href.includes("#")}
                 aria-current={active ? "page" : undefined}
                 className={navLinkClass({ active, featured: item.featured })}
               >
@@ -246,6 +247,7 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
                   <Link
                     key={item.href}
                     href={item.href}
+                    scroll={!item.href.includes("#")}
                     role="menuitem"
                     aria-current={active ? "page" : undefined}
                     onClick={() => setMoreOpen(false)}
@@ -312,6 +314,7 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
               <Link
                 key={item.href}
                 href={item.href}
+                scroll={!item.href.includes("#")}
                 aria-current={active ? "page" : undefined}
                 onClick={() => setMenuOpen(false)}
                 className={navLinkClass({
@@ -366,6 +369,7 @@ export function SiteHeader({ locale, dictionary, siteName }: SiteHeaderProps) {
                       <Link
                         key={item.href}
                         href={item.href}
+                        scroll={!item.href.includes("#")}
                         aria-current={active ? "page" : undefined}
                         onClick={() => setMenuOpen(false)}
                         className={cn(

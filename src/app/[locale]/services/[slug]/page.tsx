@@ -130,10 +130,12 @@ export default async function ServicePage({
 
           <div className="mt-12 flex flex-wrap gap-3">
             <Button variant="primary" size="lg" asChild>
-              <Link href={`${localizedPath(locale)}#contact`}>{service.cta}</Link>
+              <Link href={`${localizedPath(locale)}#contact`} scroll={false}>
+                {service.cta}
+              </Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <Link href={`${localizedPath(locale)}#contact`}>
+              <Link href={`${localizedPath(locale)}#contact`} scroll={false}>
                 {dictionary.services.relatedCta}
               </Link>
             </Button>

@@ -75,7 +75,9 @@ export function PricingSection({ locale, dictionary }: PricingSectionProps) {
                 className="mt-8 w-full"
                 asChild
               >
-                <Link href="#contact">{tier.cta}</Link>
+                <Link href="#contact" scroll={false}>
+                  {tier.cta}
+                </Link>
               </Button>
             </article>
           ))}

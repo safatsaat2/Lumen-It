@@ -59,7 +59,7 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
               </a>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <Link href={`${localizedPath(locale)}#services`}>
+              <Link href={`${localizedPath(locale)}#services`} scroll={false}>
                 {hero.ctaSecondary}
               </Link>
             </Button>

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 
 import { FloatingLanguageToggle } from "@/components/layout/floating-language-toggle";
+import { HashScroll } from "@/components/layout/hash-scroll";
 import { HtmlLang } from "@/components/layout/html-lang";
 import { JsonLd } from "@/components/seo/json-ld";
 import { OfferBanner } from "@/components/layout/offer-banner";
@@ -72,6 +73,7 @@ export default async function LocaleLayout({
   return (
     <>
       <HtmlLang locale={locale} />
+      <HashScroll />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-background focus:px-4 focus:py-2 focus:shadow-elevated"
