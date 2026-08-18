@@ -75,6 +75,18 @@ export type Dictionary = {
     stats: { value: string; label: string; description: string }[];
     timeline: { year: string; title: string; description: string }[];
   };
+  pillars: {
+    badge: string;
+    title: string;
+    description: string;
+    items: {
+      id: string;
+      title: string;
+      description: string;
+      href: string;
+      links: { label: string; href: string }[];
+    }[];
+  };
   services: {
     badge: string;
     title: string;

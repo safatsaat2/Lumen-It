@@ -2,22 +2,20 @@ import type { Dictionary } from "./types";
 
 const de: Dictionary = {
   meta: {
-    title: "MIHI's — Branding Agentur & individuelle Websites in Deutschland",
+    title: "MIHI's — Digitalagentur Dortmund | Branding, Web & Wachstum",
     description:
-      "MIHI's entwickelt Marken und individuelle Websites für Unternehmen in Deutschland und der DACH-Region: Markenidentität, Markenstrategie, Webdesign, Shopify, SEO und KI-Automatisierung — DSGVO-bewusst und verkaufsstark.",
-    ogAlt: "MIHI's — Branding Agentur und individuelle Webentwicklung in Deutschland",
+      "Digitalagentur in Dortmund: Markenentwicklung, individuelle Websites, WordPress, Shopify, SEO und KI-Automatisierung für Unternehmen in NRW und der DACH-Region.",
+    ogAlt: "MIHI's — Digitalagentur Dortmund für Marken, Web und Wachstum",
     keywords: [
-      "Branding Agentur",
+      "Digitalagentur Dortmund",
+      "Branding Agentur Dortmund",
+      "Webentwicklung Dortmund",
+      "Webdesign Agentur Dortmund",
+      "WordPress Entwicklung Dortmund",
       "Markenentwicklung",
-      "Markenidentität",
-      "Markenstrategie",
-      "Webdesign Agentur",
-      "individuelle Webentwicklung",
-      "Webentwicklung Deutschland",
       "Shopify Agentur",
-      "WordPress Entwicklung",
-      "SEO Optimierung",
-      "KI Markenberater",
+      "SEO Agentur Dortmund",
+      "KI Automatisierung Dortmund",
     ],
   },
   nav: {
@@ -65,7 +63,7 @@ const de: Dictionary = {
     titleHighlight: "Marken & Produkte",
     titleAfter: ", die verkaufen und skalieren",
     description:
-      "Smart Branding, Smart Sales und digitale Produkte — Websites, Shops und Automatisierung, die Ihre Marke schärfen und Verkäufe antreiben. DSGVO-bewusst, messbar und mit klarer Übergabe an Ihr Team.",
+      "Smart Branding, Smart Sales und digitale Produkte — als Digitalagentur in Dortmund bauen wir Websites, Shops und Automatisierung, die Ihre Marke schärfen und Verkäufe antreiben. DSGVO-bewusst, messbar und mit klarer Übergabe.",
     ctaPrimary: "Angebot anfragen",
     ctaSecondary: "Leistungen ansehen",
     trust: "Smart Branding · Smart Sales · Antwort innerhalb von 24h",
@@ -141,6 +139,50 @@ const de: Dictionary = {
         title: "Übergabe & optionale Betreuung",
         description:
           "Sie erhalten Dokumentation und Eigentum. Optionale Betreuung deckt Updates, Monitoring und kleine Verbesserungen ab.",
+      },
+    ],
+  },
+  pillars: {
+    badge: "Drei Säulen",
+    title: "Brand. Build. Grow.",
+    description:
+      "So verstehen Kunden und Google uns: zuerst die Marke, dann die Website oder das Produkt, dann Sichtbarkeit und Automatisierung.",
+    items: [
+      {
+        id: "brand",
+        title: "01 — Brand",
+        description:
+          "Positionierung, Identität und Sprache, bevor Pixel teuer werden.",
+        href: "/branding-agentur-dortmund",
+        links: [
+          { label: "Branding Dortmund", href: "/branding-agentur-dortmund" },
+          { label: "Markenstrategie", href: "/brand-strategy" },
+          { label: "KI-Berater", href: "/consultation" },
+        ],
+      },
+      {
+        id: "build",
+        title: "02 — Build",
+        description:
+          "Websites und Shops, die das Angebot tragen — Custom, WordPress oder Shopify.",
+        href: "/webentwicklung-dortmund",
+        links: [
+          { label: "Webentwicklung Dortmund", href: "/webentwicklung-dortmund" },
+          { label: "Webdesign Dortmund", href: "/webdesign-dortmund" },
+          { label: "WordPress", href: "/services/wordpress-entwicklung-dortmund" },
+        ],
+      },
+      {
+        id: "grow",
+        title: "03 — Grow",
+        description:
+          "SEO, Conversion und KI — nachdem Angebot und Site klar sind.",
+        href: "/ki-automatisierung-dortmund",
+        links: [
+          { label: "SEO", href: "/services/seo-optimization" },
+          { label: "KI-Automatisierung", href: "/ki-automatisierung-dortmund" },
+          { label: "Kontakt", href: "/contact" },
+        ],
       },
     ],
   },
@@ -406,10 +448,10 @@ const de: Dictionary = {
     badge: "Insights",
     title: "Aus dem Studio",
     description:
-      "Praxisnahe Notizen zu Markenaufbau, individuellen Websites und Wachstum in Deutschland.",
-    pageTitle: "Insights zu Branding und individuellen Websites",
+      "Vier aktuelle Leitfäden zu Website-Kosten, Branding, WordPress und KI — praxisnah für KMU in Deutschland.",
+    pageTitle: "Insights zu Branding, Web und Wachstum",
     pageDescription:
-      "Artikel von MIHI's zu Markenstrategie, Identität, Webdesign und dem KI-Berater, bevor Sie bauen.",
+      "Artikel von MIHI's zu Website-Kosten, WordPress, Shopify, SEO, DSGVO, KI-Automatisierung und Markenaufbau — bevor Sie bauen.",
     viewAll: "Alle Insights",
     minRead: "Min. Lesezeit",
     related: "Ähnliche Artikel",

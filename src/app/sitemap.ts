@@ -2,7 +2,8 @@ import type { MetadataRoute } from "next";
 
 import { resolveSiteUrl } from "@/config/site";
 import { blogSlugs } from "@/data/posts";
-import { seoPageSlugs } from "@/data/seo-pages";
+import { publicServiceSlug } from "@/data/services";
+import { seoPagesForLocale } from "@/data/seo-pages";
 import { locales } from "@/i18n/config";
 import { readSiteContent } from "@/lib/content-store";
 
@@ -25,7 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const serviceEntries = locales.flatMap((locale) =>
     content.services.map((service) => ({
-      url: `${siteUrl}/${locale}/services/${service.slug}`,
+      url: `${siteUrl}/${locale}/services/${publicServiceSlug(service, locale)}`,
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.8,
@@ -33,7 +34,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         languages: Object.fromEntries(
           locales.map((l) => [
             l,
-            `${siteUrl}/${l}/services/${service.slug}`,
+            `${siteUrl}/${l}/services/${publicServiceSlug(service, l)}`,
           ]),
         ),
       },
@@ -137,14 +138,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   const seoLandingEntries = locales.flatMap((locale) =>
-    seoPageSlugs.map((slug) => ({
-      url: `${siteUrl}/${locale}/${slug}`,
+    seoPagesForLocale(locale).map((page) => ({
+      url: `${siteUrl}/${locale}/${page.slug}`,
       lastModified,
       changeFrequency: "monthly" as const,
-      priority: 0.75,
+      priority: page.kind === "location" ? 0.85 : 0.75,
       alternates: {
         languages: Object.fromEntries(
-          locales.map((l) => [l, `${siteUrl}/${l}/${slug}`]),
+          (page.locales ?? locales).map((l) => [
+            l,
+            `${siteUrl}/${l}/${page.slug}`,
+          ]),
         ),
       },
     })),

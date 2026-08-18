@@ -273,6 +273,12 @@ export function mergeDictionary(
           ...base.consultationPromo,
           ...((editable as Dictionary).consultationPromo ?? {}),
         },
+        pillars: {
+          ...base.pillars,
+          ...((editable as Dictionary).pillars ?? {}),
+          items:
+            (editable as Dictionary).pillars?.items ?? base.pillars.items,
+        },
         projects: editable.projects ?? base.projects,
       }
     : (() => {
@@ -436,12 +442,21 @@ export async function normalizeSiteContent(
   return {
     de: mergeDictionary(baseDe, (raw.de as EditableLocaleContent) ?? {}),
     en: mergeDictionary(baseEn, (raw.en as EditableLocaleContent) ?? {}),
-    services:
-      Array.isArray(raw.services) &&
-      raw.services.length > 0 &&
-      raw.services.length <= 8
-        ? raw.services
-        : defaults.services,
+    services: (() => {
+      const list =
+        Array.isArray(raw.services) &&
+        raw.services.length > 0 &&
+        raw.services.length <= 8
+          ? raw.services
+          : defaults.services;
+      return list.map((service) => {
+        const fallback = defaults.services.find((item) => item.slug === service.slug);
+        return {
+          ...service,
+          localeSlugs: service.localeSlugs ?? fallback?.localeSlugs,
+        };
+      });
+    })(),
     social: { ...defaults.social, ...(raw.social ?? {}) },
     settings: {
       ...defaults.settings,

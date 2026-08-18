@@ -9,7 +9,7 @@ import { siteConfig } from "@/config/site";
 import {
   getSeoPage,
   legalSlugs,
-  seoPageSlugs,
+  seoPagesForLocale,
 } from "@/data/seo-pages";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -20,8 +20,11 @@ import { breadcrumbSchema, faqSchema } from "@/lib/seo/schemas";
 type LegalSlug = keyof LegalBundle;
 
 export function generateStaticParams() {
-  const slugs = [...legalSlugs, ...seoPageSlugs];
-  return locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
+  return locales.flatMap((locale) =>
+    [...legalSlugs, ...seoPagesForLocale(locale).map((page) => page.slug)].map(
+      (slug) => ({ locale, slug }),
+    ),
+  );
 }
 
 export async function generateMetadata({
@@ -51,7 +54,7 @@ export async function generateMetadata({
     };
   }
 
-  const seo = getSeoPage(slug);
+  const seo = getSeoPage(slug, locale);
   if (!seo) return {};
   const copy = seo[locale];
   return {
@@ -111,7 +114,7 @@ export default async function LocaleSlugPage({
     );
   }
 
-  const seo = getSeoPage(slug);
+  const seo = getSeoPage(slug, locale);
   if (!seo) notFound();
   const copy = seo[locale];
 

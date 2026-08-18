@@ -9,7 +9,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { Button } from "@/components/ui/button";
 import { localizedPath, siteConfig } from "@/config/site";
 import { resolveServiceIcon } from "@/data/service-icons";
-import { getLocalizedService, services as defaultServices } from "@/data/services";
+import { getLocalizedService, publicServiceSlug, services as defaultServices } from "@/data/services";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { readSiteContent } from "@/lib/content-store";
@@ -22,7 +22,10 @@ export const revalidate = 0;
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
-    defaultServices.map((service) => ({ locale, slug: service.slug })),
+    defaultServices.map((service) => ({
+      locale,
+      slug: publicServiceSlug(service, locale),
+    })),
   );
 }
 
@@ -143,10 +146,15 @@ export default async function ServicePage({
             <ul className="mt-4 flex flex-wrap gap-3">
               <li>
                 <Link
-                  href={localizedPath(locale, "/branding")}
+                  href={localizedPath(
+                    locale,
+                    locale === "de"
+                      ? "/digitalagentur-dortmund"
+                      : "/branding",
+                  )}
                   className="text-sm text-primary hover:underline"
                 >
-                  Branding
+                  {locale === "de" ? "Digitalagentur Dortmund" : "Branding"}
                 </Link>
               </li>
               <li>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { ReactNode } from "react";
 import { ArrowLeft, Clock } from "lucide-react";
 
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -46,7 +47,13 @@ export async function generateMetadata({
   };
 }
 
-function PostBody({ content }: { content: string }) {
+function PostBody({
+  content,
+  locale,
+}: {
+  content: string;
+  locale: Locale;
+}) {
   const blocks = content.trim().split(/\n{2,}/);
 
   return (
@@ -62,10 +69,38 @@ function PostBody({ content }: { content: string }) {
             </h2>
           );
         }
-        return <p key={block}>{block}</p>;
+        return (
+          <p key={block}>
+            <LinkedText text={block} locale={locale} />
+          </p>
+        );
       })}
     </div>
   );
+}
+
+function LinkedText({ text, locale }: { text: string; locale: Locale }) {
+  const nodes: ReactNode[] = [];
+  const pattern = /\[([^\]]+)\]\((\/[^)]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(text))) {
+    if (match.index > lastIndex) {
+      nodes.push(text.slice(lastIndex, match.index));
+    }
+    nodes.push(
+      <Link
+        key={`${match[2]}-${match.index}`}
+        href={localizedPath(locale, match[2])}
+        className="font-medium text-primary hover:underline"
+      >
+        {match[1]}
+      </Link>,
+    );
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) nodes.push(text.slice(lastIndex));
+  return <>{nodes}</>;
 }
 
 export default async function BlogPostPage({
@@ -114,7 +149,7 @@ export default async function BlogPostPage({
           </span>
         </div>
         <p className="mt-6 text-lg text-muted-foreground">{post.description}</p>
-        <PostBody content={post.content} />
+        <PostBody content={post.content} locale={locale} />
 
         <nav className="mt-14 border-t border-border pt-8">
           <p className="text-sm font-medium">{dictionary.blog.relatedServices}</p>

@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { localizedPath, siteConfig } from "@/config/site";
 import { resolveServiceIcon } from "@/data/service-icons";
+import { publicServiceSlug } from "@/data/services";
 import { seoLandingPages } from "@/data/seo-pages";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -113,7 +114,7 @@ export default async function ServicesIndexPage({
                     ))}
                   </ul>
                   <Link
-                    href={localizedPath(locale, `/services/${service.slug}`)}
+                    href={localizedPath(locale, `/services/${publicServiceSlug(service, locale)}`)}
                     className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-primary"
                   >
                     {dictionary.services.learnMore}
@@ -138,7 +139,12 @@ export default async function ServicesIndexPage({
             </p>
             <ul className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2">
               {seoLandingPages
-                .filter((page) => page.kind === "topic")
+                .filter(
+                  (page) =>
+                    (!page.locales || page.locales.includes(locale)) &&
+                    (page.kind === "topic" ||
+                      (locale === "de" && page.slug.includes("dortmund"))),
+                )
                 .map((page) => (
                   <li key={page.slug}>
                     <Link

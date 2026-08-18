@@ -1,21 +1,19 @@
 {
   "de": {
     "meta": {
-      "title": "MIHI's — Branding Agentur & individuelle Websites in Deutschland",
-      "description": "MIHI's entwickelt Marken und individuelle Websites für Unternehmen in Deutschland und der DACH-Region: Markenidentität, Markenstrategie, Webdesign, Shopify, SEO und KI-Automatisierung — DSGVO-bewusst und verkaufsstark.",
-      "ogAlt": "MIHI's — Branding Agentur und individuelle Webentwicklung in Deutschland",
+      "title": "MIHI's — Digitalagentur Dortmund | Branding, Web & Wachstum",
+      "description": "Digitalagentur in Dortmund: Markenentwicklung, individuelle Websites, WordPress, Shopify, SEO und KI-Automatisierung für Unternehmen in NRW und der DACH-Region.",
+      "ogAlt": "MIHI's — Digitalagentur Dortmund für Marken, Web und Wachstum",
       "keywords": [
-        "Branding Agentur",
+        "Digitalagentur Dortmund",
+        "Branding Agentur Dortmund",
+        "Webentwicklung Dortmund",
+        "Webdesign Agentur Dortmund",
+        "WordPress Entwicklung Dortmund",
         "Markenentwicklung",
-        "Markenidentität",
-        "Markenstrategie",
-        "Webdesign Agentur",
-        "individuelle Webentwicklung",
-        "Webentwicklung Deutschland",
         "Shopify Agentur",
-        "WordPress Entwicklung",
-        "SEO Optimierung",
-        "KI Markenberater"
+        "SEO Agentur Dortmund",
+        "KI Automatisierung Dortmund"
       ]
     },
     "nav": {
@@ -60,7 +58,7 @@
       "titleBefore": "Wir bauen",
       "titleHighlight": "Marken & Produkte",
       "titleAfter": ", die verkaufen und skalieren",
-      "description": "Smart Branding, Smart Sales und digitale Produkte — Websites, Shops und Automatisierung, die Ihre Marke schärfen und Verkäufe antreiben. DSGVO-bewusst, messbar und mit klarer Übergabe an Ihr Team.",
+      "description": "Smart Branding, Smart Sales und digitale Produkte — als Digitalagentur in Dortmund bauen wir Websites, Shops und Automatisierung, die Ihre Marke schärfen und Verkäufe antreiben. DSGVO-bewusst, messbar und mit klarer Übergabe.",
       "ctaPrimary": "Angebot anfragen",
       "ctaSecondary": "Leistungen ansehen",
       "trust": "Smart Branding · Smart Sales · Antwort innerhalb von 24h"
@@ -361,9 +359,9 @@
     "blog": {
       "badge": "Insights",
       "title": "Aus dem Studio",
-      "description": "Praxisnahe Notizen zu Markenaufbau, individuellen Websites und Wachstum in Deutschland.",
-      "pageTitle": "Insights zu Branding und individuellen Websites",
-      "pageDescription": "Artikel von MIHI's zu Markenstrategie, Identität, Webdesign und dem KI-Berater, bevor Sie bauen.",
+      "description": "Vier aktuelle Leitfäden zu Website-Kosten, Branding, WordPress und KI — praxisnah für KMU in Deutschland.",
+      "pageTitle": "Insights zu Branding, Web und Wachstum",
+      "pageDescription": "Artikel von MIHI's zu Website-Kosten, WordPress, Shopify, SEO, DSGVO, KI-Automatisierung und Markenaufbau — bevor Sie bauen.",
       "viewAll": "Alle Insights",
       "minRead": "Min. Lesezeit",
       "related": "Ähnliche Artikel",
@@ -481,9 +479,9 @@
   },
   "en": {
     "meta": {
-      "title": "MIHI's — Branding Agency & Custom Websites in Germany",
-      "description": "MIHI's creates brands and custom websites for German and DACH businesses: brand identity, brand strategy, web design, Shopify, SEO, and AI automation — GDPR-aware and built to sell.",
-      "ogAlt": "MIHI's — Branding agency and custom website development in Germany",
+      "title": "MIHI's — Digital Agency in Germany | Branding, Web & Growth",
+      "description": "MIHI's is a digital agency in Germany: brand creation, custom websites, WordPress, Shopify, SEO, and AI automation for DACH and international teams — GDPR-aware and built to sell.",
+      "ogAlt": "MIHI's — Digital agency in Germany for brands, websites, and growth",
       "keywords": [
         "branding agency",
         "brand creation",
@@ -841,9 +839,9 @@
     "blog": {
       "badge": "Insights",
       "title": "From the studio",
-      "description": "Practical notes on brand creation, custom websites, and growing a business in Germany.",
-      "pageTitle": "Insights on branding and custom websites",
-      "pageDescription": "Articles from MIHI's on brand strategy, identity, web design, and using the AI consultant before you build.",
+      "description": "Four practical guides on website cost, branding, WordPress, and AI — written for companies in Germany.",
+      "pageTitle": "Insights on branding, web, and growth",
+      "pageDescription": "Articles from MIHI's on website cost, WordPress, Shopify, SEO, GDPR, AI automation, and brand work — before you build.",
       "viewAll": "View all insights",
       "minRead": "min read",
       "related": "Related articles",
@@ -1005,6 +1003,9 @@
     },
     {
       "slug": "wordpress-development",
+      "localeSlugs": {
+        "de": "wordpress-entwicklung-dortmund"
+      },
       "icon": "FileCode2",
       "accent": "from-sky-500 to-blue-600",
       "title": {
@@ -1038,11 +1039,11 @@
         "de": "WordPress-Angebot anfragen"
       },
       "seoTitle": {
-        "de": "WordPress-Entwicklung für Unternehmen | MIHI's",
+        "de": "WordPress-Entwicklung Dortmund | Website erstellen lassen | MIHI's",
         "en": "WordPress Development for Businesses | MIHI's"
       },
       "metaDescription": {
-        "de": "Professionelle WordPress-Websites mit sauberem Code, Sicherheitshärtung und einfacher Bedienung für Ihr Team. Jetzt anfragen.",
+        "de": "WordPress-Entwicklung in Dortmund: professionelle Websites mit sauberem Code, Sicherheit und einfacher Pflege. Jetzt Angebot anfragen.",
         "en": "Professional WordPress sites with clean code, security hardening, and an editing experience your team can own."
       }
     },

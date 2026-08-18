@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/config";
+import { dortmundPages } from "@/data/dortmund-pages";
 
 export type SeoPageCopy = {
   title: string;
@@ -15,6 +16,8 @@ export type SeoPageCopy = {
 export type SeoLandingPage = {
   slug: string;
   kind: "topic" | "location" | "consultant";
+  /** If set, the page is only served for these locales (e.g. Dortmund pages on /de). */
+  locales?: Locale[];
   keywords: Record<Locale, string[]>;
   de: SeoPageCopy;
   en: SeoPageCopy;
@@ -345,9 +348,7 @@ export const seoLandingPages: SeoLandingPage[] = [
       ],
       related: [
         { path: "/custom-websites", label: "Individuelle Websites" },
-        { path: "/services/custom-web-development", label: "Custom-Web-Leistung" },
-        { path: "/services/shopify-development", label: "Shopify" },
-        { path: "/services/wordpress-development", label: "WordPress" },
+        { path: "/services/wordpress-entwicklung-dortmund", label: "WordPress" },
       ],
       ctaPath: "/contact",
       ctaLabel: "Build scopen",
@@ -1145,16 +1146,26 @@ export const seoLandingPages: SeoLandingPage[] = [
       ctaLabel: "Check starten",
     },
   },
+  ...dortmundPages,
 ];
 
-export function getSeoPage(slug: string) {
-  return seoLandingPages.find((page) => page.slug === slug);
+export function getSeoPage(slug: string, locale?: Locale) {
+  const page = seoLandingPages.find((item) => item.slug === slug);
+  if (!page) return undefined;
+  if (locale && page.locales && !page.locales.includes(locale)) return undefined;
+  return page;
 }
 
 export function getSeoCopy(slug: string, locale: Locale) {
-  const page = getSeoPage(slug);
+  const page = getSeoPage(slug, locale);
   if (!page) return undefined;
   return page[locale];
+}
+
+export function seoPagesForLocale(locale: Locale) {
+  return seoLandingPages.filter(
+    (page) => !page.locales || page.locales.includes(locale),
+  );
 }
 
 export const seoPageSlugs = seoLandingPages.map((page) => page.slug);

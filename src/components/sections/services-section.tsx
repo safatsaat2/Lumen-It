@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { localizedPath } from "@/config/site";
 import { resolveServiceIcon } from "@/data/service-icons";
-import type { ServiceContent } from "@/data/services";
+import { publicServiceSlug, type ServiceContent } from "@/data/services";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/types";
 import { cn } from "@/lib/utils";
@@ -63,7 +63,7 @@ export function ServicesSection({
                   ))}
                 </ul>
                 <Link
-                  href={localizedPath(locale, `/services/${service.slug}`)}
+                  href={localizedPath(locale, `/services/${publicServiceSlug(service, locale)}`)}
                   className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-primary transition-opacity group-hover:opacity-100 sm:opacity-80"
                 >
                   {dictionary.services.learnMore}

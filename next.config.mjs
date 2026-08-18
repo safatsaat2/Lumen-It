@@ -25,6 +25,20 @@ const nextConfig = {
   },
   // @react-pdf/renderer must stay a Node dependency; bundling it breaks fonts.
   serverExternalPackages: ["@react-pdf/renderer"],
+  async redirects() {
+    return [
+      {
+        source: "/de/services/wordpress-development",
+        destination: "/de/services/wordpress-entwicklung-dortmund",
+        permanent: true,
+      },
+      {
+        source: "/en/services/wordpress-entwicklung-dortmund",
+        destination: "/en/services/wordpress-development",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

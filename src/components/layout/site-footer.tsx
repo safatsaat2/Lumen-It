@@ -32,7 +32,13 @@ export function SiteFooter({
       links: [
         { label: dictionary.footer.about, href: section("about") },
         { label: dictionary.footer.services, href: localizedPath(locale, "/services") },
-        { label: "Branding", href: localizedPath(locale, "/branding") },
+        {
+          label: locale === "de" ? "Digitalagentur Dortmund" : "Branding",
+          href: localizedPath(
+            locale,
+            locale === "de" ? "/digitalagentur-dortmund" : "/branding",
+          ),
+        },
         { label: dictionary.footer.process, href: section("process") },
         { label: dictionary.footer.contact, href: localizedPath(locale, "/contact") },
       ],

@@ -4,7 +4,7 @@ import { ArrowUpRight, Clock } from "lucide-react";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { localizedPath } from "@/config/site";
-import { getPosts } from "@/data/posts";
+import { getFeaturedPosts } from "@/data/posts";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/types";
 import { formatDate } from "@/lib/utils";
@@ -16,7 +16,7 @@ export function BlogPreviewSection({
   locale: Locale;
   dictionary: Dictionary;
 }) {
-  const latest = getPosts(locale).slice(0, 3);
+  const featured = getFeaturedPosts(locale, 4);
 
   return (
     <section className="py-20 sm:py-28">
@@ -38,8 +38,8 @@ export function BlogPreviewSection({
           </Link>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {latest.map((post) => (
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          {featured.map((post) => (
             <article
               key={post.slug}
               className="group overflow-hidden rounded-3xl border border-border bg-card/50 transition-colors hover:bg-card"

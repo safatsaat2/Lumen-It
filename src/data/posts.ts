@@ -1,3 +1,4 @@
+import { extraPosts } from "@/data/posts-extra";
 import { readingTime } from "@/lib/utils";
 import type { Locale } from "@/i18n/config";
 
@@ -11,6 +12,7 @@ export type BlogPostCopy = {
 export type BlogPost = {
   slug: string;
   publishedAt: string;
+  featured?: boolean;
   tags: string[];
   relatedPaths: { path: string; label: { de: string; en: string } }[];
   de: BlogPostCopy;
@@ -289,33 +291,264 @@ A beautiful site with no distribution plan is a brochure. The growth assessment 
 Eine schöne Site ohne Distribution ist eine Broschüre. Der Wachstums-Check im Berater zeigt, ob der Engpass Marke, Site oder Kanal ist — bevor Sie alle drei bezahlen.`,
     },
   },
+  {
+    slug: "website-kosten-kmu-2026",
+    publishedAt: "2026-08-10",
+    featured: true,
+    tags: ["web", "pricing", "kmu"],
+    relatedPaths: [
+      {
+        path: "/web-development",
+        label: { en: "Web development", de: "Webentwicklung" },
+      },
+      {
+        path: "/services/wordpress-development",
+        label: { en: "WordPress", de: "WordPress" },
+      },
+      {
+        path: "/contact",
+        label: { en: "Request a quote", de: "Angebot anfragen" },
+      },
+    ],
+    en: {
+      title: "What a business website actually costs in 2026",
+      description:
+        "A honest range for German SMEs: template, WordPress, or custom — and when paying more is wasted.",
+      category: "Web",
+      content: `People search “how much does a website cost” because agencies hide the number. Here is a useful split for companies in Germany — not a fake price list.
+
+A Ready-to-Go template that we brand can be the right first site if your offer is already clear. [Custom web development](/services/custom-web-development) is worth it when the structure, integrations, or product story do not fit a theme. [WordPress](/services/wordpress-development) sits in the middle: your team edits content, we still harden security and speed.
+
+## What drives the price
+
+Scope, languages (DE/EN), shop vs brochure, and how much of the brand is already decided. If the offer is fuzzy, budget for [brand strategy](/brand-strategy) before a rebuild. Use the [AI consultant](/consultation) as a written first pass, then [contact us](/contact) for a fixed quote.
+
+## What you should not pay for
+
+Open retainers with no handover. Invented testimonials. A redesign that copies a competitor and still has no next step on the page.
+
+When you are ready, start from [web development](/web-development) or send the project to [contact](/contact).`,
+    },
+    de: {
+      title: "Was eine Unternehmens-Website 2026 wirklich kostet",
+      description:
+        "Ein ehrlicher Rahmen für KMU in Deutschland: Template, WordPress oder Custom — und wann mehr Geld verschwendet ist.",
+      category: "Web",
+      content: `Viele suchen „Was kostet eine Website“, weil Agenturen die Zahl verstecken. Hier eine brauchbare Trennung für Unternehmen in Deutschland — keine Fake-Preisliste.
+
+Ein Ready-to-Go Template, das wir branden, reicht, wenn das Angebot schon klar ist. [Individuelle Webentwicklung](/services/custom-web-development) lohnt sich, wenn Struktur, Integrationen oder die Produktgeschichte nicht in ein Theme passen. [WordPress in Dortmund](/services/wordpress-entwicklung-dortmund) liegt dazwischen: Ihr Team pflegt Inhalte, wir härten Sicherheit und Tempo.
+
+## Was den Preis treibt
+
+Scope, Sprachen (DE/EN), Shop vs Broschüre, und wie weit die Marke schon steht. Ist das Angebot unscharf, planen Sie [Markenstrategie](/brand-strategy) vor dem Rebuild. Der [KI-Berater](/consultation) ist der schriftliche erste Pass; danach [Kontakt](/contact) für ein Festpreisangebot.
+
+## Wofür Sie nicht zahlen sollten
+
+Offene Retainer ohne Übergabe. Erfundene Testimonials. Ein Redesign, das den Wettbewerb kopiert und trotzdem keinen nächsten Schritt auf der Seite hat.
+
+Wenn Sie soweit sind: [Webentwicklung Dortmund](/webentwicklung-dortmund) oder direkt [anfragen](/contact).`,
+    },
+  },
+  {
+    slug: "branding-oder-website-zuerst",
+    publishedAt: "2026-08-12",
+    featured: true,
+    tags: ["branding", "web", "strategy"],
+    relatedPaths: [
+      {
+        path: "/branding",
+        label: { en: "Branding", de: "Branding" },
+      },
+      {
+        path: "/consultation",
+        label: { en: "AI consultant", de: "KI-Berater" },
+      },
+      {
+        path: "/contact",
+        label: { en: "Contact", de: "Kontakt" },
+      },
+    ],
+    en: {
+      title: "Branding or website first?",
+      description:
+        "When a new site is wasted spend — and when identity work can wait until you have a page that sells.",
+      category: "Branding",
+      content: `Startups often buy a website and hope the brand appears. Or they buy a logo pack and never ship. The useful order is: write the offer, then decide whether identity or a site is the bottleneck.
+
+If visitors cannot say who you serve after the first screen, [brand strategy](/brand-strategy) first. If the story is clear but the layout and stack are wrong, [custom websites](/custom-websites) or a branded template.
+
+## A practical test
+
+Open your current homepage. Can a stranger forward the offer in one sentence? If not, run the [AI consultant](/consultation) and keep only claims you can stand behind. Then talk to us via [contact](/contact) or start on [branding](/branding).
+
+## Germany-specific
+
+Buyers look for Impressum and a real company. Hiding that is a trust leak. We design for that on [web design](/web-design) work, not as a footer afterthought.`,
+    },
+    de: {
+      title: "Zuerst Branding oder zuerst die Website?",
+      description:
+        "Wann eine neue Site Geld verbrennt — und wann Identität warten kann, bis eine Seite verkauft.",
+      category: "Branding",
+      content: `Viele kaufen eine Website und hoffen, die Marke entstehe nebenbei. Oder sie kaufen ein Logo-Paket und gehen nie live. Die nützliche Reihenfolge: Angebot aufschreiben, dann entscheiden, ob Identität oder Site der Engpass ist.
+
+Wenn Besuchende nach dem ersten Screen nicht sagen können, wen Sie bedienen, zuerst [Markenstrategie](/brand-strategy). Ist die Geschichte klar, aber Layout und Stack falsch: [individuelle Websites](/custom-websites) oder ein gebrandetes Template.
+
+## Ein praktischer Test
+
+Öffnen Sie Ihre Startseite. Kann eine fremde Person das Angebot in einem Satz weitergeben? Wenn nicht: [KI-Berater](/consultation), nur Claims behalten, die Sie vertreten. Danach [Kontakt](/contact) oder [Branding Agentur Dortmund](/branding-agentur-dortmund).
+
+## Speziell Deutschland
+
+Kaufende suchen Impressum und ein echtes Unternehmen. Das zu verstecken ist ein Vertrauensleck. Darauf achten wir beim [Webdesign Dortmund](/webdesign-dortmund), nicht als Fußnote.`,
+    },
+  },
+  {
+    slug: "wordpress-oder-custom-website",
+    publishedAt: "2026-08-14",
+    featured: true,
+    tags: ["wordpress", "web", "dortmund"],
+    relatedPaths: [
+      {
+        path: "/services/wordpress-development",
+        label: { en: "WordPress", de: "WordPress" },
+      },
+      {
+        path: "/services/custom-web-development",
+        label: { en: "Custom web", de: "Custom Web" },
+      },
+      {
+        path: "/contact",
+        label: { en: "Get a quote", de: "Angebot holen" },
+      },
+    ],
+    en: {
+      title: "WordPress or a custom website?",
+      description:
+        "A clear split for marketing teams in Germany: when the block editor is enough, and when Next.js is the cheaper long-term choice.",
+      category: "WordPress",
+      content: `WordPress is not outdated. It fails when you fight the theme for months. Custom is not always smarter. It fails when you needed a CMS your marketing team can use on Tuesday.
+
+Choose [WordPress development](/services/wordpress-development) when editors already live there and the page types are normal. Choose [custom web development](/services/custom-web-development) when performance, locales, or product UI need to be first-class.
+
+## Dortmund and DACH
+
+Legal pages, German copy length, and handover docs are part of both. We build WordPress in Dortmund with update hygiene, not plugin piles. Read [web development](/web-development) or [request a quote](/contact).
+
+## Next step
+
+If you are unsure, say so in the [consultation](/consultation). The output is a strategy PDF, not an automatic rebuild.`,
+    },
+    de: {
+      title: "WordPress oder individuelle Website?",
+      description:
+        "Eine klare Trennung für Marketing-Teams in Deutschland: wann der Block-Editor reicht — und wann Next.js langfristig günstiger ist.",
+      category: "WordPress",
+      content: `WordPress ist nicht veraltet. Es scheitert, wenn Sie monatelang gegen das Theme kämpfen. Custom ist nicht immer klüger. Es scheitert, wenn Sie am Dienstag ein CMS brauchen, das Redaktion bedienen kann.
+
+Wählen Sie [WordPress-Entwicklung in Dortmund](/services/wordpress-entwicklung-dortmund), wenn Editoren dort schon arbeiten und die Seitentypen normal sind. Wählen Sie [individuelle Webentwicklung](/services/custom-web-development), wenn Performance, Locales oder Produkt-UI erstklassig sein müssen.
+
+## Dortmund und DACH
+
+Rechtstexte, deutsche Textlänge und Übergabe gehören zu beidem. Wir bauen WordPress mit Update-Hygiene, nicht mit Plugin-Bergen. Weiter: [Webentwicklung Dortmund](/webentwicklung-dortmund) oder [Angebot](/contact).
+
+## Nächster Schritt
+
+Unsicher? Sagen Sie das im [KI-Berater](/consultation). Das Ergebnis ist ein Strategie-PDF, kein automatischer Rebuild.`,
+    },
+  },
+  {
+    slug: "ki-automatisierung-oder-berater",
+    publishedAt: "2026-08-16",
+    featured: true,
+    tags: ["ai", "automation", "consultation"],
+    relatedPaths: [
+      {
+        path: "/consultation",
+        label: { en: "AI consultant", de: "KI-Berater" },
+      },
+      {
+        path: "/services/ai-automation",
+        label: { en: "AI automation service", de: "KI-Leistung" },
+      },
+      {
+        path: "/contact",
+        label: { en: "Contact", de: "Kontakt" },
+      },
+    ],
+    en: {
+      title: "AI consultant vs AI automation — what to buy first",
+      description:
+        "Use the free strategy session before you automate a messy process. How MIHI's splits advice and build.",
+      category: "AI",
+      content: `“We need AI” is not a brief. If the offer, the source of truth, or the website is unclear, automation copies the mess faster.
+
+Start with the [AI brand consultant](/consultation). It is a structured conversation and a PDF. [AI automation](/services/ai-automation) is a scoped project: support, sales, or an internal workflow with monitoring — not a toy chatbot.
+
+## For German SMEs
+
+Keep only claims you can defend. We do not invent reviews. After the PDF, [contact](/contact) if you want a build in Dortmund or remote.
+
+## Related
+
+[Digital solutions](/digital-solutions) and [AI automation](/services/ai-automation) if you want a scoped build.`,
+    },
+    de: {
+      title: "KI-Berater oder KI-Automatisierung — was zuerst?",
+      description:
+        "Nutzen Sie die kostenlose Strategiesession, bevor Sie einen unklaren Prozess automatisieren. So trennt MIHI's Beratung und Build.",
+      category: "KI",
+      content: `„Wir brauchen KI“ ist kein Briefing. Sind Angebot, Datenquelle oder Website unklar, kopiert Automation das Chaos nur schneller.
+
+Starten Sie mit dem [KI-Markenberater](/consultation). Das ist ein strukturiertes Gespräch und ein PDF. [KI-Automatisierung](/services/ai-automation) ist ein gescopetes Projekt: Support, Vertrieb oder ein interner Ablauf mit Monitoring — kein Spielzeug-Chat.
+
+## Für KMU in Deutschland
+
+Nur Claims behalten, die Sie vertreten. Wir erfinden keine Reviews. Nach dem PDF: [Kontakt](/contact), wenn Sie in Dortmund oder remote bauen wollen.
+
+## Weiterlesen
+
+[KI-Automatisierung Dortmund](/ki-automatisierung-dortmund) und [Digitalagentur Dortmund](/digitalagentur-dortmund).`,
+    },
+  },
+  ...extraPosts,
 ];
 
 export type LocalizedPost = BlogPostCopy & {
   slug: string;
   publishedAt: string;
+  featured?: boolean;
   tags: string[];
   relatedPaths: BlogPost["relatedPaths"];
   readingTimeMin: number;
 };
 
+function localize(post: BlogPost, locale: Locale): LocalizedPost {
+  const copy = post[locale];
+  return {
+    slug: post.slug,
+    publishedAt: post.publishedAt,
+    featured: post.featured,
+    tags: post.tags,
+    relatedPaths: post.relatedPaths,
+    ...copy,
+    readingTimeMin: readingTime(copy.content),
+  };
+}
+
 export function getPosts(locale: Locale): LocalizedPost[] {
   return rawPosts
-    .map((post) => {
-      const copy = post[locale];
-      return {
-        slug: post.slug,
-        publishedAt: post.publishedAt,
-        tags: post.tags,
-        relatedPaths: post.relatedPaths,
-        ...copy,
-        readingTimeMin: readingTime(copy.content),
-      };
-    })
+    .map((post) => localize(post, locale))
     .sort(
       (a, b) =>
         new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
     );
+}
+
+export function getFeaturedPosts(locale: Locale, count = 4): LocalizedPost[] {
+  const featured = getPosts(locale).filter((post) => post.featured);
+  if (featured.length >= count) return featured.slice(0, count);
+  return getPosts(locale).slice(0, count);
 }
 
 export function getPostBySlug(slug: string, locale: Locale) {

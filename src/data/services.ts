@@ -3,6 +3,7 @@ import type { ServiceIconName } from "@/data/service-icons";
 
 export type ServiceContent = {
   slug: string;
+  localeSlugs?: Partial<Record<Locale, string>>;
   icon: ServiceIconName;
   accent: string;
   title: Record<Locale, string>;
@@ -60,6 +61,7 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "wordpress-development",
+    localeSlugs: { de: "wordpress-entwicklung-dortmund" },
     icon: "FileCode2",
     accent: "from-sky-500 to-blue-600",
     title: { en: "WordPress Development", de: "WordPress-Entwicklung" },
@@ -87,11 +89,11 @@ export const services: ServiceContent[] = [
     },
     cta: { en: "Get a WordPress Quote", de: "WordPress-Angebot anfragen" },
     seoTitle: {
-      de: "WordPress-Entwicklung für Unternehmen | MIHI's",
+      de: "WordPress-Entwicklung Dortmund | Website erstellen lassen | MIHI's",
       en: "WordPress Development for Businesses | MIHI's",
     },
     metaDescription: {
-      de: "Professionelle WordPress-Websites mit sauberem Code, Sicherheitshärtung und einfacher Bedienung für Ihr Team. Jetzt anfragen.",
+      de: "WordPress-Entwicklung in Dortmund: professionelle Websites mit sauberem Code, Sicherheit und einfacher Pflege. Jetzt Angebot anfragen.",
       en: "Professional WordPress sites with clean code, security hardening, and an editing experience your team can own.",
     },
   },
@@ -245,16 +247,25 @@ export const services: ServiceContent[] = [
   },
 ];
 
+export function publicServiceSlug(service: ServiceContent, locale: Locale) {
+  return service.localeSlugs?.[locale] ?? service.slug;
+}
+
 export function getServiceBySlug(
   slug: string,
   list: ServiceContent[] = services,
 ) {
-  return list.find((service) => service.slug === slug);
+  return list.find(
+    (service) =>
+      service.slug === slug ||
+      service.localeSlugs?.de === slug ||
+      service.localeSlugs?.en === slug,
+  );
 }
 
 export function localizeService(service: ServiceContent, locale: Locale) {
   return {
-    slug: service.slug,
+    slug: publicServiceSlug(service, locale),
     icon: service.icon,
     accent: service.accent,
     title: service.title[locale],

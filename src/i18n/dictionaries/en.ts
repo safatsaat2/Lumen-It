@@ -2,10 +2,10 @@ import type { Dictionary } from "./types";
 
 const en: Dictionary = {
   meta: {
-    title: "MIHI's — Branding Agency & Custom Websites in Germany",
+    title: "MIHI's — Digital Agency in Germany | Branding, Web & Growth",
     description:
-      "MIHI's creates brands and custom websites for German and DACH businesses: brand identity, brand strategy, web design, Shopify, SEO, and AI automation — GDPR-aware and built to sell.",
-    ogAlt: "MIHI's — Branding agency and custom website development in Germany",
+      "MIHI's is a digital agency in Germany: brand creation, custom websites, WordPress, Shopify, SEO, and AI automation for DACH and international teams — GDPR-aware and built to sell.",
+    ogAlt: "MIHI's — Digital agency in Germany for brands, websites, and growth",
     keywords: [
       "branding agency",
       "brand creation",
@@ -141,6 +141,50 @@ const en: Dictionary = {
         title: "Handover & optional care",
         description:
           "You get documentation and ownership. Optional care covers updates, monitoring, and small improvements.",
+      },
+    ],
+  },
+  pillars: {
+    badge: "Three pillars",
+    title: "Brand. Build. Grow.",
+    description:
+      "A simple structure for clients and search: brand first, then the site or product, then visibility and automation.",
+    items: [
+      {
+        id: "brand",
+        title: "01 — Brand",
+        description:
+          "Positioning, identity, and language before you spend on pixels.",
+        href: "/branding",
+        links: [
+          { label: "Branding", href: "/branding" },
+          { label: "Brand strategy", href: "/brand-strategy" },
+          { label: "AI consultant", href: "/consultation" },
+        ],
+      },
+      {
+        id: "build",
+        title: "02 — Build",
+        description:
+          "Websites and shops that carry the offer — custom, WordPress, or Shopify.",
+        href: "/web-development",
+        links: [
+          { label: "Web development", href: "/web-development" },
+          { label: "Custom websites", href: "/custom-websites" },
+          { label: "WordPress", href: "/services/wordpress-development" },
+        ],
+      },
+      {
+        id: "grow",
+        title: "03 — Grow",
+        description:
+          "SEO, conversion, and AI — after the offer and the site are clear.",
+        href: "/services/seo-optimization",
+        links: [
+          { label: "SEO", href: "/services/seo-optimization" },
+          { label: "AI automation", href: "/services/ai-automation" },
+          { label: "Contact", href: "/contact" },
+        ],
       },
     ],
   },
@@ -405,10 +449,10 @@ const en: Dictionary = {
     badge: "Insights",
     title: "From the studio",
     description:
-      "Practical notes on brand creation, custom websites, and growing a business in Germany.",
-    pageTitle: "Insights on branding and custom websites",
+      "Four practical guides on website cost, branding, WordPress, and AI — written for companies in Germany.",
+    pageTitle: "Insights on branding, web, and growth",
     pageDescription:
-      "Articles from MIHI's on brand strategy, identity, web design, and using the AI consultant before you build.",
+      "Articles from MIHI's on website cost, WordPress, Shopify, SEO, GDPR, AI automation, and brand work — before you build.",
     viewAll: "View all insights",
     minRead: "min read",
     related: "Related articles",
