@@ -1,10 +1,27 @@
 /** Production domain used in sitemap, robots, schema, and canonical URLs. */
-export const CANONICAL_SITE_URL = "https://mihitech.org";
+export const CANONICAL_SITE_URL = "https://www.mihitech.org";
 
 const STALE_SITE_URLS = new Set([
   "https://lumen-it.vercel.app",
   "http://lumen-it.vercel.app",
 ]);
+
+/** Normalize mihitech.org env values to the www host Google already crawls. */
+export function normalizePublicSiteUrl(raw: string): string {
+  const trimmed = raw.replace(/\/$/, "");
+  try {
+    const url = new URL(
+      trimmed.startsWith("http") ? trimmed : `https://${trimmed}`,
+    );
+    if (url.hostname === "mihitech.org") {
+      url.hostname = "www.mihitech.org";
+    }
+    url.protocol = "https:";
+    return url.origin;
+  } catch {
+    return CANONICAL_SITE_URL;
+  }
+}
 
 /**
  * Resolve the public site URL from env, ignoring stale Vercel project URLs
@@ -16,7 +33,7 @@ export function resolveSiteUrl(): string {
   if (STALE_SITE_URLS.has(fromEnv) || fromEnv.endsWith(".vercel.app")) {
     return CANONICAL_SITE_URL;
   }
-  return fromEnv;
+  return normalizePublicSiteUrl(fromEnv);
 }
 
 /**

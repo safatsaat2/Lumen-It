@@ -37,6 +37,32 @@ const nextConfig = {
         destination: "/en/services/wordpress-development",
         permanent: true,
       },
+      // GSC: malformed URLs where path + link label were concatenated
+      {
+        source: "/de/templatesTemplates",
+        destination: "/de/templates",
+        permanent: true,
+      },
+      {
+        source: "/de/impressumImpressum",
+        destination: "/de/impressum",
+        permanent: true,
+      },
+      {
+        source: "/en/brandingBranding",
+        destination: "/en/branding",
+        permanent: true,
+      },
+      {
+        source: "/de/workProjekte",
+        destination: "/de/work",
+        permanent: true,
+      },
+      {
+        source: "/en/workWork",
+        destination: "/en/work",
+        permanent: true,
+      },
     ];
   },
   async headers() {

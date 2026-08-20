@@ -15,13 +15,19 @@ export const revalidate = 0;
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ template?: string }>;
 }): Promise<Metadata> {
-  const { locale: localeParam } = await params;
+  const [{ locale: localeParam }, query] = await Promise.all([
+    params,
+    searchParams,
+  ]);
   if (!isLocale(localeParam)) return {};
   const locale = localeParam as Locale;
   const dictionary = await getDictionary(locale);
+  const hasTemplatePrefill = Boolean(query.template?.trim());
 
   return {
     metadataBase: new URL(siteConfig.url),
@@ -32,6 +38,15 @@ export async function generateMetadata({
       description: dictionary.contact.description,
       path: "/contact",
     }),
+    ...(hasTemplatePrefill
+      ? {
+          robots: {
+            index: false,
+            follow: true,
+            googleBot: { index: false, follow: true },
+          },
+        }
+      : {}),
   };
 }
 

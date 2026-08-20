@@ -8,7 +8,24 @@ function getLocaleFromPath(pathname: string) {
   return isLocale(segment) ? segment : null;
 }
 
+/** Send apex mihitech.org to www — one canonical host for Google. */
+function apexToWwwRedirect(request: NextRequest): NextResponse | null {
+  const host = request.headers.get("host")?.split(":")[0]?.toLowerCase();
+  if (!host || host === "localhost" || host.endsWith(".vercel.app")) {
+    return null;
+  }
+  if (host !== "mihitech.org") return null;
+
+  const url = request.nextUrl.clone();
+  url.protocol = "https:";
+  url.host = "www.mihitech.org";
+  return NextResponse.redirect(url, 308);
+}
+
 export async function middleware(request: NextRequest) {
+  const apexRedirect = apexToWwwRedirect(request);
+  if (apexRedirect) return apexRedirect;
+
   const { pathname } = request.nextUrl;
 
   if (pathname.startsWith("/admin")) {
@@ -52,7 +69,7 @@ export async function middleware(request: NextRequest) {
 
   const url = request.nextUrl.clone();
   url.pathname = `/${defaultLocale}${pathname === "/" ? "" : pathname}`;
-  const response = NextResponse.redirect(url);
+  const response = NextResponse.redirect(url, 308);
   response.headers.set("x-locale", defaultLocale);
   return response;
 }
