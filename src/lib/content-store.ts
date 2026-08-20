@@ -22,6 +22,7 @@ import { isVercelBlobEnabled } from "@/lib/use-vercel-blob";
 export type SocialLinks = {
   facebook: string;
   instagram: string;
+  whatsapp: string;
   twitter: string;
   github: string;
   linkedin: string;
@@ -113,6 +114,7 @@ function defaultSocial(): SocialLinks {
   return {
     facebook: siteConfig.social.facebook,
     instagram: siteConfig.social.instagram,
+    whatsapp: siteConfig.social.whatsapp,
     twitter: siteConfig.social.twitter,
     github: siteConfig.social.github,
     linkedin: siteConfig.social.linkedin,

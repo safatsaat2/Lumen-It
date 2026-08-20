@@ -46,15 +46,16 @@ export const siteConfig = {
   ogImage: "/og.png",
   email: "info@mihitech.org",
   contactEmail: "info@mihitech.org",
-  phone: "+49 176 61965122",
+  phone: "+49 160 91848513",
   address: "Dortmund, Deutschland",
   founded: 2026,
   social: {
     facebook: "https://www.facebook.com/mihistech",
     instagram: "https://www.instagram.com/mihi_tech/",
+    whatsapp: "https://wa.me/4916091848513",
     twitter: "",
     github: "",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/company/mihi-tech",
   },
 } as const;
 

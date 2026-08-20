@@ -293,6 +293,8 @@ export function ContactSection({
   templates = [],
 }: ContactSectionProps) {
   const [formReady, setFormReady] = useState(false);
+  const phoneDigits = settings.phone.replace(/[^\d+]/g, "");
+  const whatsappHref = `https://wa.me/${phoneDigits.replace(/^\+/, "")}`;
 
   useEffect(() => {
     setFormReady(true);
@@ -322,10 +324,23 @@ export function ContactSection({
                   <li className="flex items-start gap-3">
                     <Phone className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
                     <a
-                      href={`tel:${settings.phone.replace(/\s/g, "")}`}
+                      href={`tel:${phoneDigits}`}
                       className="hover:text-foreground"
                     >
                       {settings.phone}
+                    </a>
+                  </li>
+                ) : null}
+                {settings.phone.trim() ? (
+                  <li className="flex items-start gap-3">
+                    <Phone className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
+                    <a
+                      href={whatsappHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground"
+                    >
+                      WhatsApp: {settings.phone}
                     </a>
                   </li>
                 ) : null}

@@ -74,9 +74,24 @@ function GitHubIcon({ className, ...props }: IconProps) {
   );
 }
 
+function WhatsAppIcon({ className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+      className={cn("size-5", className)}
+      {...props}
+    >
+      <path d="M20.52 3.48A11.9 11.9 0 0 0 12.07 0C5.46 0 .09 5.37.09 11.98c0 2.11.55 4.17 1.6 5.99L0 24l6.21-1.63a11.86 11.86 0 0 0 5.86 1.5h.01c6.61 0 11.98-5.37 11.98-11.98 0-3.2-1.25-6.2-3.54-8.4Zm-8.44 18.37h-.01a9.92 9.92 0 0 1-5.05-1.38l-.36-.21-3.69.97.98-3.6-.24-.37a9.89 9.89 0 0 1-1.52-5.28c0-5.47 4.45-9.92 9.92-9.92 2.65 0 5.14 1.03 7.01 2.9a9.84 9.84 0 0 1 2.9 7.01c0 5.47-4.45 9.92-9.92 9.92Zm5.44-7.42c-.3-.15-1.78-.88-2.05-.98-.28-.1-.48-.15-.69.15-.2.3-.79.98-.97 1.18-.18.2-.35.23-.65.08-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.68-2.1-.18-.3-.02-.46.14-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53l-.58-.01c-.2 0-.53.08-.81.38-.28.3-1.07 1.05-1.07 2.56s1.09 2.97 1.24 3.17c.15.2 2.14 3.27 5.18 4.59.72.31 1.28.49 1.72.62.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.13-.28-.2-.58-.35Z" />
+    </svg>
+  );
+}
+
 const ICONS = {
   facebook: FacebookIcon,
   instagram: InstagramIcon,
+  whatsapp: WhatsAppIcon,
   twitter: XIcon,
   linkedin: LinkedInIcon,
   github: GitHubIcon,
@@ -85,6 +100,7 @@ const ICONS = {
 const LABELS: Record<string, string> = {
   facebook: "Facebook",
   instagram: "Instagram",
+  whatsapp: "WhatsApp",
   twitter: "X",
   linkedin: "LinkedIn",
   github: "GitHub",
